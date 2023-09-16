@@ -3,29 +3,27 @@ import axios from "axios";
 import BookCard from "../BookCard";
 import AddBookForm from "../AddBookForm";
 import jwt_decode from "jwt-decode";
-import RecommendedBooks from "../RecommendedBooks";
-import BookDiscovery from "../Search/search";
 import styles from "./styles.module.css";
 import  {FaBars} from 'react-icons/fa';
 import  {FaEllipsisV} from 'react-icons/fa';
 import nameLogo from "../../assets/images/nameLogo.svg";
+import greenLogo from "../../assets/images/GreenLogo.svg";
+
 
 const Main = ({ authToken }) => {
   const [userId, setUserId] = useState(null);
   const [showAddBookForm, setShowAddBookForm] = useState(true);
   const [books, setBooks] = useState([]);
-  const [showRecommended, setShowRecommended] = useState(false);
-  const [showBookDiscovery, setShowBookDiscovery] = useState(true);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const sideMenuRef = useRef(null);
 
 
 
-  // const handleLogout = () => {
-  //   localStorage.removeItem("token");
-  //   window.location.reload();
-  // };
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.reload();
+  };
 
   useEffect(() => {
     const decodedToken = jwt_decode(authToken);
@@ -53,7 +51,6 @@ const Main = ({ authToken }) => {
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
-    // setIsDropdownOpen(false);
 
   };
 
@@ -100,6 +97,10 @@ const Main = ({ authToken }) => {
           ref={sideMenuRef}
           className={`${styles.sideMenu} ${isSideMenuOpen ? styles.open : ''}`}
         >
+        <div className={styles.greenLogo}>
+          <img  src={greenLogo} alt="Green Guardian Logo" /> 
+        </div>
+        <div className={styles.sideMenuMain}>
           <div className={styles.sideMenuContent}>
             <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
               Add Device
@@ -113,9 +114,11 @@ const Main = ({ authToken }) => {
             <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
               Account Settings
             </a>
-            <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
+            <a href="#"  onClick={handleLogout}className={styles.sideMenuItem}> 
               Logout
             </a>
+            </div>
+            <div className={styles.sidenameLogo}><img src={nameLogo} alt="nameLogo" /></div>
           </div>
         </div>
         <div className={styles.logoDot}>
