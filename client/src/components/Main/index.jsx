@@ -53,6 +53,8 @@ const Main = ({ authToken }) => {
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
+    // setIsDropdownOpen(false);
+
   };
 
   const closeDropdown = () => {
@@ -61,10 +63,11 @@ const Main = ({ authToken }) => {
 
   const toggleSideMenu = () => {
     setIsSideMenuOpen(!isSideMenuOpen);
-  };
+    setIsDropdownOpen(false);  };
 
   const closeSideMenu = () => {
     setIsSideMenuOpen(false);
+    setIsDropdownOpen(false);    
   };
 
   useEffect(() => {
@@ -87,41 +90,38 @@ const Main = ({ authToken }) => {
 
 
   return (
-
     <div className={styles.main_container}>
       <nav className={styles.navbar}>
         <p className={styles.menuIcon}><FaBars onClick={toggleSideMenu} /></p>
         {isSideMenuOpen && (
           <div className={styles.overlay}></div>
         )}
-
-            <div
-              ref={sideMenuRef}
-              className={`${styles.sideMenu} ${isSideMenuOpen ? styles.open : ''}`}>
-              <div className={styles.sideMenuContent}>
-                <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
-                  Add Device
-                </a>
-                <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
-                  About Us
-                </a>
-                <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
-                  How to Use App
-                </a>
-                <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
-                  Account Settings
-                </a>
-                <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
-                  Logout
-                </a>
-              </div>
-            </div>
-
-          <div className={styles.logoDot}>
+        <div
+          ref={sideMenuRef}
+          className={`${styles.sideMenu} ${isSideMenuOpen ? styles.open : ''}`}
+        >
+          <div className={styles.sideMenuContent}>
+            <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
+              Add Device
+            </a>
+            <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
+              About Us
+            </a>
+            <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
+              How to Use App
+            </a>
+            <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
+              Account Settings
+            </a>
+            <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
+              Logout
+            </a>
+          </div>
+        </div>
+        <div className={styles.logoDot}>
           <div><img className={styles.nameLogo} src={nameLogo} alt="NameLogo" /></div>
           <div className={styles.dotesIconDiv}>
             <FaEllipsisV className={styles.dotesIcon} onClick={toggleDropdown} />
-
             {isDropdownOpen && (
               <div className={styles.dropdownContent}>
                 <a href="#" onClick={closeDropdown} className={styles.dropdownItem}>
