@@ -127,6 +127,8 @@ const Main = ({ authToken }) => {
   const [showRecommended, setShowRecommended] = useState(false);
   const [showBookDiscovery, setShowBookDiscovery] = useState(true);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+
 
   // const handleLogout = () => {
   //   localStorage.removeItem("token");
@@ -163,6 +165,14 @@ const Main = ({ authToken }) => {
 
   const closeDropdown = () => {
     setIsDropdownOpen(false);
+  };
+
+  const toggleSideMenu = () => {
+    setIsSideMenuOpen(!isSideMenuOpen);
+  };
+
+  const closeSideMenu = () => {
+    setIsSideMenuOpen(false);
   };
   
   return (
