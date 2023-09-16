@@ -131,37 +131,48 @@
 	font-size: 18px;
   }
 
-
+/* Styles for side menu */
 .sideMenu {
 	position: fixed;
 	top: 0;
-	left: 0;
+	left: -60%; /* Start hidden off-screen */
 	height: 100%;
-	width: 60%;
-	background-color: #333; 
+	width: 60%; /* Adjust the width as needed */
+	background-color: #2F4C1B;
 	overflow-x: visible;
-	transition: 0.3s; 
-	z-index: 2; 
+	transition: left 0.3s; /* Animate the left position */
+	z-index: 2;
   }
   
   .sideMenu.open {
-	width: 60%; 
+	left: 0; /* Slide in from the left when open */
   }
   
   .sideMenuContent {
 	padding: 20px;
-	color: #000000;
+	color: #ffffff;
   }
   
   .sideMenuItem {
 	display: block;
 	padding: 10px 0;
-	color: #656060;
+	color: #ffffff;
 	text-decoration: none;
 	transition: background-color 0.3s ease;
   }
   
   .sideMenuItem:hover {
-	background-color: #555; 
+	background-color: #555;
   }
   
+  /* Styles for the overlay */
+  .overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay color */
+	z-index: 1; /* Ensure the overlay appears below the side menu */
+	cursor: pointer; /* Change cursor to pointer when hovering */
+  }
