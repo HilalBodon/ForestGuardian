@@ -1,0 +1,46 @@
+ input{ 
+    height: 1.7rem;
+    border-radius: 5px;
+    margin-right: 10px;
+    border: 1px solid cadetblue;
+    font-size: 18px;
+}
+.books_container{
+   margin: 0px;
+   padding: 0px;
+   display: flex;
+	align-items: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+ .btn{
+    border: none;
+    height: 2rem;
+    width: 5rem;
+    border-radius: 15px;  
+    font-weight: 600;
+    color: aliceblue;
+    background-color: cadetblue;
+    margin-right:10px ;
+
+ }
+ .btn:hover{
+    background-color:#6e3911;
+    transition: 0.7s;
+ }
+
+ .sel-style{
+   height: 1.9rem;
+   border-radius: 5px;
+   margin-right: 10px;
+   border: 1px solid cadetblue;
+   font-size: 18px;
+   color: darkgrey;
+ }
+ .main-search{
+   background-color: rgb(240, 240, 240);
+   padding-bottom: 15px;
+   border-radius: 5px;
+   width: 98vw;
+ }

@@ -1,0 +1,89 @@
+.card {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    border-left: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+    background-color: #fff;
+    width: 30%;
+  }
+
+.incard{
+ width: 50%;
+ height: min-content;
+}
+
+  .card:hover{
+    background-color: rgba(0, 145, 123, 0.114);
+    transition: 0.3s;
+  }
+  
+  .title {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-family:  Georgia, Times, 'Times New Roman', serif;
+  }
+  
+  .author {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 5px;
+  }
+  
+  .review {
+    font-size: 1rem;
+    color: #333;
+    height: 80px;
+    overflow: hidden;
+  }
+  
+  .review.scrollable {
+    overflow-y: scroll;
+  }
+  img {
+    height: 270px;
+    width: 170px;
+    border-radius: 5px;
+  }
+
+
+
+  .followButton {
+      color: #3399FF;
+      font-family: "Helvetica";
+      font-size: 10pt;
+      background-color: #ffffff;
+      border: 1px solid;
+      border-color: #3399FF;
+      border-radius: 3px;
+      width: 85px;
+      height: 30px;
+      top: 50px;
+      left: 50px;	
+      cursor: hand;		    
+  }
+
+.likeButton{
+  background-color: #ffffff;
+  border: 0px;
+  font-size: larger;
+}
+.likeButton:hover{
+  zoom: 120%;
+  background-color: transparent;
+}
+
+
+   .btns{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 7px;
+   }
+
