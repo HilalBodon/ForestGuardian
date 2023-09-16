@@ -28,49 +28,26 @@ const BookCard = ({ authToken, book,userId }) => {
   }, [authToken, book.user]);
 
   
-  // useEffect(() => {
-  //   const fetchUserStatus = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         `http://localhost:8080/api/users/status/${userId}/${book._id}`,
-  //         {
-  //           headers: {
-  //             Authorization: `Bearer ${authToken}`,
-  //           },
-  //         }
-  //       );
-  //       setIsLiked(response.data.isLiked);
-  //       setIsFollowing(response.data.isFollowing);
-  //     } catch (error) {
-  //       console.error(error);
-  //     }
-  //   };
+  // const handleLike = async () => {
+  //   try {
 
-  //   fetchUserStatus();
-  // }, [authToken, userId, book._id]);
+  //     await axios.post(
+  //       `http://localhost:8080/api/books/like/${book._id}`,
+  //       { userId},
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${authToken}`,
+  //         },
+  //       }
+  //     );
 
-// ______________________________________________________________
-
-  const handleLike = async () => {
-    try {
-
-      await axios.post(
-        `http://localhost:8080/api/books/like/${book._id}`,
-        { userId},
-        {
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-          },
-        }
-      );
-
-      setIsLiked(true);
-      book.likes.push(userId);
-      console.log("Liked!");
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  //     setIsLiked(true);
+  //     book.likes.push(userId);
+  //     console.log("Liked!");
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 // _________________________________________________
 
   const handleUnlike = async () => {
@@ -113,63 +90,55 @@ const BookCard = ({ authToken, book,userId }) => {
   };
 // ____________________________________________________________________
 
-  const handleUnfollow = async () => {
-    try {
-      await axios.post(
-        `http://localhost:8080/api/users/unfollow/${userId}`,
-        { bookId: book._id },
-        {
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-          },
-        }
-      );
-      setIsFollowing(false);
-      console.log("Unfollowed!");
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const handleUnfollow = async () => {
+  //   try {
+  //     await axios.post(
+  //       `http://localhost:8080/api/users/unfollow/${userId}`,
+  //       { bookId: book._id },
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${authToken}`,
+  //         },
+  //       }
+  //     );
+  //     setIsFollowing(false);
+  //     console.log("Unfollowed!");
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 // ______________________________________________________________
 
   return (
-    <div className={styles.card}>
-      <div className={styles.incard}>
-        <div>
-          <h3 className={styles.title}>{book.name}</h3>
-          <p className={styles.author}>Author: {book.author}</p>
-          <p className={styles.author}>Genre: {book.genre}</p>
-          <div className={styles.review + (book.review.length > 80 ? " " + styles.scrollable : "")}>
-          {book.review}
-          </div>
-        </div>
-
-      </div>
-      <div className={styles.img}>
+    <div className={styles.mainContainer}>
+      <div className={styles.card}>
           <img src={book.picture} alt="BOOK" />
-        </div>
+          <h3 className={styles.title}>{book.name}</h3>
+      </div>
+    </div>     
+  );
+};
 
+{/* 
         <div className={styles.btns}>
         <p  className={styles.author}>Created By: {creatorName}</p>
-        </div>
+        </div> */}
 
-       <div className={styles.btns}>
+       {/* <div className={styles.btns}>
         {isFollowing ? (
           <button className={styles.followButton} onClick={handleUnfollow}>- Unfollow</button>
         ) : (
           <button className={styles.followButton} onClick={handleFollow}>+ Follow</button>
-        )}
-  <button
+        )} */}
+  {/* <button
     className={`${styles.likeButton} ${isLiked ? styles.liked : ''}`}
     onClick={isLiked ? handleUnlike : handleLike}
   >
     <span role="img" aria-label="Like">{isLiked ? '❤️' : '🤍'} </span>
     {book.likes.length}
-  </button>
+  </button> */}
 
-      </div>
-    </div>
-  );
-};
+      {/* </div> */}
+
 
 export default BookCard;
