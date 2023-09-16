@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Route, Routes, Navigate} from "react-router-dom";
 import Main from "./components/Main";
-import Signup from "./components/Singup";
+// import Signup from "./components/Singup";
 import Login from "./components/Login";
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
 	return (
 		<Routes>
 			{authToken && <Route path="/" exact element={<Main authToken={authToken} />} />}
-			<Route path="/signup" exact element={<Signup />} />
+			{/* <Route path="/signup" exact element={<Signup />} /> */}
 			<Route path="/login" element={<Login setAuthToken={setAuthToken} />} />
     		<Route path="/" element={<Navigate replace to="/login" />} />
 		</Routes>
@@ -19,3 +19,6 @@ function App() {
 }
 
 export default App;
+
+
+// hQ2Qgw1DfxnIFH6I  hilalbodon mongopass

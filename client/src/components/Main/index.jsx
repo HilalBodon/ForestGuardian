@@ -45,10 +45,6 @@ const Main = ({ authToken }) => {
     fetchBooks();
   }, [authToken]);
 
-  // const handleBookAdded = (newBook) => {
-  //   setBooks([...books, newBook]);
-  // };
-
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
 
@@ -85,6 +81,9 @@ const Main = ({ authToken }) => {
   }, [isSideMenuOpen]);
 
 
+    // const handleBookAdded = (newBook) => {
+  //   setBooks([...books, newBook]);
+  // };
 
   return (
     <div className={styles.main_container}>
@@ -118,7 +117,7 @@ const Main = ({ authToken }) => {
               Logout
             </a>
             </div>
-            <div className={styles.sidenameLogo}><img src={nameLogo} alt="nameLogo" /></div>
+            <div className={styles.sidenameLogo}><img src={nameLogo} alt="NameLogo" /></div>
           </div>
         </div>
         <div className={styles.logoDot}>
@@ -145,10 +144,10 @@ const Main = ({ authToken }) => {
       <div className={styles.books_container1}>
         {books.map((book) => (
         <DeviceCard 
-        key={book._id}
+        // key={book._id}
         book={book}
-        authToken={authToken}
-        userId={userId}
+        // authToken={authToken}
+        // userId={userId}
         />
         ))}
       </div>

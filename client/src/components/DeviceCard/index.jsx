@@ -3,29 +3,30 @@ import styles from "./DeviceCard.module.css";
 import axios from "axios";
 
 const DeviceCard = ({ authToken, book ,userId }) => {
-  const [isLiked, setIsLiked] = useState(false);
-  const [isFollowing, setIsFollowing] = useState(false);
-  const [creatorName, setCreatorName] = useState("");
+  
+  // const [isLiked, setIsLiked] = useState(false);
+  // const [isFollowing, setIsFollowing] = useState(false);
+  // const [creatorName, setCreatorName] = useState("");
 
-  useEffect(() => {
-    const fetchCreatorName = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:8080/api/users/${book.user}`,
-          {
-            headers: {
-              Authorization: `Bearer ${authToken}`,
-            },
-          }
-        );
-        setCreatorName(response.data.name);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  // useEffect(() => {
+  //   const fetchCreatorName = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         `http://localhost:8080/api/users/${book.user}`,
+  //         {
+  //           headers: {
+  //             Authorization: `Bearer ${authToken}`,
+  //           },
+  //         }
+  //       );
+  //       setCreatorName(response.data.name);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
 
-    fetchCreatorName();
-  }, [authToken, book.user]);
+  //   fetchCreatorName();
+  // }, [authToken, book.user]);
 
   
   // const handleLike = async () => {
@@ -50,44 +51,44 @@ const DeviceCard = ({ authToken, book ,userId }) => {
   // };
 // _________________________________________________
 
-  const handleUnlike = async () => {
-    try {
-      await axios.post(
-      `http://localhost:8080/api/books/remove-like/${book._id}`,
-      { userId},
-      {
-        headers: {
-          Authorization: `Bearer ${authToken}`,
-        },
-      }
-    );
-      setIsLiked(false);
-      book.likes = book.likes.filter((likeId) => likeId !== userId); 
-      console.log("Unliked!");
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const handleUnlike = async () => {
+  //   try {
+  //     await axios.post(
+  //     `http://localhost:8080/api/books/remove-like/${book._id}`,
+  //     { userId},
+  //     {
+  //       headers: {
+  //         Authorization: `Bearer ${authToken}`,
+  //       },
+  //     }
+  //   );
+  //     setIsLiked(false);
+  //     book.likes = book.likes.filter((likeId) => likeId !== userId); 
+  //     console.log("Unliked!");
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
 // _________________________________________________________
 
-  const handleFollow = async () => {
-    try {
-      await axios.post(
-        `http://localhost:8080/api/users/follow/${userId}`,
-        { bookId: book._id },
-        {
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-          },
-        }
-      );
-      setIsFollowing(true);
-      console.log("Followed!");
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const handleFollow = async () => {
+  //   try {
+  //     await axios.post(
+  //       `http://localhost:8080/api/users/follow/${userId}`,
+  //       { bookId: book._id },
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${authToken}`,
+  //         },
+  //       }
+  //     );
+  //     setIsFollowing(true);
+  //     console.log("Followed!");
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 // ____________________________________________________________________
 
   // const handleUnfollow = async () => {
@@ -112,7 +113,7 @@ const DeviceCard = ({ authToken, book ,userId }) => {
   return (
     <div className={styles.mainContainer}>
       <div className={styles.card}>
-          <img src={book.picture} alt="BOOK" />
+          <img src={book.picture} alt="Tree IMAGE" />
           <h3 className={styles.title}>{book.name}</h3>
       </div>
     </div>     
