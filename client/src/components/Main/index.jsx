@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from "axios";
-import BookCard from "../BookCard";
+import DeviceCard from "../DeviceCard";
 import AddBookForm from "../AddBookForm";
 import jwt_decode from "jwt-decode";
 import styles from "./styles.module.css";
@@ -142,9 +142,9 @@ const Main = ({ authToken }) => {
         </div>
       </nav>
 
-      <div className={styles.books_container}>
+      <div className={styles.books_container1}>
         {books.map((book) => (
-        <BookCard 
+        <DeviceCard 
         key={book._id}
         book={book}
         authToken={authToken}
