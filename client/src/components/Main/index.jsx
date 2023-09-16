@@ -179,8 +179,31 @@ const Main = ({ authToken }) => {
 
     <div className={styles.main_container}>
       <nav className={styles.navbar}>
-        <p className={styles.menuIcon}><FaBars /></p>
-        <div className={styles.logoDot}>
+      <p className={styles.menuIcon}><FaBars onClick={toggleSideMenu} /></p>
+
+      {isSideMenuOpen && (
+              <div className={styles.sideMenu}>
+                <div className={styles.sideMenuContent}>
+                  <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
+                    Add Device
+                  </a>
+                  <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
+                    About Us
+                  </a>
+                  <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
+                    How to Use App
+                  </a>
+                  <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
+                    Account Settings
+                  </a>
+                  <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
+                    Logout
+                  </a>
+                </div>
+              </div>
+            )}
+            
+          <div className={styles.logoDot}>
           <div><img className={styles.nameLogo} src={nameLogo} alt="NameLogo" /></div>
           <div className={styles.dotesIconDiv}>
             <FaEllipsisV className={styles.dotesIcon} onClick={toggleDropdown} />

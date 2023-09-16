@@ -130,3 +130,38 @@
 	margin-right: 10px;
 	font-size: 18px;
   }
+
+
+.sideMenu {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 60%;
+	background-color: #333; 
+	overflow-x: visible;
+	transition: 0.3s; 
+	z-index: 2; 
+  }
+  
+  .sideMenu.open {
+	width: 60%; 
+  }
+  
+  .sideMenuContent {
+	padding: 20px;
+	color: #000000;
+  }
+  
+  .sideMenuItem {
+	display: block;
+	padding: 10px 0;
+	color: #656060;
+	text-decoration: none;
+	transition: background-color 0.3s ease;
+  }
+  
+  .sideMenuItem:hover {
+	background-color: #555; 
+  }
+  
