@@ -120,6 +120,7 @@
 	left: -60%; 
 	height: 100%;
 	width: 60%;
+	max-width: 200px;
 	background-color: #3E6751;
 	overflow-x: visible;
 	transition: left 0.3s;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from "axios";
 import DeviceCard from "../DeviceCard";
-// import AddDeviceForm from "../AddDeviceForm";
+import AddDeviceForm from "../AddDeviceForm";
 import jwt_decode from "jwt-decode";
 import styles from "./styles.module.css";
 import  {FaBars} from 'react-icons/fa';
@@ -45,9 +45,9 @@ const Main = ({ authToken }) => {
     fetchDevices();
   }, [authToken]);
 
-  // const handleDeviceAdded = (newDevice) => {
-  //   setDevices([...devices, newDevice]);
-  // };
+  const handleDeviceAdded = (newDevice) => {
+    setDevices([...devices, newDevice]);
+  };
 
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
@@ -117,7 +117,28 @@ const Main = ({ authToken }) => {
             <a href="#"  onClick={handleLogout}className={styles.sideMenuItem}> 
               Logout
             </a>
+
+
+            <button
+          className={styles.btn}
+          onClick={() => {
+            setShowAddDeviceForm(!showAddDeviceForm);
+          }}
+        >
+          + Add New Device
+          {!showAddDeviceForm && (
+          <AddDeviceForm
+      authToken={authToken}
+      onDeviceAdded={handleDeviceAdded}
+      setShowAddDeviceForm={setShowAddDeviceForm}
+      />)}
+        </button>
+
+        
+            
+
             </div>
+            
             <div className={styles.sidenameLogo}><img src={nameLogo} alt="nameLogo" /></div>
           </div>
         </div>
@@ -141,6 +162,7 @@ const Main = ({ authToken }) => {
           </div>
         </div>
       </nav>
+
 
       <div className={styles.devices_container}>
         {devices.map((device) => (

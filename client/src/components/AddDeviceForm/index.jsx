@@ -4,7 +4,7 @@ import styles from "./AddDeviceForm.module.css";
 
 const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm }) => {
     const [formData, setFormData] = useState({
-      devicename: "",
+      deviceName: "",
       devicePass:"",
       treeType: "",
       treeHeigh: "",
@@ -49,33 +49,52 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm }) => {
   };
 
   return (
+
     <div className={styles.formContainer}>
       <h2>Add New Device</h2>
       <form onSubmit={handleFormSubmit}>
         <input
           type="text"
-          placeholder="Name"
-          value={formData.name}
+          placeholder="Device Name"
+          value={formData.deviceName}
           onChange={(e) =>
-            setFormData({ ...formData, name: e.target.value })
+            setFormData({ ...formData, deviceName: e.target.value })
           }
         />
         <input
           type="text"
-          placeholder="Author"
-          value={formData.author}
+          placeholder="Device Password"
+          value={formData.devicePass}
           onChange={(e) =>
-            setFormData({ ...formData, author: e.target.value })
+            setFormData({ ...formData, devicePass: e.target.value })
           }
         />
         <input
           type="text"
-          placeholder="Genre"
-          value={formData.genre}
+          placeholder="Tree Type"
+          value={formData.treeType}
           onChange={(e) =>
-            setFormData({ ...formData, genre: e.target.value })
+            setFormData({ ...formData, treeType: e.target.value })
           }
         />
+
+        <input
+          type="text"
+          placeholder="Tree Height"
+          value={formData.treeHeigh}
+          onChange={(e) =>
+            setFormData({ ...formData, treeType: e.target.value })
+          }
+        />
+
+        <textarea
+          placeholder="Details"
+          value={formData.details}
+          onChange={(e) =>
+            setFormData({ ...formData, details: e.target.value })
+          }
+        />
+
         <input
         type="text"
         placeholder="Image URL"
@@ -83,13 +102,6 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm }) => {
         onChange={(e) => handlePictureChange(e.target.value)}
         />
 
-        <textarea
-          placeholder="Review"
-          value={formData.review}
-          onChange={(e) =>
-            setFormData({ ...formData, review: e.target.value })
-          }
-        />
         <button type="submit" className={styles.addButton}>
           Add Device
         </button>

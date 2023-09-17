@@ -13,7 +13,7 @@ const mongoose = require("mongoose");
 
 
 const deviceSchema = new mongoose.Schema({
-  devicename: { type: String, required: true },
+  deviceName: { type: String, required: true },
   devicePass:{ type: String, required: true },
   treeType: { type: String, required: true },
   treeHeigh: { type: String, required: true},
