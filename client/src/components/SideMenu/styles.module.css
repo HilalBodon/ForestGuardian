@@ -1,0 +1,71 @@
+
+.sideMenu {
+	position: fixed;
+	top: 0;
+	left: -60%; 
+	height: 100%;
+	width: 60%;
+	max-width: 200px;
+	background-color: #3E6751;
+	overflow-x: visible;
+	transition: left 0.3s;
+	z-index: 2;
+  }
+  
+  .sideMenu.open {
+	left: 0; 
+  }
+  
+  .sideMenuContent {
+	padding: 40px;
+	color: #ffffff;
+	font-weight: 200;
+  }
+  
+  .sideMenuItem {
+	display: block;
+	padding: 10px 0;
+	color: #ffffff;
+	text-decoration: none;
+	transition: background-color 0.3s ease;
+  }
+  
+  .sideMenuItem:hover {
+ 	 background-color: #C0D6BF;
+	  color: black;
+	  border-radius: 5px;
+
+
+  }
+  
+
+  .overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5); 
+	z-index: 1; 
+	cursor: pointer; 
+  }
+
+  .greenLogo{
+	background-color: #C0D6BF;
+	width: 100%;
+	display: grid;
+	place-items: center; 
+  }
+  .greenLogo img{
+	width: 80%;
+  }
+
+  .sideMenuMain{
+	height: 100%;
+    background-color: aqua;
+  }
+
+  .sidenameLogo{
+	height: 100%;
+	align-content: flex-end;
+  }
