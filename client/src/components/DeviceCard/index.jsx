@@ -1,8 +1,8 @@
 import React, { useState ,useEffect } from "react";
-import styles from "./BookCard.module.css"; 
+import styles from "./DeviceCard.module.css"; 
 import axios from "axios";
 
-const BookCard = ({ authToken, book,userId }) => {
+const DeviceCard = ({ authToken, device,userId }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isFollowing, setIsFollowing] = useState(false);
   const [creatorName, setCreatorName] = useState("");
@@ -11,7 +11,7 @@ const BookCard = ({ authToken, book,userId }) => {
     const fetchCreatorName = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8080/api/users/${book.user}`,
+          `http://localhost:8080/api/users/${device.user}`,
           {
             headers: {
               Authorization: `Bearer ${authToken}`,
@@ -25,14 +25,14 @@ const BookCard = ({ authToken, book,userId }) => {
     };
 
     fetchCreatorName();
-  }, [authToken, book.user]);
+  }, [authToken, device.user]);
 
   
   // const handleLike = async () => {
   //   try {
 
   //     await axios.post(
-  //       `http://localhost:8080/api/books/like/${book._id}`,
+  //       `http://localhost:8080/api/devices/like/${device._id}`,
   //       { userId},
   //       {
   //         headers: {
@@ -42,7 +42,7 @@ const BookCard = ({ authToken, book,userId }) => {
   //     );
 
   //     setIsLiked(true);
-  //     book.likes.push(userId);
+  //     device.likes.push(userId);
   //     console.log("Liked!");
   //   } catch (error) {
   //     console.error(error);
@@ -53,7 +53,7 @@ const BookCard = ({ authToken, book,userId }) => {
   const handleUnlike = async () => {
     try {
       await axios.post(
-      `http://localhost:8080/api/books/remove-like/${book._id}`,
+      `http://localhost:8080/api/devices/remove-like/${device._id}`,
       { userId},
       {
         headers: {
@@ -62,7 +62,7 @@ const BookCard = ({ authToken, book,userId }) => {
       }
     );
       setIsLiked(false);
-      book.likes = book.likes.filter((likeId) => likeId !== userId); 
+      device.likes = device.likes.filter((likeId) => likeId !== userId); 
       console.log("Unliked!");
     } catch (error) {
       console.error(error);
@@ -75,7 +75,7 @@ const BookCard = ({ authToken, book,userId }) => {
     try {
       await axios.post(
         `http://localhost:8080/api/users/follow/${userId}`,
-        { bookId: book._id },
+        { deviceId: device._id },
         {
           headers: {
             Authorization: `Bearer ${authToken}`,
@@ -94,7 +94,7 @@ const BookCard = ({ authToken, book,userId }) => {
   //   try {
   //     await axios.post(
   //       `http://localhost:8080/api/users/unfollow/${userId}`,
-  //       { bookId: book._id },
+  //       { deviceId: device._id },
   //       {
   //         headers: {
   //           Authorization: `Bearer ${authToken}`,
@@ -112,8 +112,8 @@ const BookCard = ({ authToken, book,userId }) => {
   return (
     <div className={styles.mainContainer}>
       <div className={styles.card}>
-          <img src={book.picture} alt="BOOK" />
-          <h3 className={styles.title}>{book.name}</h3>
+          <img src={device.picture} alt="device" />
+          <h3 className={styles.title}>{device.name}</h3>
       </div>
     </div>     
   );
@@ -135,10 +135,10 @@ const BookCard = ({ authToken, book,userId }) => {
     onClick={isLiked ? handleUnlike : handleLike}
   >
     <span role="img" aria-label="Like">{isLiked ? '❤️' : '🤍'} </span>
-    {book.likes.length}
+    {device.likes.length}
   </button> */}
 
       {/* </div> */}
 
 
-export default BookCard;
+export default DeviceCard;

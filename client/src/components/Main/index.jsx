@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from "axios";
-import BookCard from "../BookCard";
-import AddBookForm from "../AddBookForm";
+import DeviceCard from "../DeviceCard";
+// import AddDeviceForm from "../AddDeviceForm";
 import jwt_decode from "jwt-decode";
 import styles from "./styles.module.css";
 import  {FaBars} from 'react-icons/fa';
@@ -12,8 +12,8 @@ import greenLogo from "../../assets/images/GreenLogo.svg";
 
 const Main = ({ authToken }) => {
   const [userId, setUserId] = useState(null);
-  const [showAddBookForm, setShowAddBookForm] = useState(true);
-  const [books, setBooks] = useState([]);
+  const [showAddDeviceForm, setShowAddDeviceForm] = useState(true);
+  const [devices, setDevices] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const sideMenuRef = useRef(null);
@@ -30,23 +30,23 @@ const Main = ({ authToken }) => {
     const fetchedUserId = decodedToken._id;
     setUserId(fetchedUserId);
 
-    const fetchBooks = async () => {
+    const fetchDevices = async () => {
       try {
         const response = await axios.get("http://localhost:8080/api/devices", {
           headers: {
             Authorization: `Bearer ${authToken}`,
           },
         });
-        setBooks(response.data);
+        setDevices(response.data);
       } catch (error) {
         console.error(error);
       }
     };
-    fetchBooks();
+    fetchDevices();
   }, [authToken]);
 
-  // const handleBookAdded = (newBook) => {
-  //   setBooks([...books, newBook]);
+  // const handleDeviceAdded = (newDevice) => {
+  //   setDevices([...devices, newDevice]);
   // };
 
   const toggleDropdown = () => {
@@ -142,11 +142,11 @@ const Main = ({ authToken }) => {
         </div>
       </nav>
 
-      <div className={styles.books_container}>
-        {books.map((book) => (
-        <BookCard 
-        key={book._id}
-        book={book}
+      <div className={styles.devices_container}>
+        {devices.map((device) => (
+        <DeviceCard 
+        key={device._id}
+        device={device}
         authToken={authToken}
         userId={userId}
         />
@@ -163,10 +163,10 @@ export default Main;
         {/* <button
           className={styles.btn}
           onClick={() => {
-            setShowAddBookForm(!showAddBookForm);
+            setShowAddDeviceForm(!showAddDeviceForm);
           }}
         >
-          + Add New Book
+          + Add New Device
         </button> */}
 
         {/* <button
@@ -175,7 +175,7 @@ export default Main;
             setShowRecommended(!showRecommended);
           }}
         >
-          {showRecommended ? "All Books" : "Recommended Books"}
+          {showRecommended ? "All Devices" : "Recommended Devices"}
         </button> */}
 
         {/* <button className={styles.white_btn} onClick={handleLogout}>
@@ -184,18 +184,18 @@ export default Main;
 
 {/* 
 
-{showBookDiscovery && (
+{showDeviceDiscovery && (
         <div className={styles.search_add}>
-          <BookDiscovery authToken={authToken}/>
+          <DeviceDiscovery authToken={authToken}/>
 		  
         </div>
       )} */}
 	  
-      {/* {!showAddBookForm && (
-				<AddBookForm
+      {/* {!showAddDeviceForm && (
+				<AddDeviceForm
 		authToken={authToken}
-		onBookAdded={handleBookAdded}
-		setShowAddBookForm={setShowAddBookForm}
+		onDeviceAdded={handleDeviceAdded}
+		setShowAddDeviceForm={setShowAddDeviceForm}
 		/>
       )} */}
 
