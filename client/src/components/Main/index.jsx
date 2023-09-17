@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from "axios";
 import DeviceCard from "../DeviceCard";
 import AddDeviceForm from "../AddDeviceForm";
+import AboutUs from "./AboutUs";
 import jwt_decode from "jwt-decode";
 import styles from "./styles.module.css";
 import  {FaBars} from 'react-icons/fa';
@@ -13,21 +14,31 @@ import greenLogo from "../../assets/images/GreenLogo.svg";
 const Main = ({ authToken }) => {
   const [userId, setUserId] = useState(null);
   const [showAddDeviceForm, setShowAddDeviceForm] = useState(false);
+  const [showAboutUs, setShowAboutUs] = useState(false); 
   const [devices, setDevices] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const sideMenuRef = useRef(null);
 
 
-
- 
   const handleAddDeviceClick = () => {
     setShowAddDeviceForm(!showAddDeviceForm);
+    setShowAboutUs(false); 
   };
 
+  const handleAboutUsClick = () => {
+    setShowAboutUs(true);
+    setShowAddDeviceForm(false);
+  };
+
+  const handleBackClick = () => {
+    setShowAboutUs(false);
+  };
   const handleCancelClick = () => {
     setShowAddDeviceForm(false);
   };
+
+
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -112,14 +123,15 @@ const Main = ({ authToken }) => {
         <div className={styles.sideMenuMain}>
           <div className={styles.sideMenuContent}>
             
-            <a href="#" onClick={() => {setShowAddDeviceForm(true) }} 
+            <a onClick={() => {setShowAddDeviceForm(true) }} 
           className={styles.sideMenuItem}>
               Add Device
 
             </a>
-            <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
-              About Us
-            </a>
+
+            <a onClick={handleAboutUsClick} className={styles.sideMenuItem}>
+            About Us
+          </a>
             <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
               How to Use App
             </a>
@@ -129,25 +141,6 @@ const Main = ({ authToken }) => {
             <a href="#"  onClick={handleLogout}className={styles.sideMenuItem}> 
               Logout
             </a>
-
-
-            {/* <button
-          className={styles.btn}
-          onClick={() => {
-            setShowAddDeviceForm(!showAddDeviceForm);
-          }}
-        >
-          + Add New Device
-          {!showAddDeviceForm && (
-          <AddDeviceForm
-      authToken={authToken}
-      onDeviceAdded={handleDeviceAdded}
-      setShowAddDeviceForm={setShowAddDeviceForm}
-      />)}
-        </button> */}
-
-        
-            
 
             </div>
 
@@ -175,41 +168,26 @@ const Main = ({ authToken }) => {
         </div>
       </nav>
 
-
-      {/* <div className={styles.devices_container}>
-        {devices.map((device) => (
-        <DeviceCard 
-        key={device._id}
-        device={device}
-        authToken={authToken}
-        userId={userId}
-        />
-        ))}
-      </div> */}
-      
       <div className={styles.devices_container}>
-        {showAddDeviceForm ? (
-          <AddDeviceForm
-            authToken={authToken}
-            onDeviceAdded={handleDeviceAdded}
-            setShowAddDeviceForm={setShowAddDeviceForm}
-          />
-        ) : (
-          devices.map((device) => (
-            <DeviceCard
-              key={device._id}
-              device={device}
-              authToken={authToken}
-              userId={userId}
-            />
-          ))
-        )}
-      </div>
-
-      {/* <button className={styles.addDeviceButton} onClick={handleAddDeviceClick}>
-        Add Device
-      </button> */}
-
+              {showAddDeviceForm ? (
+                <AddDeviceForm
+                  authToken={authToken}
+                  onDeviceAdded={handleDeviceAdded}
+                  setShowAddDeviceForm={setShowAddDeviceForm}
+                />
+              ) : showAboutUs ? (
+                <AboutUs handleBackClick={handleBackClick} /> 
+              ) : (
+                devices.map((device) => (
+                  <DeviceCard
+                    key={device._id}
+                    device={device}
+                    authToken={authToken}
+                    userId={userId}
+                  />
+                ))
+              )}
+            </div>
     </div>
   );
 };
