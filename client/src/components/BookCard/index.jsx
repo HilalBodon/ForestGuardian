@@ -1,8 +1,8 @@
 import React, { useState ,useEffect } from "react";
-import styles from "./DeviceCard.module.css"; 
+import styles from "./BookCard.module.css"; 
 import axios from "axios";
 
-const DeviceCard = ({ authToken, book ,userId }) => {
+const BookCard = ({ authToken, book,userId }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [isFollowing, setIsFollowing] = useState(false);
   const [creatorName, setCreatorName] = useState("");
@@ -141,4 +141,4 @@ const DeviceCard = ({ authToken, book ,userId }) => {
       {/* </div> */}
 
 
-export default DeviceCard;
+export default BookCard;
