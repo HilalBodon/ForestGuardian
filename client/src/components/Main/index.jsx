@@ -3,6 +3,7 @@ import axios from "axios";
 import DeviceCard from "../DeviceCard";
 import AddDeviceForm from "../AddDeviceForm";
 import AboutUs from "./AboutUs";
+import HowToUse from './HowToUse';
 import jwt_decode from "jwt-decode";
 import styles from "./styles.module.css";
 import  {FaBars} from 'react-icons/fa';
@@ -15,6 +16,7 @@ const Main = ({ authToken }) => {
   const [userId, setUserId] = useState(null);
   const [showAddDeviceForm, setShowAddDeviceForm] = useState(false);
   const [showAboutUs, setShowAboutUs] = useState(false); 
+  const [showHowToUse, setShowHowToUse] = useState(false);
   const [devices, setDevices] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
@@ -33,11 +35,18 @@ const Main = ({ authToken }) => {
 
   const handleBackClick = () => {
     setShowAboutUs(false);
+    setShowHowToUse(false);
+
   };
   const handleCancelClick = () => {
     setShowAddDeviceForm(false);
   };
 
+  const handleHowToUseClick = () => {
+    setShowHowToUse(true);
+    setShowAboutUs(false);
+    setShowAddDeviceForm(false);
+  };
 
 
   const handleLogout = () => {
@@ -132,7 +141,7 @@ const Main = ({ authToken }) => {
             <a onClick={handleAboutUsClick} className={styles.sideMenuItem}>
             About Us
           </a>
-            <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
+            <a  onClick={handleHowToUseClick} className={styles.sideMenuItem}>
               How to Use App
             </a>
             <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
@@ -169,30 +178,36 @@ const Main = ({ authToken }) => {
       </nav>
 
       <div className={styles.devices_container}>
-              {showAddDeviceForm ? (
-                <AddDeviceForm
-                  authToken={authToken}
-                  onDeviceAdded={handleDeviceAdded}
-                  setShowAddDeviceForm={setShowAddDeviceForm}
-                />
-              ) : showAboutUs ? (
-                <AboutUs handleBackClick={handleBackClick} /> 
-              ) : (
-                devices.map((device) => (
-                  <DeviceCard
-                    key={device._id}
-                    device={device}
-                    authToken={authToken}
-                    userId={userId}
-                  />
-                ))
-              )}
-            </div>
+        {showAddDeviceForm ? (
+          <AddDeviceForm
+            authToken={authToken}
+            onDeviceAdded={handleDeviceAdded}
+            setShowAddDeviceForm={setShowAddDeviceForm}
+          />
+        ) : showAboutUs ? (
+          <AboutUs handleBackClick={handleBackClick} />
+        ) : showHowToUse ? ( 
+          <HowToUse handleBackClick={handleBackClick} />
+        ) : (
+          devices.map((device) => (
+            <DeviceCard
+              key={device._id}
+              device={device}
+              authToken={authToken}
+              userId={userId}
+            />
+          ))
+        )}
+      </div>
     </div>
   );
 };
 
 export default Main;
+
+
+
+
 
 
 
