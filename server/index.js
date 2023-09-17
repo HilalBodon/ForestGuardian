@@ -5,7 +5,7 @@ const cors = require("cors");
 const userRoutes = require("./routes/users");
 const authRoutes = require("./routes/auth");
 const mongoose = require("mongoose");
-const bookRoutes = require("./routes/books");
+const deviceRoutes = require("./routes/devices");
 const userSchema = require('./models/user');
 
 
@@ -16,7 +16,7 @@ app.use("/api/users", userRoutes);
 // 
 app.use("/api/auth", authRoutes);
 
-app.use("/api/books", bookRoutes);
+app.use("/api/devices", deviceRoutes);
 // app.use("/api/books/discover", bookRoutes);
 
 

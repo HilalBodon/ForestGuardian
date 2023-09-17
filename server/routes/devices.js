@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const authMiddleware = require('../middlewares/auth.middleware');
-const { Book } = require("../models/book");
+const { Device } = require("../models/device");
 const { User } = require("../models/user");
 const mongoose = require("mongoose"); 
 
@@ -12,7 +12,7 @@ router.post('/',authMiddleware, async (req, res) => {
       const { name, author,genre, picture, review } = req.body;
       const userId = req.user._id;
       const user = await User.findById(userId);
-      const newBook = new Book({user: user, name, author,genre, picture, review,likes: [] });
+      const newBook = new Device({user: user, name, author,genre, picture, review,likes: [] });
       await newBook.save();
       res.status(201).send(newBook);
     } catch (error) {
@@ -25,7 +25,7 @@ router.post('/',authMiddleware, async (req, res) => {
   router.get('/my-books', authMiddleware, async (req, res) => {
     try {
         const userId = req.user._id;
-        const userBooks = await Book.find({ user: userId });
+        const userBooks = await Device.find({ user: userId });
         res.status(200).send(userBooks);
     } catch (error) {
         console.error(error);
@@ -36,7 +36,7 @@ router.post('/',authMiddleware, async (req, res) => {
 // ________________________________________________________
   router.get('/',authMiddleware, async (req, res) => {
     try {
-    const books = await Book.find();
+    const books = await Device.find();
     res.status(200).send(books);
   } catch (error) {
     res.status(500).send({ message: "Internal Server Error" });
@@ -65,7 +65,7 @@ router.get('/discover',authMiddleware, async (req, res) => {
         ];
       }
   
-      const books = await Book.find(query).populate('user');
+      const books = await Device.find(query).populate('user');
       res.status(200).send(books);
     } catch (error) {
       console.error(error);
@@ -80,20 +80,20 @@ router.post('/like/:bookId', authMiddleware, async (req, res) => {
         const bookIdToLike = req.params.bookId;
 
         const loggedInUser = await User.findById(loggedInUserId);
-        const bookToLike = await Book.findById(bookIdToLike);
+        const bookToLike = await Device.findById(bookIdToLike);
 
         if (!bookToLike) {
-            return res.status(404).send({ message: "Book not found" });
+            return res.status(404).send({ message: "Device not found" });
         }
 
         if (bookToLike.likes === loggedInUserId) {
-            return res.status(400).send({ message: "You've already liked this book" });
+            return res.status(400).send({ message: "You've already liked this Device" });
         }
 
         bookToLike.likes.push(loggedInUserId);
         await bookToLike.save();
 
-        res.status(200).send({ message: "Book liked successfully" });
+        res.status(200).send({ message: "Device liked successfully" });
     } catch (error) {
         console.error(error);
         res.status(500).send({ message: "Internal Server Error" });
@@ -106,23 +106,23 @@ router.post('/remove-like/:bookId', authMiddleware, async (req, res) => {
         const bookId = req.params.bookId;
         const userId = req.user._id;
 
-        const bookToUpdate = await Book.findById(bookId);
+        const bookToUpdate = await Device.findById(bookId);
         if (!bookToUpdate) {
-            return res.status(404).send({ message: "Book not found" });
+            return res.status(404).send({ message: "Device not found" });
         }
 
         if (bookToUpdate.likes === 0) {
-            return res.status(400).send({ message: "Book has no likes to remove" });
+            return res.status(400).send({ message: "Device has no likes to remove" });
         }
 
         if (!bookToUpdate.likes.includes(userId)) {
-            return res.status(400).send({ message: "User has not liked the book" });
+            return res.status(400).send({ message: "User has not liked the Device" });
         }
 
         const updatedLikes = bookToUpdate.likes.filter(like => like.toString() !== userId.toString()
           );
           
-        await Book.findByIdAndUpdate(bookId, {
+        await Device.findByIdAndUpdate(bookId, {
             likes: updatedLikes,
             likesCount: updatedLikes.length
                 });
@@ -141,7 +141,7 @@ router.get('/recommended', authMiddleware, async (req, res) => {
 
         const following = await User.findById(userId).select('following');
 
-        const recommendedBooks = await Book.find({ user: { $in: following.following } });
+        const recommendedBooks = await Device.find({ user: { $in: following.following } });
 
         res.status(200).send(recommendedBooks);
     } catch (error) {
