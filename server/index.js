@@ -25,8 +25,6 @@ mongoose.set('strictQuery', true);//to avoid warning
 const CONNECTION_URL = process.env.DB;
 const PORT = process.env.PORT ||8080;
 
-// mongodb+srv://hilalbodon:R9z02rrjaF8XPKXs@memoriesproject.9h9nwxs.mongodb.net/?retryWrites=true&w=majority
-
 app.listen (console.log(`Listening on port ${PORT}...`));
 
 mongoose.connect(CONNECTION_URL, {useNewUrlParser: true, useUnifiedTopology: true})//second parameter is not required just for avoid some warnings
