@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 import axios from "axios";
-import styles from "./AddBookForm.module.css";
+import styles from "./AddDeviceForm.module.css";
 
-const AddBookForm = ({ authToken, onBookAdded, setShowAddBookForm }) => {
+const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm }) => {
     const [formData, setFormData] = useState({
-    name: "",
-    author: "",
-    genre: "",
-    picture: "",
-    review: "",
+      devicename: "",
+      devicePass:"",
+      treeType: "",
+      treeHeigh: "",
+      location:"",
+      details: "",
+      picture: "",
   });
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/books",
+        "http://localhost:8080/api/devices",
         formData,
         {
           headers: {
@@ -23,17 +25,19 @@ const AddBookForm = ({ authToken, onBookAdded, setShowAddBookForm }) => {
           },
         }
       );
-      const newBook = response.data;
+      const newDevice = response.data;
       setFormData({
-        name: "",
-        author: "",
-        genre: "",
+        devicename: "",
+        devicePass:"",
+        treeType: "",
+        treeHeigh: "",
+        location:"",
+        details: "",
         picture: "",
-        review: "",
       });
 
-      onBookAdded(newBook);
-      setShowAddBookForm(false);
+      onDeviceAdded(newDevice);
+      setShowAddDeviceForm(false);
 
     } catch (error) {
       console.error(error);
@@ -46,7 +50,7 @@ const AddBookForm = ({ authToken, onBookAdded, setShowAddBookForm }) => {
 
   return (
     <div className={styles.formContainer}>
-      <h2>Add New Book</h2>
+      <h2>Add New Device</h2>
       <form onSubmit={handleFormSubmit}>
         <input
           type="text"
@@ -87,11 +91,11 @@ const AddBookForm = ({ authToken, onBookAdded, setShowAddBookForm }) => {
           }
         />
         <button type="submit" className={styles.addButton}>
-          Add Book
+          Add Device
         </button>
       </form>
     </div>
   );
 };
 
-export default AddBookForm;
+export default AddDeviceForm;

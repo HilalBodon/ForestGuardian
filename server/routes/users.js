@@ -27,44 +27,44 @@ router.post("/", async (req, res) => {
 
 // _____________________________________________________________________________
 
-router.post('/follow/:userId', authMiddleware, async (req, res) => {
-	try {
-	  const loggedInUserId = req.user._id;
-	  const userToFollowId = req.params.userId;
-  
-	  await User.findByIdAndUpdate(loggedInUserId, { $addToSet: { following: userToFollowId } });
-	  await User.findByIdAndUpdate(userToFollowId, { $addToSet: { followers: loggedInUserId } });
-  
-	  res.status(200).send({ message: 'Successfully followed user.' });
-	} catch (error) {
-	  console.error(error);
-	  res.status(500).send({ message: 'Internal Server Error' });
-	}
-  });
-  
-  router.post('/unfollow/:userId', authMiddleware, async (req, res) => {
-	try {
-	  const loggedInUserId = req.user._id;
-	  const userToUnfollowId = req.params.userId;
-  
-	  await User.findByIdAndUpdate(loggedInUserId, { $pull: { following: userToUnfollowId } });
-	  await User.findByIdAndUpdate(userToUnfollowId, { $pull: { followers: loggedInUserId } });
-  
-	  res.status(200).send({ message: 'Successfully unfollowed user.' });
-	} catch (error) {
-	  console.error(error);
-	  res.status(500).send({ message: 'Internal Server Error' });
-	}
-  });
-
-//   router.get('/status/:userId/:bookId', authMiddleware, async (req, res) => {
+// router.post('/follow/:userId', authMiddleware, async (req, res) => {
 // 	try {
 // 	  const loggedInUserId = req.user._id;
-// 	  const bookId = req.params.bookId;
+// 	  const userToFollowId = req.params.userId;
+  
+// 	  await User.findByIdAndUpdate(loggedInUserId, { $addToSet: { following: userToFollowId } });
+// 	  await User.findByIdAndUpdate(userToFollowId, { $addToSet: { followers: loggedInUserId } });
+  
+// 	  res.status(200).send({ message: 'Successfully followed user.' });
+// 	} catch (error) {
+// 	  console.error(error);
+// 	  res.status(500).send({ message: 'Internal Server Error' });
+// 	}
+//   });
+  
+//   router.post('/unfollow/:userId', authMiddleware, async (req, res) => {
+// 	try {
+// 	  const loggedInUserId = req.user._id;
+// 	  const userToUnfollowId = req.params.userId;
+  
+// 	  await User.findByIdAndUpdate(loggedInUserId, { $pull: { following: userToUnfollowId } });
+// 	  await User.findByIdAndUpdate(userToUnfollowId, { $pull: { followers: loggedInUserId } });
+  
+// 	  res.status(200).send({ message: 'Successfully unfollowed user.' });
+// 	} catch (error) {
+// 	  console.error(error);
+// 	  res.status(500).send({ message: 'Internal Server Error' });
+// 	}
+//   });
+
+//   router.get('/status/:userId/:deviceId', authMiddleware, async (req, res) => {
+// 	try {
+// 	  const loggedInUserId = req.user._id;
+// 	  const deviceId = req.params.deviceId;
   
 // 	  const user = await User.findById(loggedInUserId);
-// 	  const isLiked = user.likes.includes(bookId);
-// 	  const isFollowing = user.following.includes(bookId);
+// 	  const isLiked = user.likes.includes(deviceId);
+// 	  const isFollowing = user.following.includes(deviceId);
   
 // 	  res.status(200).json({ isLiked, isFollowing });
 // 	} catch (error) {
