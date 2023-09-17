@@ -38,7 +38,6 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm }) => {
 
       onDeviceAdded(newDevice);
       setShowAddDeviceForm(false);
-
     } catch (error) {
       console.error(error);
     }
@@ -48,6 +47,19 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm }) => {
     setFormData({ ...formData, picture: url });
   };
 
+  const handleCancel = () => {
+    setFormData({
+      deviceName: "",
+      devicePass: "",
+      treeType: "",
+      treeHeight: "",
+      location: "",
+      details: "",
+      picture: "",
+    });
+    setShowAddDeviceForm(false);
+  };
+  
   return (
 
     <div className={styles.formContainer}>
@@ -83,7 +95,16 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm }) => {
           placeholder="Tree Height"
           value={formData.treeHeigh}
           onChange={(e) =>
-            setFormData({ ...formData, treeType: e.target.value })
+            setFormData({ ...formData, treeHeigh: e.target.value })
+          }
+        />
+
+        <input
+          type="text"
+          placeholder="Location"
+          value={formData.location}
+          onChange={(e) =>
+            setFormData({ ...formData, location: e.target.value })
           }
         />
 
@@ -102,9 +123,18 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm }) => {
         onChange={(e) => handlePictureChange(e.target.value)}
         />
 
-        <button type="submit" className={styles.addButton}>
-          Add Device
-        </button>
+      <div className={styles.buttonContainer}>
+            <button type="submit" className={styles.addButton}>
+              Add Device
+            </button>
+            <button
+              type="button"
+              className={styles.cancelButton}
+              onClick={handleCancel}
+            >
+              Cancel
+            </button>
+      </div>
       </form>
     </div>
   );

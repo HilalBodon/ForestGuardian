@@ -13,11 +13,10 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/api/users", userRoutes);
-// 
+
 app.use("/api/auth", authRoutes);
 
 app.use("/api/devices", deviceRoutes);
-// app.use("/api/books/discover", bookRoutes);
 
 
 mongoose.set('strictQuery', true);//to avoid warning
