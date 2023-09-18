@@ -3,14 +3,14 @@ import axios from "axios";
 import styles from "./AddDeviceForm.module.css";
 
 const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm }) => {
-    const [formData, setFormData] = useState({
-      deviceName: "",
-      devicePass:"",
-      treeType: "",
-      treeHeigh: "",
-      location:"",
-      details: "",
-      picture: "",
+  const [formData, setFormData] = useState({
+    deviceName: "",
+    devicePass: "",
+    treeType: "",
+    treeHeight: "", // Corrected the property name
+    location: "",
+    details: "",
+    picture: "",
   });
 
   const handleFormSubmit = async (e) => {
@@ -27,11 +27,11 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm }) => {
       );
       const newDevice = response.data;
       setFormData({
-        devicename: "",
-        devicePass:"",
+        deviceName: "",
+        devicePass: "",
         treeType: "",
-        treeHeigh: "",
-        location:"",
+        treeHeight: "", // Corrected the property name
+        location: "",
         details: "",
         picture: "",
       });
@@ -52,16 +52,15 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm }) => {
       deviceName: "",
       devicePass: "",
       treeType: "",
-      treeHeight: "",
+      treeHeight: "", // Corrected the property name
       location: "",
       details: "",
       picture: "",
     });
     setShowAddDeviceForm(false);
   };
-  
-  return (
 
+  return (
     <div className={styles.formContainer}>
       <h2>Add New Device</h2>
       <form onSubmit={handleFormSubmit}>
@@ -93,9 +92,9 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm }) => {
         <input
           type="text"
           placeholder="Tree Height"
-          value={formData.treeHeigh}
+          value={formData.treeHeight}
           onChange={(e) =>
-            setFormData({ ...formData, treeHeigh: e.target.value })
+            setFormData({ ...formData, treeHeight: e.target.value })
           }
         />
 
@@ -117,24 +116,24 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm }) => {
         />
 
         <input
-        type="text"
-        placeholder="Image URL"
-        value={formData.picture}
-        onChange={(e) => handlePictureChange(e.target.value)}
+          type="text"
+          placeholder="Image URL"
+          value={formData.picture}
+          onChange={(e) => handlePictureChange(e.target.value)}
         />
 
-      <div className={styles.buttonContainer}>
-            <button type="submit" className={styles.addButton}>
-              Add Device
-            </button>
-            <button
-              type="button"
-              className={styles.cancelButton}
-              onClick={handleCancel}
-            >
-              Cancel
-            </button>
-      </div>
+        <div className={styles.buttonContainer}>
+          <button type="submit" className={styles.addButton}>
+            Add Device
+          </button>
+          <button
+            type="button"
+            className={styles.cancelButton}
+            onClick={handleCancel}
+          >
+            Cancel
+          </button>
+        </div>
       </form>
     </div>
   );

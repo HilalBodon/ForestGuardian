@@ -16,7 +16,7 @@ const deviceSchema = new mongoose.Schema({
   deviceName: { type: String, required: true },
   devicePass:{ type: String, required: true },
   treeType: { type: String, required: true },
-  treeHeigh: { type: String, required: true},
+  treeHeight: { type: String, required: true},
   location: String,
   details:  String ,
   picture: String,
