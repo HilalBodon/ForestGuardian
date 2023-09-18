@@ -1,0 +1,50 @@
+
+.dropdownContent {
+	position: absolute;
+	top: 10vh;
+	right: 0;
+	background-color: #3E6751;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+	padding: 8px 0;
+	min-width: 150px;
+	z-index: 1;
+	border-top: 1px solid #ddd;
+	
+}
+
+.dropdownItem {
+	display: block;
+	padding: 10px 20px;
+	color: #ffffff;
+	text-decoration: none;
+	transition: background-color 0.3s ease;
+  }
+  
+  .dropdownItem:hover {
+	background-color: #C0D6BF;
+	color: black;
+	border-radius: 5px;
+
+  }
+  
+  .icon {
+	margin-right: 10px;
+	font-size: 18px;
+  }
+
+  .dotesIcon{
+    padding-right: 5%;
+    padding-left: 10%;
+    color: white;
+    font-size: 1.7rem;
+    justify-self: right ;
+  }
+  .dotesIconDiv{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    font-size: 1.7rem;
+  }
+  

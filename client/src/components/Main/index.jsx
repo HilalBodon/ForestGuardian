@@ -5,6 +5,7 @@ import AddDeviceForm from "../AddDeviceForm";
 import AboutUs from "./AboutUs";
 import HowToUse from './HowToUse';
 import AccountSettings from "./AccountSettings";
+import Dropdown from './DropDown';
 import jwt_decode from "jwt-decode";
 import styles from "./styles.module.css";
 import  {FaBars} from 'react-icons/fa';
@@ -176,7 +177,7 @@ const Main = ({ authToken }) => {
         </div>
         <div className={styles.logoDot}>
           <div><img className={styles.nameLogo} src={nameLogo} alt="NameLogo" /></div>
-          <div className={styles.dotesIconDiv}>
+          {/* <div className={styles.dotesIconDiv}>
             <FaEllipsisV className={styles.dotesIcon} onClick={toggleDropdown} />
             {isDropdownOpen && (
               <div className={styles.dropdownContent}>
@@ -191,7 +192,13 @@ const Main = ({ authToken }) => {
                 </a>
               </div>
             )}
-          </div>
+          </div> */}
+
+      <Dropdown
+        isDropdownOpen={isDropdownOpen}
+        toggleDropdown={toggleDropdown}
+        closeDropdown={closeDropdown}
+      />
         </div>
       </nav>
 
