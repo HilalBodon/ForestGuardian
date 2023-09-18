@@ -3,29 +3,48 @@ import styles from "./DeviceCard.module.css";
 import axios from "axios";
 
 const DeviceCard = ({ authToken, device,userId }) => {
-  const [isLiked, setIsLiked] = useState(false);
-  const [isFollowing, setIsFollowing] = useState(false);
-  const [creatorName, setCreatorName] = useState("");
 
-  useEffect(() => {
-    const fetchCreatorName = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:8080/api/users/${device.user}`,
-          {
-            headers: {
-              Authorization: `Bearer ${authToken}`,
-            },
-          }
-        );
-        setCreatorName(response.data.name);
-      } catch (error) {
-        console.error(error);
-      }
-    };
 
-    fetchCreatorName();
-  }, [authToken, device.user]);
+
+  return (
+    <div className={styles.mainContainer}>
+      <div className={styles.card}>
+          <img src={device.picture} alt="device" />
+          <h3 className={styles.title}>{device.deviceName}</h3>
+      </div>
+    </div>     
+  );
+};
+export default DeviceCard;
+
+
+
+
+
+  // const [isLiked, setIsLiked] = useState(false);
+  // const [isFollowing, setIsFollowing] = useState(false);
+  // const [creatorName, setCreatorName] = useState("");
+
+  // useEffect(() => {
+  //   const fetchCreatorName = async () => {
+  //     try {
+  //       const response = await axios.get(
+  //         `http://localhost:8080/api/users/${device.user}`,
+  //         {
+  //           headers: {
+  //             Authorization: `Bearer ${authToken}`,
+  //           },
+  //         }
+  //       );
+  //       // setCreatorName(response.data.name);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
+
+  //   fetchCreatorName();
+  // }, [authToken, device.user]);
+
 
   
   // const handleLike = async () => {
@@ -50,44 +69,44 @@ const DeviceCard = ({ authToken, device,userId }) => {
   // };
 // _________________________________________________
 
-  const handleUnlike = async () => {
-    try {
-      await axios.post(
-      `http://localhost:8080/api/devices/remove-like/${device._id}`,
-      { userId},
-      {
-        headers: {
-          Authorization: `Bearer ${authToken}`,
-        },
-      }
-    );
-      setIsLiked(false);
-      device.likes = device.likes.filter((likeId) => likeId !== userId); 
-      console.log("Unliked!");
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const handleUnlike = async () => {
+  //   try {
+  //     await axios.post(
+  //     `http://localhost:8080/api/devices/remove-like/${device._id}`,
+  //     { userId},
+  //     {
+  //       headers: {
+  //         Authorization: `Bearer ${authToken}`,
+  //       },
+  //     }
+  //   );
+  //     setIsLiked(false);
+  //     device.likes = device.likes.filter((likeId) => likeId !== userId); 
+  //     console.log("Unliked!");
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
 // _________________________________________________________
 
-  const handleFollow = async () => {
-    try {
-      await axios.post(
-        `http://localhost:8080/api/users/follow/${userId}`,
-        { deviceId: device._id },
-        {
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-          },
-        }
-      );
-      setIsFollowing(true);
-      console.log("Followed!");
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const handleFollow = async () => {
+  //   try {
+  //     await axios.post(
+  //       `http://localhost:8080/api/users/follow/${userId}`,
+  //       { deviceId: device._id },
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${authToken}`,
+  //         },
+  //       }
+  //     );
+  //     setIsFollowing(true);
+  //     console.log("Followed!");
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 // ____________________________________________________________________
 
   // const handleUnfollow = async () => {
@@ -109,15 +128,7 @@ const DeviceCard = ({ authToken, device,userId }) => {
   // };
 // ______________________________________________________________
 
-  return (
-    <div className={styles.mainContainer}>
-      <div className={styles.card}>
-          <img src={device.picture} alt="device" />
-          <h3 className={styles.title}>{device.name}</h3>
-      </div>
-    </div>     
-  );
-};
+
 
 {/* 
         <div className={styles.btns}>
@@ -141,4 +152,4 @@ const DeviceCard = ({ authToken, device,userId }) => {
       {/* </div> */}
 
 
-export default DeviceCard;
+

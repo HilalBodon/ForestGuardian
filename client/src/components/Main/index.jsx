@@ -4,6 +4,7 @@ import DeviceCard from "../DeviceCard";
 import AddDeviceForm from "../AddDeviceForm";
 import AboutUs from "./AboutUs";
 import HowToUse from './HowToUse';
+import AccountSettings from "./AccountSettings";
 import jwt_decode from "jwt-decode";
 import styles from "./styles.module.css";
 import  {FaBars} from 'react-icons/fa';
@@ -17,6 +18,7 @@ const Main = ({ authToken }) => {
   const [showAddDeviceForm, setShowAddDeviceForm] = useState(false);
   const [showAboutUs, setShowAboutUs] = useState(false); 
   const [showHowToUse, setShowHowToUse] = useState(false);
+  const [showAccountSettings, setShowAccountSettings] = useState(false);
   const [devices, setDevices] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
@@ -26,26 +28,42 @@ const Main = ({ authToken }) => {
   const handleAddDeviceClick = () => {
     setShowAddDeviceForm(!showAddDeviceForm);
     setShowAboutUs(false); 
+    setShowHowToUse(false); 
+    setShowAccountSettings(false); 
+
   };
 
   const handleAboutUsClick = () => {
     setShowAboutUs(true);
     setShowAddDeviceForm(false);
+    setShowHowToUse(false);
+    setShowAccountSettings(false); 
   };
 
   const handleBackClick = () => {
     setShowAboutUs(false);
     setShowHowToUse(false);
-
+    setShowAccountSettings(false); 
   };
+
   const handleCancelClick = () => {
     setShowAddDeviceForm(false);
-  };
+    setShowHowToUse(false);
+    setShowAccountSettings(false); 
+   };
 
-  const handleHowToUseClick = () => {
+   const handleHowToUseClick = () => {
     setShowHowToUse(true);
     setShowAboutUs(false);
     setShowAddDeviceForm(false);
+    setShowAccountSettings(false); 
+  };
+
+  const handleAccountSettingsClick = () => {
+    setShowAccountSettings(true);
+    setShowAboutUs(false);
+    setShowAddDeviceForm(false);
+    setShowHowToUse(false);
   };
 
 
@@ -144,10 +162,10 @@ const Main = ({ authToken }) => {
             <a  onClick={handleHowToUseClick} className={styles.sideMenuItem}>
               How to Use App
             </a>
-            <a href="#" onClick={closeSideMenu} className={styles.sideMenuItem}>
+            <a  onClick={handleAccountSettingsClick} className={styles.sideMenuItem}>
               Account Settings
             </a>
-            <a href="#"  onClick={handleLogout}className={styles.sideMenuItem}> 
+            <a   onClick={handleLogout}className={styles.sideMenuItem}> 
               Logout
             </a>
 
@@ -186,8 +204,10 @@ const Main = ({ authToken }) => {
           />
         ) : showAboutUs ? (
           <AboutUs handleBackClick={handleBackClick} />
-        ) : showHowToUse ? ( 
+        ) : showHowToUse ? (
           <HowToUse handleBackClick={handleBackClick} />
+        ) : showAccountSettings ? ( 
+          <AccountSettings handleBackClick={handleBackClick} />
         ) : (
           devices.map((device) => (
             <DeviceCard

@@ -9,11 +9,11 @@ mongoose.model('User', User.schema);
 // ___________________________________________________
 router.post('/',authMiddleware, async (req, res) => {
     try {
-      const { devicename, devicePass,treeType, treeHeigh, location,details,picture } = req.body;
+      const { deviceName, devicePass,treeType, treeHeigh, location,details,picture } = req.body;
 
       const userId = req.user._id;
       const user = await User.findById(userId);
-      const newDevice = new Device({devicename, devicePass,treeType, treeHeigh, location,details,picture });
+      const newDevice = new Device({deviceName, devicePass,treeType, treeHeigh, location,details,picture ,user:user._id});
       await newDevice.save();
       res.status(201).send(newDevice);
     } catch (error) {
