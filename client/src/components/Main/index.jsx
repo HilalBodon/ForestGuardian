@@ -6,10 +6,12 @@ import AboutUs from "./AboutUs";
 import HowToUse from './HowToUse';
 import AccountSettings from "./AccountSettings";
 import Dropdown from './DropDown';
+import History from './DropDown/History';
+import SettingsPage from './DropDown/SettingsPage';
+import Analytics from './DropDown/Analytics';
 import jwt_decode from "jwt-decode";
 import styles from "./styles.module.css";
 import  {FaBars} from 'react-icons/fa';
-import  {FaEllipsisV} from 'react-icons/fa';
 import nameLogo from "../../assets/images/nameLogo.svg";
 import greenLogo from "../../assets/images/GreenLogo.svg";
 
@@ -24,7 +26,45 @@ const Main = ({ authToken }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const sideMenuRef = useRef(null);
+  const [currentPage, setCurrentPage] = useState(null);
+  const [showSettings, setShowSettings] = useState(false);
+  const [showHistory, setShowHistory] = useState(false);
+  const [showAnalytics, setShowAnalytics] = useState(false);
 
+
+
+  const handleSettingsClick = () => {
+    setShowSettings(!showSettings);
+    setShowAddDeviceForm(false); 
+    setShowAboutUs(false); 
+    setShowHowToUse(false); 
+    setShowAccountSettings(false); 
+    setShowHistory(false); 
+    setShowAnalytics(false)
+
+  };
+  
+  const handleHistoryClick = () => {
+    setShowHistory(!showHistory);
+    setShowSettings(false); 
+    setShowAddDeviceForm(false); 
+    setShowAboutUs(false); 
+    setShowHowToUse(false); 
+    setShowAccountSettings(false); 
+    setShowAnalytics(false)
+
+  };
+  
+  const handleAnalyticsClick = () => {
+    setShowAnalytics(!showAnalytics);
+    setShowHistory(false);
+    setShowSettings(false); 
+    setShowAddDeviceForm(false); 
+    setShowAboutUs(false); 
+    setShowHowToUse(false); 
+    setShowAccountSettings(false); 
+  };
+  
 
   const handleAddDeviceClick = () => {
     setShowAddDeviceForm(!showAddDeviceForm);
@@ -45,13 +85,11 @@ const Main = ({ authToken }) => {
     setShowAboutUs(false);
     setShowHowToUse(false);
     setShowAccountSettings(false); 
+    setShowSettings(false)
+    setShowHistory(false)
+    setShowAnalytics(false);
   };
 
-  const handleCancelClick = () => {
-    setShowAddDeviceForm(false);
-    setShowHowToUse(false);
-    setShowAccountSettings(false); 
-   };
 
    const handleHowToUseClick = () => {
     setShowHowToUse(true);
@@ -134,6 +172,43 @@ const Main = ({ authToken }) => {
 
 
 
+
+  const renderContent = () => {
+    if (showAddDeviceForm) {
+      return (
+      <AddDeviceForm
+        authToken={authToken}
+        onDeviceAdded={handleDeviceAdded}
+        setShowAddDeviceForm={setShowAddDeviceForm}
+        handleBackClick={handleBackClick} // Pass the handleBackClick prop
+      />
+      );
+    } else if (showAboutUs) {
+      return <AboutUs handleBackClick={handleBackClick} />;
+    } else if (showHowToUse) {
+      return <HowToUse handleBackClick={handleBackClick} />;
+    } else if (showAccountSettings) {
+      return <AccountSettings handleBackClick={handleBackClick} />;
+    } else if (showSettings) {
+      return <SettingsPage />;
+    } else if (showHistory) {
+      return <History />;
+    } else if (showAnalytics) {
+      return <Analytics />;
+    } else {
+      return devices.map((device) => (
+        <DeviceCard
+          key={device._id}
+          device={device}
+          authToken={authToken}
+          userId={userId}
+        />
+      ));
+    }
+  };
+  
+
+
   return (
     <div className={styles.main_container}>
       <nav className={styles.navbar}>
@@ -177,32 +252,30 @@ const Main = ({ authToken }) => {
         </div>
         <div className={styles.logoDot}>
           <div><img className={styles.nameLogo} src={nameLogo} alt="NameLogo" /></div>
-          {/* <div className={styles.dotesIconDiv}>
-            <FaEllipsisV className={styles.dotesIcon} onClick={toggleDropdown} />
-            {isDropdownOpen && (
-              <div className={styles.dropdownContent}>
-                <a href="#" onClick={closeDropdown} className={styles.dropdownItem}>
-                  <span className={styles.icon}>🔧</span> Settings
-                </a>
-                <a href="#" onClick={closeDropdown} className={styles.dropdownItem}>
-                  <span className={styles.icon}>🕒</span> History
-                </a>
-                <a href="#" onClick={closeDropdown} className={styles.dropdownItem}>
-                  <span className={styles.icon}>📊</span> Analytics
-                </a>
-              </div>
-            )}
-          </div> */}
 
-      <Dropdown
-        isDropdownOpen={isDropdownOpen}
-        toggleDropdown={toggleDropdown}
-        closeDropdown={closeDropdown}
-      />
+          <Dropdown
+            isDropdownOpen={isDropdownOpen}
+            toggleDropdown={toggleDropdown}
+            closeDropdown={closeDropdown}
+            handleSettingsClick={handleSettingsClick}
+            handleHistoryClick={handleHistoryClick}
+            handleAnalyticsClick={handleAnalyticsClick}
+            handleBackClick={handleBackClick}
+          />
+
+
         </div>
       </nav>
 
       <div className={styles.devices_container}>
+        {renderContent()}
+      </div>
+
+
+
+
+
+      {/* <div className={styles.devices_container}>
         {showAddDeviceForm ? (
           <AddDeviceForm
             authToken={authToken}
@@ -215,7 +288,18 @@ const Main = ({ authToken }) => {
           <HowToUse handleBackClick={handleBackClick} />
         ) : showAccountSettings ? ( 
           <AccountSettings handleBackClick={handleBackClick} />
-        ) : (
+        ) : 
+           currentPage === 'settings' ? (
+            // Render the SettingsPage component here
+            <SettingsPage />
+          ) : currentPage === 'history' ? (
+            // Render the HistoryPage component here
+            <History />
+          ) : currentPage === 'analytics' ? (
+            // Render the AnalyticsPage component here
+            <Analytics />
+          ) :(
+
           devices.map((device) => (
             <DeviceCard
               key={device._id}
@@ -225,7 +309,8 @@ const Main = ({ authToken }) => {
             />
           ))
         )}
-      </div>
+      </div> */}
+
     </div>
   );
 };
@@ -235,16 +320,13 @@ export default Main;
 
 
 
-
-
-
-
-
 // import React, { useState, useEffect, useRef } from 'react';
 // import axios from "axios";
 // import DeviceCard from "../DeviceCard";
 // import AddDeviceForm from "../AddDeviceForm";
 // import AboutUs from "./AboutUs";
+// import HowToUse from "./HowToUse"; // Import your HowToUse component
+// import AccountSettings from "./AccountSettings"; // Import your AccountSettings component
 // import jwt_decode from "jwt-decode";
 // import styles from "./styles.module.css";
 // import { FaBars } from 'react-icons/fa';
@@ -254,98 +336,38 @@ export default Main;
 
 // import SideMenu from '../SideMenu';
 // import Navbar from '../NavBar';
+
 // const Main = ({ authToken }) => {
 //   const [userId, setUserId] = useState(null);
 //   const [showAddDeviceForm, setShowAddDeviceForm] = useState(false);
-//   const [showAboutUs, setShowAboutUs] = useState(false);
 //   const [devices, setDevices] = useState([]);
 //   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 //   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+//   const [currentContent, setCurrentContent] = useState("devices"); // Manage current content state
 //   const sideMenuRef = useRef(null);
 
 //   const handleAddDeviceClick = () => {
-//     setShowAddDeviceForm(!showAddDeviceForm);
-//     setShowAboutUs(false);
+//     setCurrentContent("addDevice"); // Set the current content to "addDevice"
+//     setShowAddDeviceForm(true);
 //   };
 
 //   const handleAboutUsClick = () => {
-//     setShowAboutUs(true);
+//     setCurrentContent("aboutUs"); // Set the current content to "aboutUs"
 //     setShowAddDeviceForm(false);
 //   };
 
-//   const handleBackClick = () => {
-//     setShowAboutUs(false);
-//   };
-
-//   const handleCancelClick = () => {
+//   const handleHowToUseClick = () => {
+//     setCurrentContent("howToUse"); // Set the current content to "howToUse"
 //     setShowAddDeviceForm(false);
 //   };
 
-//   const handleLogout = () => {
-//     localStorage.removeItem("token");
-//     window.location.reload();
+//   const handleAccountSettingsClick = () => {
+//     setCurrentContent("accountSettings"); // Set the current content to "accountSettings"
+//     setShowAddDeviceForm(false);
 //   };
 
-//   useEffect(() => {
-//     const decodedToken = jwt_decode(authToken);
-//     const fetchedUserId = decodedToken._id;
-//     setUserId(fetchedUserId);
+//   // Rest of your code...
 
-//     const fetchDevices = async () => {
-//       try {
-//         const response = await axios.get("http://localhost:8080/api/devices", {
-//           headers: {
-//             Authorization: `Bearer ${authToken}`,
-//           },
-//         });
-//         setDevices(response.data);
-//       } catch (error) {
-//         console.error(error);
-//       }
-//     };
-//     fetchDevices();
-//   }, [authToken]);
-
-//   const handleDeviceAdded = (newDevice) => {
-//     setDevices([...devices, newDevice]);
-//   };
-
-//   const toggleDropdown = () => {
-//     setIsDropdownOpen(!isDropdownOpen);
-//   };
-
-//   const closeDropdown = () => {
-//     setIsDropdownOpen(false);
-//   };
-
-//   const toggleSideMenu = () => {
-//     setIsSideMenuOpen(!isSideMenuOpen);
-//     setIsDropdownOpen(false);
-//   };
-
-//   const closeSideMenu = () => {
-//     setIsSideMenuOpen(false);
-//     setIsDropdownOpen(false);
-//   };
-
-//   useEffect(() => {
-//     const handleOutsideClick = (e) => {
-//       if (isSideMenuOpen && !sideMenuRef.current.contains(e.target)) {
-//         closeSideMenu();
-//       }
-//     };
-
-//     if (isSideMenuOpen) {
-//       window.addEventListener('click', handleOutsideClick);
-//     } else {
-//       window.removeEventListener('click', handleOutsideClick);
-//     }
-//     return () => {
-//       window.removeEventListener('click', handleOutsideClick);
-//     };
-//   }, [isSideMenuOpen]);
-
-  
 //   return (
 //     <div className={styles.main_container}>
 //       <Navbar
@@ -355,15 +377,8 @@ export default Main;
 //         handleLogout={handleLogout}
 //       />
 //       <div className={styles.devices_container}>
-//         {showAddDeviceForm ? (
-//           <AddDeviceForm
-//             authToken={authToken}
-//             onDeviceAdded={handleDeviceAdded}
-//             setShowAddDeviceForm={setShowAddDeviceForm}
-//           />
-//         ) : showAboutUs ? (
-//           <AboutUs handleBackClick={handleBackClick} />
-//         ) : (
+//         {currentContent === "devices" && (
+//           // Render your Devices content here
 //           devices.map((device) => (
 //             <DeviceCard
 //               key={device._id}
@@ -373,8 +388,36 @@ export default Main;
 //             />
 //           ))
 //         )}
+//         {currentContent === "addDevice" && (
+//           // Render your AddDeviceForm component here
+//           <AddDeviceForm
+//             authToken={authToken}
+//             onDeviceAdded={handleDeviceAdded}
+//             setShowAddDeviceForm={setShowAddDeviceForm}
+//           />
+//         )}
+//         {currentContent === "aboutUs" && (
+//           // Render your AboutUs component here
+//           <AboutUs handleBackClick={handleBackClick} />
+//         )}
+//         {currentContent === "howToUse" && (
+//           // Render your HowToUse component here
+//           <HowToUse handleBackClick={handleBackClick} />
+//         )}
+//         {currentContent === "accountSettings" && (
+//           // Render your AccountSettings component here
+//           <AccountSettings />
+//         )}
 //       </div>
-
+//       <SideMenu
+//         sideMenuRef={sideMenuRef}
+//         setShowAddDeviceForm={setShowAddDeviceForm}
+//         handleAboutUsClick={handleAboutUsClick}
+//         handleHowToUseClick={handleHowToUseClick}
+//         handleAccountSettingsClick={handleAccountSettingsClick}
+//         closeSideMenu={closeSideMenu}
+//         handleLogout={handleLogout}
+//       />
 //     </div>
 //   );
 // };

@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 import styles from "./AddDeviceForm.module.css";
 
-const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm }) => {
+const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm, handleBackClick }) => {
   const [formData, setFormData] = useState({
     deviceName: "",
     devicePass: "",
     treeType: "",
-    treeHeight: "", // Corrected the property name
+    treeHeight: "",
     location: "",
     details: "",
     picture: "",
@@ -30,7 +30,7 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm }) => {
         deviceName: "",
         devicePass: "",
         treeType: "",
-        treeHeight: "", // Corrected the property name
+        treeHeight: "",
         location: "",
         details: "",
         picture: "",
@@ -52,13 +52,15 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm }) => {
       deviceName: "",
       devicePass: "",
       treeType: "",
-      treeHeight: "", // Corrected the property name
+      treeHeight: "",
       location: "",
       details: "",
       picture: "",
     });
     setShowAddDeviceForm(false);
+    handleBackClick();
   };
+  
 
   return (
     <div className={styles.formContainer}>
