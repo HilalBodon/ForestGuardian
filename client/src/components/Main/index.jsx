@@ -190,11 +190,11 @@ const Main = ({ authToken }) => {
     } else if (showAccountSettings) {
       return <AccountSettings handleBackClick={handleBackClick} />;
     } else if (showSettings) {
-      return <SettingsPage />;
+      return <SettingsPage handleBackClick={handleBackClick}/>;
     } else if (showHistory) {
-      return <History />;
+      return <History handleBackClick={handleBackClick} />;
     } else if (showAnalytics) {
-      return <Analytics />;
+      return <Analytics handleBackClick={handleBackClick}/>;
     } else {
       return devices.map((device) => (
         <DeviceCard

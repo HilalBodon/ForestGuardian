@@ -1,10 +1,10 @@
 import React from "react";
 
-const SettingsPage = ({ handlePageChange }) => {
+const SettingsPage = ({ handleBackClick }) => {
   return (
     <div>
       <h2>Settings</h2>
-      <button onClick={() => handlePageChange('devices')}>Back</button>
+      <button onClick={handleBackClick}>Back</button>
     </div>
   );
 };

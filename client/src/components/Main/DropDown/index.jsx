@@ -55,9 +55,6 @@ const Dropdown = ({
             <a onClick={() => { handleAnalyticsClick(); closeDropdown(); }} className={styles.dropdownItem}>
               <span className={styles.icon}>📊</span> Analytics
             </a>
-            <a onClick={() => { handleBackClick(); closeDropdown(); }} className={styles.dropdownItem}>
-              <span className={styles.icon}>⬅️</span> Back
-            </a>
           </div>
         )}
       </div>
