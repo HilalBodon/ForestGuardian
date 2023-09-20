@@ -27,7 +27,7 @@
 
 }
 .settingItem input{
-    border-bottom: 1px solid ;
+    border-bottom: 1px solid darkolivegreen ;
     width: 50vw;
 }
 
@@ -51,4 +51,9 @@
     cursor: pointer;
     margin:15px;
 
+}
+
+.editIcon{
+    color: #3E6751;
+    font-size: x-large;
 }
