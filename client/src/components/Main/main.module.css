@@ -155,9 +155,11 @@
 
   }
   .navbarHead{
+
 	color: #ffffff;
 	align-self: self-start;
 	margin-top: 4px;
+	padding-left: 1.5rem;
 	font-family: 'Barlow Condensed', sans-serif;
 	font-weight: 300;
 	font-size: xx-large;

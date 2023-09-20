@@ -12,6 +12,7 @@ import Analytics from './DropDown/Analytics';
 import jwt_decode from "jwt-decode";
 import styles from "./main.module.css";
 import  {FaBars} from 'react-icons/fa';
+import {RiUserSettingsFill} from 'react-icons/ri';
 import nameLogo from "../../assets/images/nameLogo.svg";
 import greenLogo from "../../assets/images/GreenLogo.svg";
 
@@ -268,7 +269,7 @@ const Main = ({ authToken }) => {
   ) : showHowToUse ? (
     <h1 className={styles.navbarHead}>How to Use</h1>
   ): showAccountSettings ? (
-    <h1 className={styles.navbarHead}>Account Settings</h1>
+    <h1 className={styles.navbarHead}> Account Settings<RiUserSettingsFill className={styles.navbarHead}/></h1>
   ) : (
     <div><img className={styles.nameLogo} src={nameLogo} alt="NameLogo" /></div>
   )}
@@ -299,109 +300,3 @@ const Main = ({ authToken }) => {
 
 export default Main;
 
-
-
-
-// import React, { useState, useEffect, useRef } from 'react';
-// import axios from "axios";
-// import DeviceCard from "../DeviceCard";
-// import AddDeviceForm from "../AddDeviceForm";
-// import AboutUs from "./AboutUs";
-// import HowToUse from "./HowToUse"; // Import your HowToUse component
-// import AccountSettings from "./AccountSettings"; // Import your AccountSettings component
-// import jwt_decode from "jwt-decode";
-// import styles from "./styles.module.css";
-// import { FaBars } from 'react-icons/fa';
-// import { FaEllipsisV } from 'react-icons/fa';
-// import nameLogo from "../../assets/images/nameLogo.svg";
-// import greenLogo from "../../assets/images/GreenLogo.svg";
-
-// import SideMenu from '../SideMenu';
-// import Navbar from '../NavBar';
-
-// const Main = ({ authToken }) => {
-//   const [userId, setUserId] = useState(null);
-//   const [showAddDeviceForm, setShowAddDeviceForm] = useState(false);
-//   const [devices, setDevices] = useState([]);
-//   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-//   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
-//   const [currentContent, setCurrentContent] = useState("devices"); // Manage current content state
-//   const sideMenuRef = useRef(null);
-
-//   const handleAddDeviceClick = () => {
-//     setCurrentContent("addDevice"); // Set the current content to "addDevice"
-//     setShowAddDeviceForm(true);
-//   };
-
-//   const handleAboutUsClick = () => {
-//     setCurrentContent("aboutUs"); // Set the current content to "aboutUs"
-//     setShowAddDeviceForm(false);
-//   };
-
-//   const handleHowToUseClick = () => {
-//     setCurrentContent("howToUse"); // Set the current content to "howToUse"
-//     setShowAddDeviceForm(false);
-//   };
-
-//   const handleAccountSettingsClick = () => {
-//     setCurrentContent("accountSettings"); // Set the current content to "accountSettings"
-//     setShowAddDeviceForm(false);
-//   };
-
-//   // Rest of your code...
-
-//   return (
-//     <div className={styles.main_container}>
-//       <Navbar
-//         toggleSideMenu={toggleSideMenu}
-//         isSideMenuOpen={isSideMenuOpen}
-//         authToken={authToken}
-//         handleLogout={handleLogout}
-//       />
-//       <div className={styles.devices_container}>
-//         {currentContent === "devices" && (
-//           // Render your Devices content here
-//           devices.map((device) => (
-//             <DeviceCard
-//               key={device._id}
-//               device={device}
-//               authToken={authToken}
-//               userId={userId}
-//             />
-//           ))
-//         )}
-//         {currentContent === "addDevice" && (
-//           // Render your AddDeviceForm component here
-//           <AddDeviceForm
-//             authToken={authToken}
-//             onDeviceAdded={handleDeviceAdded}
-//             setShowAddDeviceForm={setShowAddDeviceForm}
-//           />
-//         )}
-//         {currentContent === "aboutUs" && (
-//           // Render your AboutUs component here
-//           <AboutUs handleBackClick={handleBackClick} />
-//         )}
-//         {currentContent === "howToUse" && (
-//           // Render your HowToUse component here
-//           <HowToUse handleBackClick={handleBackClick} />
-//         )}
-//         {currentContent === "accountSettings" && (
-//           // Render your AccountSettings component here
-//           <AccountSettings />
-//         )}
-//       </div>
-//       <SideMenu
-//         sideMenuRef={sideMenuRef}
-//         setShowAddDeviceForm={setShowAddDeviceForm}
-//         handleAboutUsClick={handleAboutUsClick}
-//         handleHowToUseClick={handleHowToUseClick}
-//         handleAccountSettingsClick={handleAccountSettingsClick}
-//         closeSideMenu={closeSideMenu}
-//         handleLogout={handleLogout}
-//       />
-//     </div>
-//   );
-// };
-
-// export default Main;

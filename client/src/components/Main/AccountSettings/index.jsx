@@ -4,11 +4,9 @@ import styles from "./AccountSettings.css";
 const AccountSettings = ({ handleBackClick }) => {
   return (
     <div className={styles.accountSettingsContainer}>
-      <h2>Account Settings</h2>
-      {/* Add your account settings UI here */}
       <div className={styles.settingItem}>
-        <label htmlFor="userId">User ID</label>
-        <input type="text" id="userId" name="userId" />
+        <label htmlFor="userEmail">User Email</label>
+        <input type="text" id="userEmail" name="userEmail" disabled />
       </div>
       <div className={styles.settingItem}>
         <label htmlFor="password">Password</label>
