@@ -21,7 +21,22 @@ router.post('/',authMiddleware, async (req, res) => {
       res.status(500).send({ message: "Internal Server Error" });
     }
   });
-//   _____________________________________________________
+
+
+  // ________________________________________________________
+    router.get('/',authMiddleware, async (req, res) => {
+      try {
+      const devices = await Device.find();
+      res.status(200).send(devices);
+    } catch (error) {
+      res.status(500).send({ message: "Internal Server Error" });
+    }
+  });
+
+
+  module.exports = router;
+
+  // _______________________________________________________
 
 //   router.get('/my-devices', authMiddleware, async (req, res) => {
 //     try {
@@ -33,20 +48,10 @@ router.post('/',authMiddleware, async (req, res) => {
 //         res.status(500).send({ message: "Internal Server Error" });
 //     }
 // });
+//   _____________________________________________________
 
 
-// ________________________________________________________
-  router.get('/',authMiddleware, async (req, res) => {
-    try {
-    const devices = await Device.find();
-    res.status(200).send(devices);
-  } catch (error) {
-    res.status(500).send({ message: "Internal Server Error" });
-  }
-});
-// _______________________________________________________
 
-module.exports = router;
 
 
 // router.get('/discover',authMiddleware, async (req, res) => {

@@ -10,7 +10,7 @@ import History from './DropDown/History';
 import SettingsPage from './DropDown/SettingsPage';
 import Analytics from './DropDown/Analytics';
 import jwt_decode from "jwt-decode";
-import styles from "./styles.module.css";
+import styles from "./main.module.css";
 import  {FaBars} from 'react-icons/fa';
 import nameLogo from "../../assets/images/nameLogo.svg";
 import greenLogo from "../../assets/images/GreenLogo.svg";
@@ -270,46 +270,6 @@ const Main = ({ authToken }) => {
       <div className={styles.devices_container}>
         {renderContent()}
       </div>
-
-
-
-
-
-      {/* <div className={styles.devices_container}>
-        {showAddDeviceForm ? (
-          <AddDeviceForm
-            authToken={authToken}
-            onDeviceAdded={handleDeviceAdded}
-            setShowAddDeviceForm={setShowAddDeviceForm}
-          />
-        ) : showAboutUs ? (
-          <AboutUs handleBackClick={handleBackClick} />
-        ) : showHowToUse ? (
-          <HowToUse handleBackClick={handleBackClick} />
-        ) : showAccountSettings ? ( 
-          <AccountSettings handleBackClick={handleBackClick} />
-        ) : 
-           currentPage === 'settings' ? (
-            // Render the SettingsPage component here
-            <SettingsPage />
-          ) : currentPage === 'history' ? (
-            // Render the HistoryPage component here
-            <History />
-          ) : currentPage === 'analytics' ? (
-            // Render the AnalyticsPage component here
-            <Analytics />
-          ) :(
-
-          devices.map((device) => (
-            <DeviceCard
-              key={device._id}
-              device={device}
-              authToken={authToken}
-              userId={userId}
-            />
-          ))
-        )}
-      </div> */}
 
     </div>
   );
