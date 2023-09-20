@@ -229,7 +229,6 @@ const Main = ({ authToken }) => {
             <a onClick={() => {setShowAddDeviceForm(true) }} 
           className={styles.sideMenuItem}>
               Add Device
-
             </a>
 
             <a onClick={handleAboutUsClick} className={styles.sideMenuItem}>
@@ -251,7 +250,16 @@ const Main = ({ authToken }) => {
           </div>
         </div>
         <div className={styles.logoDot}>
+          {/* <div><img className={styles.nameLogo} src={nameLogo} alt="NameLogo" /></div> */}
+         
+          <div className={styles.devices_container}>
+        {showAddDeviceForm ? (
+          <h1 className={styles.navbarHead}>Add New Device</h1>
+        ) : (
           <div><img className={styles.nameLogo} src={nameLogo} alt="NameLogo" /></div>
+
+        )}
+      </div>
 
           <Dropdown
             isDropdownOpen={isDropdownOpen}
@@ -262,8 +270,6 @@ const Main = ({ authToken }) => {
             handleAnalyticsClick={handleAnalyticsClick}
             handleBackClick={handleBackClick}
           />
-
-
         </div>
       </nav>
 
