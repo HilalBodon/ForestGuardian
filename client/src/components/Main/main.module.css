@@ -101,14 +101,15 @@
   }
   
   .sideMenuContent {
-	padding: 40px;
+	padding: 50px;
 	color: #ffffff;
-	font-weight: 200;
+	font-weight: 300;
+	font-size: 18px;
   }
   
   .sideMenuItem {
 	display: block;
-	padding: 10px 0;
+	padding: 15px 0;
 	color: #ffffff;
 	text-decoration: none;
 	transition: background-color 0.3s ease;
@@ -141,7 +142,7 @@
 	place-items: center; 
   }
   .greenLogo img{
-	width: 80%;
+	width: 90%;
   }
 
   .sideMenuMain{

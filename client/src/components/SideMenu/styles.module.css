@@ -19,7 +19,7 @@
   .sideMenuContent {
 	padding: 40px;
 	color: #ffffff;
-	font-weight: 200;
+	font-weight: 300;
   }
   
   .sideMenuItem {
@@ -62,7 +62,6 @@
 
   .sideMenuMain{
 	height: 100%;
-    background-color: aqua;
   }
 
   .sidenameLogo{
