@@ -262,11 +262,13 @@ const Main = ({ authToken }) => {
          
         <div className={styles.devices_container}>
   {showAddDeviceForm ? (
-  //   <h1 className={styles.navbarHead}>Add New Device</h1>
-  // ) : showAboutUs ? (
+    <h1 className={styles.navbarHead}>Add New Device</h1>
+  ) : showAboutUs ? (
     <h1 className={styles.navbarHead}>About Us</h1>
   ) : showHowToUse ? (
     <h1 className={styles.navbarHead}>How to Use</h1>
+  ): showAccountSettings ? (
+    <h1 className={styles.navbarHead}>Account Settings</h1>
   ) : (
     <div><img className={styles.nameLogo} src={nameLogo} alt="NameLogo" /></div>
   )}
