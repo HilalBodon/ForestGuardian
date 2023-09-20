@@ -2,13 +2,18 @@ import React from 'react';
 import styles from "./AccountSettings.module.css";
 import {FaUserAlt} from "react-icons/fa";
 import {RiLockPasswordFill} from "react-icons/ri";
-
+import {BsFillQuestionSquareFill} from "react-icons/bs";  
 const AccountSettings = ({ handleBackClick }) => {
   return (
     <div className={styles.accountSettingsContainer}>
       <div className={styles.iconDiv}>
       <FaUserAlt className={styles.icon}/>
       <RiLockPasswordFill className={styles.icon}/>
+      <BsFillQuestionSquareFill className={styles.icon}/>
+      <BsFillQuestionSquareFill className={styles.icon}/>
+      <BsFillQuestionSquareFill className={styles.icon}/>
+      <BsFillQuestionSquareFill className={styles.icon}/>
+
       </div>
       <div className={styles.settingItem}>
         <label htmlFor="userId">User ID</label>
