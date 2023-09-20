@@ -1,3 +1,7 @@
+.mainDiv{
+    display: flex;
+    flex-direction: column; 
+}
 .accountSettingsContainer{
 
     width: 98vw;
@@ -53,13 +57,20 @@
 
 .editIcon{
     color: #3E6751;
-    font-size: x-large;
+    font-size: xx-large;
 }
 
-.inputsDiv,.editDiv{
+.inputsDiv,.editDiv,.iconsDiv,.labelsDiv{
 
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    /* justify-content: center; */
+    background-color: antiquewhite;
+    gap: 15px;
+}
+.labelsDiv{
+width: max-content;
+}
+.inputsDiv{
+    /* width: 50px; */
 }

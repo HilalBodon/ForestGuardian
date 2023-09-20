@@ -62,7 +62,7 @@ import {BiSolidEditAlt} from "react-icons/bi";
 const AccountSettings = ({ handleBackClick }) => {
 
   return (
-
+    <div className={styles.mainDiv}>
     <div className={styles.accountSettingsContainer}>
 
     <div className={styles.iconsDiv}>
@@ -99,22 +99,8 @@ const AccountSettings = ({ handleBackClick }) => {
       <BiSolidEditAlt className={styles.editIcon}/>
       <BiSolidEditAlt className={styles.editIcon}/>
     </div>
-{/* 
 
-      <div className={styles.settingItem}>
-      </div>
-      <div className={styles.settingItem}>
-
-      </div>
-      <div className={styles.settingItem}>
-
-      </div>
-      <div className={styles.settingItem}>
-
-      </div>
-      <div className={styles.settingItem}>
-
-      </div> */}
+    </div>
       <button className={styles.button} onClick={handleBackClick}>Back</button>
     </div>
   );
