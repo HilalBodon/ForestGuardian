@@ -1,0 +1,17 @@
+
+.mainContainer {
+    /* display:flex; */
+    padding: 5%;
+    font-size: 16px;
+}
+
+.button{
+    margin-top: 5%;
+    background-color: #3E6751;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+}

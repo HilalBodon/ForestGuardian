@@ -250,16 +250,19 @@ const Main = ({ authToken }) => {
           </div>
         </div>
         <div className={styles.logoDot}>
-          {/* <div><img className={styles.nameLogo} src={nameLogo} alt="NameLogo" /></div> */}
          
-          <div className={styles.devices_container}>
-        {showAddDeviceForm ? (
-          <h1 className={styles.navbarHead}>Add New Device</h1>
-        ) : (
-          <div><img className={styles.nameLogo} src={nameLogo} alt="NameLogo" /></div>
+        <div className={styles.devices_container}>
+  {showAddDeviceForm ? (
+    <h1 className={styles.navbarHead}>Add New Device</h1>
+  ) : showAboutUs ? (
+    <h1 className={styles.navbarHead}>About Us</h1>
+  ) : showHowToUse ? (
+    <h1 className={styles.navbarHead}>How to Use</h1>
+  ) : (
+    <div><img className={styles.nameLogo} src={nameLogo} alt="NameLogo" /></div>
+  )}
+</div>
 
-        )}
-      </div>
 
           <Dropdown
             isDropdownOpen={isDropdownOpen}
