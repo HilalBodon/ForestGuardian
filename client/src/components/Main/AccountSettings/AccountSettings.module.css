@@ -2,11 +2,9 @@
 
     width: 98vw;
     max-width: 500px;
-    height: 88vh;
     display: flex;
-    justify-content: flex-start;
-    align-items: start;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 2px;
 }
 
 .icon{
@@ -56,4 +54,12 @@
 .editIcon{
     color: #3E6751;
     font-size: x-large;
+}
+
+.inputsDiv,.editDiv{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* justify-content: center; */
 }

@@ -71,7 +71,6 @@ const AccountSettings = ({ handleBackClick }) => {
       <BsFillQuestionSquareFill className={styles.icon}/>
       <MdAlternateEmail className={styles.icon}/>
       <BsFillTelephoneFill className={styles.icon}/>
-
     </div>
 
 
@@ -94,12 +93,13 @@ const AccountSettings = ({ handleBackClick }) => {
 
 
     <div className={styles.editDiv}>
+      <p></p>
       <BiSolidEditAlt className={styles.editIcon}/>
       <BiSolidEditAlt className={styles.editIcon}/>
       <BiSolidEditAlt className={styles.editIcon}/>
       <BiSolidEditAlt className={styles.editIcon}/>
     </div>
-
+{/* 
 
       <div className={styles.settingItem}>
       </div>
@@ -114,7 +114,7 @@ const AccountSettings = ({ handleBackClick }) => {
       </div>
       <div className={styles.settingItem}>
 
-      </div>
+      </div> */}
       <button className={styles.button} onClick={handleBackClick}>Back</button>
     </div>
   );
