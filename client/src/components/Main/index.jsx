@@ -26,6 +26,8 @@ const Main = ({ authToken }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const sideMenuRef = useRef(null);
+  const dropdownRef = useRef(null);
+
   const [currentPage, setCurrentPage] = useState(null);
   const [showSettings, setShowSettings] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
@@ -153,23 +155,30 @@ const Main = ({ authToken }) => {
     setIsDropdownOpen(false);    
   };
 
-  useEffect(() => {
-    const handleOutsideClick = (e) => {
-      if (isSideMenuOpen && !sideMenuRef.current.contains(e.target)) {
-        closeSideMenu();
+
+    useEffect(() => {
+      const handleOutsideClick = (e) => {
+        if (
+          (isSideMenuOpen && !sideMenuRef.current?.contains(e.target)) ||
+          (isDropdownOpen && !dropdownRef.current?.contains(e.target))
+        ) {
+          closeSideMenu();
+          closeDropdown();
+        }
+      };
+
+      if (isSideMenuOpen || isDropdownOpen) {
+        window.addEventListener('click', handleOutsideClick);
+      } else {
+        window.removeEventListener('click', handleOutsideClick);
       }
-    };
 
-    if (isSideMenuOpen) {
-      window.addEventListener('click', handleOutsideClick);
-    } else {
-      window.removeEventListener('click', handleOutsideClick);
-    }
-    return () => {
-      window.removeEventListener('click', handleOutsideClick);
-    };
-  }, [isSideMenuOpen]);
+      return () => {
+        window.removeEventListener('click', handleOutsideClick);
+      };
+    }, [isSideMenuOpen, isDropdownOpen]);
 
+  
 
 
 
@@ -264,15 +273,17 @@ const Main = ({ authToken }) => {
 </div>
 
 
-          <Dropdown
-            isDropdownOpen={isDropdownOpen}
-            toggleDropdown={toggleDropdown}
-            closeDropdown={closeDropdown}
-            handleSettingsClick={handleSettingsClick}
-            handleHistoryClick={handleHistoryClick}
-            handleAnalyticsClick={handleAnalyticsClick}
-            handleBackClick={handleBackClick}
-          />
+      <Dropdown
+        ref={dropdownRef}
+        isDropdownOpen={isDropdownOpen}
+        toggleDropdown={toggleDropdown}
+        closeDropdown={closeDropdown}
+        handleSettingsClick={handleSettingsClick}
+        handleHistoryClick={handleHistoryClick}
+        handleAnalyticsClick={handleAnalyticsClick}
+        handleBackClick={handleBackClick}
+      />
+
         </div>
       </nav>
 
