@@ -66,7 +66,7 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm, handleB
   return (
     <div className={styles.formContainer}>
       <div className={styles.camIcon}><PiCameraPlusBold onClick="" /></div>
-      <form onSubmit={handleFormSubmit}>
+      <form className={styles.formStyle} onSubmit={handleFormSubmit}>
         <input
           type="text"
           placeholder="Device Name"

@@ -262,8 +262,8 @@ const Main = ({ authToken }) => {
          
         <div className={styles.devices_container}>
   {showAddDeviceForm ? (
-    <h1 className={styles.navbarHead}>Add New Device</h1>
-  ) : showAboutUs ? (
+  //   <h1 className={styles.navbarHead}>Add New Device</h1>
+  // ) : showAboutUs ? (
     <h1 className={styles.navbarHead}>About Us</h1>
   ) : showHowToUse ? (
     <h1 className={styles.navbarHead}>How to Use</h1>
