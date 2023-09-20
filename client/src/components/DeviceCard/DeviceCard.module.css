@@ -1,9 +1,7 @@
-/* .mainContainer{
+.mainContainer{
   display:flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  background-color: rgb(23, 79, 128);
-} */
+  justify-content: center;
+}
 .card {
     display:flex;
     flex-direction: column;
