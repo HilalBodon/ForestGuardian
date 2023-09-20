@@ -63,9 +63,13 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm, handleB
   };
   
 
+  const handleCameraIconClick = () => {
+console.log("camera")
+  };
+
   return (
     <div className={styles.formContainer}>
-      <div className={styles.camIcon}><PiCameraPlusBold onClick="" /></div>
+      <div className={styles.camIcon}><PiCameraPlusBold onClick={handleCameraIconClick}/></div>
       <form className={styles.formStyle} onSubmit={handleFormSubmit}>
         <input
           type="text"
