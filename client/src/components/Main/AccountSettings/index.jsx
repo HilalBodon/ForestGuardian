@@ -94,26 +94,25 @@ const AccountSettings = ({ handleBackClick }) => {
 
 
     <div className={styles.editDiv}>
-
+      <BiSolidEditAlt className={styles.editIcon}/>
+      <BiSolidEditAlt className={styles.editIcon}/>
+      <BiSolidEditAlt className={styles.editIcon}/>
+      <BiSolidEditAlt className={styles.editIcon}/>
     </div>
 
 
       <div className={styles.settingItem}>
       </div>
       <div className={styles.settingItem}>
-        <BiSolidEditAlt className={styles.editIcon}/>
 
       </div>
       <div className={styles.settingItem}>
-        <BiSolidEditAlt className={styles.editIcon}/>
 
       </div>
       <div className={styles.settingItem}>
-        <BiSolidEditAlt className={styles.editIcon}/>
 
       </div>
       <div className={styles.settingItem}>
-        <BiSolidEditAlt className={styles.editIcon}/>
 
       </div>
       <button className={styles.button} onClick={handleBackClick}>Back</button>
