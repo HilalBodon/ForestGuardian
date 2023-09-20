@@ -35,7 +35,7 @@ const AccountSettings = ({ handleBackClick }) => {
         <label htmlFor="phone">Phone</label>
         <input type="tel" id="phone" name="phone" />
       </div>
-      <button onClick={handleBackClick}>Back</button>
+      <button className={styles.button} onClick={handleBackClick}>Back</button>
     </div>
   );
 };

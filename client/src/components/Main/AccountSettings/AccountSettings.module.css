@@ -1,4 +1,5 @@
 .accountSettingsContainer{
+
     width: 98vw;
     max-width: 500px;
     height: 88vh;
@@ -6,11 +7,13 @@
     justify-content: flex-start;
     align-items: start;
     flex-direction: column;
-    background-color: rgb(110, 122, 118);
 }
 
 .icon{
-    color: chartreuse;
+    color: #3E6751;
+    font-size: xx-large;
+    padding:15px;
+    padding-bottom: 0;
 }
 
 .settingItem input,label{
@@ -18,11 +21,32 @@
     margin:10px;
     height: 5vh;
     font-size: larger;
+    border: 0;
+    padding-bottom: 0;
+    width: fit-content;
+
+}
+.settingItem input{
+    border-bottom: 1px solid ;
+    width: 50vw;
 }
 
 .settingItem{
     display: flex;
     flex-direction: row;
     align-items: baseline;
+    justify-content: space-between;
+    width: max-content;
 
+}
+
+.button{
+    margin-top: 5%;
+    background-color: #3E6751;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
 }
