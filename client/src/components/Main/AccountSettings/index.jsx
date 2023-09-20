@@ -64,7 +64,7 @@ const AccountSettings = ({ handleBackClick }) => {
   return (
 
     <div className={styles.accountSettingsContainer}>
-      
+
     <div className={styles.iconsDiv}>
       <FaUserAlt className={styles.icon}/>
       <RiLockPasswordFill className={styles.icon}/>
@@ -75,45 +75,44 @@ const AccountSettings = ({ handleBackClick }) => {
     </div>
 
 
-    <div className={labelsDiv}>
+    <div className={styles.labelsDiv}>
+      <label htmlFor="userId">User ID</label>
+      <label htmlFor="password">Password</label>
+      <label htmlFor="fullname">Full Name</label>
+      <label htmlFor="email">Email</label>
+      <label htmlFor="phone">Phone</label>
+    </div>
+
+
+    <div className={styles.inputsDiv}>
 
     </div>
 
 
-    <div className={inputsDiv}>
-
-    </div>
-
-
-    <div className={editDiv}>
+    <div className={styles.editDiv}>
 
     </div>
 
 
       <div className={styles.settingItem}>
-        <label htmlFor="userId">User ID</label>
         <input type="text" id="userId" name="userId" />
       </div>
       <div className={styles.settingItem}>
-        <label htmlFor="password">Password</label>
         <input type="password" id="password" name="password" />
         <BiSolidEditAlt className={styles.editIcon}/>
 
       </div>
       <div className={styles.settingItem}>
-        <label htmlFor="fullname">Full Name</label>
         <input type="text" id="fullname" name="fullname" />
         <BiSolidEditAlt className={styles.editIcon}/>
 
       </div>
       <div className={styles.settingItem}>
-        <label htmlFor="email">Email</label>
         <input type="email" id="email" name="email" />
         <BiSolidEditAlt className={styles.editIcon}/>
 
       </div>
       <div className={styles.settingItem}>
-        <label htmlFor="phone">Phone</label>
         <input type="tel" id="phone" name="phone" />
         <BiSolidEditAlt className={styles.editIcon}/>
 
