@@ -85,7 +85,11 @@ const AccountSettings = ({ handleBackClick }) => {
 
 
     <div className={styles.inputsDiv}>
-
+      <input type="text" id="userId" name="userId" />
+      <input type="password" id="password" name="password" />
+      <input type="text" id="fullname" name="fullname" />
+      <input type="email" id="email" name="email" />
+      <input type="tel" id="phone" name="phone" />
     </div>
 
 
@@ -95,25 +99,20 @@ const AccountSettings = ({ handleBackClick }) => {
 
 
       <div className={styles.settingItem}>
-        <input type="text" id="userId" name="userId" />
       </div>
       <div className={styles.settingItem}>
-        <input type="password" id="password" name="password" />
         <BiSolidEditAlt className={styles.editIcon}/>
 
       </div>
       <div className={styles.settingItem}>
-        <input type="text" id="fullname" name="fullname" />
         <BiSolidEditAlt className={styles.editIcon}/>
 
       </div>
       <div className={styles.settingItem}>
-        <input type="email" id="email" name="email" />
         <BiSolidEditAlt className={styles.editIcon}/>
 
       </div>
       <div className={styles.settingItem}>
-        <input type="tel" id="phone" name="phone" />
         <BiSolidEditAlt className={styles.editIcon}/>
 
       </div>
