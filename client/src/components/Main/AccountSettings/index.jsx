@@ -1,11 +1,15 @@
 import React from 'react';
 import styles from "./AccountSettings.module.css";
+import {FaUserAlt} from "react-icons/fa";
+import {RiLockPasswordFill} from "react-icons/ri";
 
 const AccountSettings = ({ handleBackClick }) => {
   return (
     <div className={styles.accountSettingsContainer}>
-      <h2>Account Settings</h2>
-      {/* Add your account settings UI here */}
+      <div className={styles.iconDiv}>
+      <FaUserAlt className={styles.icon}/>
+      <RiLockPasswordFill className={styles.icon}/>
+      </div>
       <div className={styles.settingItem}>
         <label htmlFor="userId">User ID</label>
         <input type="text" id="userId" name="userId" />

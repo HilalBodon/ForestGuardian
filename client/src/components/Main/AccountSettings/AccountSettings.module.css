@@ -1,13 +1,28 @@
 .accountSettingsContainer{
-    width: 100vw;
+    width: 98vw;
+    max-width: 500px;
     height: 88vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: start;
     flex-direction: column;
     background-color: rgb(110, 122, 118);
 }
 
+.icon{
+    color: chartreuse;
+}
+
+.settingItem input,label{
+    display: flex;
+    margin:10px;
+    height: 5vh;
+    font-size: larger;
+}
+
 .settingItem{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
 
 }
