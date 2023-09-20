@@ -1,12 +1,14 @@
 import React from 'react';
-import styles from "./AccountSettings.css";
+import styles from "./AccountSettings.module.css";
 
 const AccountSettings = ({ handleBackClick }) => {
   return (
     <div className={styles.accountSettingsContainer}>
+      <h2>Account Settings</h2>
+      {/* Add your account settings UI here */}
       <div className={styles.settingItem}>
-        <label htmlFor="userEmail">User Email</label>
-        <input type="text" id="userEmail" name="userEmail" disabled />
+        <label htmlFor="userId">User ID</label>
+        <input type="text" id="userId" name="userId" />
       </div>
       <div className={styles.settingItem}>
         <label htmlFor="password">Password</label>

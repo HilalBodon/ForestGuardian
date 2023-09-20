@@ -1,0 +1,13 @@
+.accountSettingsContainer{
+    width: 100vw;
+    height: 88vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(110, 122, 118);
+}
+
+.settingItem{
+
+}
