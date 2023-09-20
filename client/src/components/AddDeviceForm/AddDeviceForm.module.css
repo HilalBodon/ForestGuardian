@@ -8,14 +8,14 @@
     max-width: 400px;
   }
   
-  .formContainer h2 {
-    font-size: 1.5rem;
+  .camIcon {
+    font-size: 5rem;
     margin-bottom: 10px;
   }
   
   .formContainer input,
   .formContainer textarea {
-    width: 100%;
+    width: 90vw;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
@@ -23,11 +23,11 @@
   }
   
   .formContainer button {
-    background-color: #007bff;
+    background-color: #3E6751;
     color: #fff;
     border: none;
-    padding: 10px 20px;
-    border-radius: 4px;
+    padding: 15px 30px;
+    border-radius: 25px;
     cursor: pointer;
   }
 

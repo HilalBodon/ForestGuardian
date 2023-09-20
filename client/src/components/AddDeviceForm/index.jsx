@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import styles from "./AddDeviceForm.module.css";
+import { PiCameraPlusBold } from "react-icons/pi";
 
 const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm, handleBackClick }) => {
   const [formData, setFormData] = useState({
@@ -64,7 +65,7 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm, handleB
 
   return (
     <div className={styles.formContainer}>
-      <h2>Add New Device</h2>
+      <div className={styles.camIcon}><PiCameraPlusBold onClick="" /></div>
       <form onSubmit={handleFormSubmit}>
         <input
           type="text"
