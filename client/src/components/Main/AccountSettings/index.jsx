@@ -64,17 +64,13 @@ const AccountSettings = ({ handleBackClick }) => {
   return (
 
     <div className={styles.accountSettingsContainer}>
+      
+    <div className={styles.iconsDiv}>
       <FaUserAlt className={styles.icon}/>
-
       <RiLockPasswordFill className={styles.icon}/>
-
       <BsFillQuestionSquareFill className={styles.icon}/>
-
       <MdAlternateEmail className={styles.icon}/>
-
       <BsFillTelephoneFill className={styles.icon}/>
-
-    <div className={iconsDiv}>
 
     </div>
 
