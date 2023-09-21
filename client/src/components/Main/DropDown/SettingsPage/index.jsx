@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from "./SettingsStyle.module.css";
-import { BsFillQuestionSquareFill } from "react-icons/bs"; 
+import { BsFillQuestionSquareFill } from "react-icons/bs";
 import { BsToggleOn, BsToggleOff } from 'react-icons/bs';
 import { MdNotificationsActive } from 'react-icons/md';
 import { IoMdNotificationsOff } from 'react-icons/io';
@@ -9,11 +9,14 @@ import { GiSawedOffShotgun } from 'react-icons/gi';
 
 const SettingsPage = ({ handleBackClick }) => {
   const [toggleStates, setToggleStates] = useState([false, false, false, false, false]);
+  const [isDisabled, setIsDisabled] = useState(false); // Define isDisabled state
 
   const toggleIcon = (index) => {
-    const newToggleStates = [...toggleStates];
-    newToggleStates[index] = !newToggleStates[index];
-    setToggleStates(newToggleStates);
+    if (!isDisabled || (index === 3 || index === 4)) { // Check if the toggle is not disabled or it's the 4th or 5th button
+      const newToggleStates = [...toggleStates];
+      newToggleStates[index] = !newToggleStates[index];
+      setToggleStates(newToggleStates);
+    }
   };
 
   return (
@@ -32,7 +35,7 @@ const SettingsPage = ({ handleBackClick }) => {
           <label>Notify E-mail after 5 min</label>
           <label>Enable live confirmation</label>
           <label disabled>Axe Sound detection</label>
-          <label>Gun Sound detection</label>
+          <label disabled>Gun Sound detection</label>
         </div>
 
         <div className={styles.toggleDiv}>
@@ -40,7 +43,11 @@ const SettingsPage = ({ handleBackClick }) => {
             isToggled ? (
               <BsToggleOn key={index} className={styles.toggleIcon} onClick={() => toggleIcon(index)} />
             ) : (
-              <BsToggleOff key={index} className={styles.toggleIcon} onClick={() => toggleIcon(index)} />
+              <BsToggleOff
+                key={index}
+                className={`${styles.toggleIcon} ${index === 3 || index === 4 ? styles.disabledToggle : ''}`}
+                onClick={() => !isDisabled && toggleIcon(index)}
+              />
             )
           ))}
         </div>
@@ -49,5 +56,7 @@ const SettingsPage = ({ handleBackClick }) => {
     </div>
   );
 };
+
+
 
 export default SettingsPage;
