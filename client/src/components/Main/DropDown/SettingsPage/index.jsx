@@ -24,8 +24,8 @@ const SettingsPage = ({ handleBackClick }) => {
       <MdNotificationsActive className={styles.icon}/>
       <IoMdNotificationsOff className={styles.icon}/>
       <BsFillQuestionSquareFill className={styles.icon}/>
-      <MdAlternateEmail className={styles.icon}/>
-      <BsFillTelephoneFill className={styles.icon}/>
+      <GiAxeInLog className={styles.icon}/>
+      <GiSawedOffShotgun className={styles.icon}/>
     </div>
 
 
@@ -38,17 +38,17 @@ const SettingsPage = ({ handleBackClick }) => {
     </div>
 
 
-    <div className={styles.inputsDiv}>
+    {/* <div className={styles.inputsDiv}>
       <input type="text" id="userEmail" name="userEmail" />
       <input type="password" id="password" name="password" />
       <input type="text" id="fullname" name="fullname" />
       <input type="email" id="email" name="email" />
       <input type="tel" id="phone" name="phone" />
-    </div>
+    </div> */}
 
 
     <div className={styles.editDiv}>
-      <p></p>
+      <BsToggleOn className={styles.editIcon}/>
       <BsToggleOn className={styles.editIcon}/>
       <BsToggleOn className={styles.editIcon}/>
       <BsToggleOn className={styles.editIcon}/>
