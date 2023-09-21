@@ -39,12 +39,12 @@ const SettingsPage = ({ handleBackClick }) => {
 
 
 
-    <div className={styles.editDiv}>
-      <BsToggleOn className={styles.editIcon}/>
-      <BsToggleOn className={styles.editIcon}/>
-      <BsToggleOn className={styles.editIcon}/>
-      <BsToggleOn className={styles.editIcon}/>
-      <BsToggleOn className={styles.editIcon}/>
+    <div className={styles.toggleDiv}>
+      <BsToggleOn className={styles.toggleIcon}/>
+      <BsToggleOn className={styles.toggleIcon}/>
+      <BsToggleOn className={styles.toggleIcon}/>
+      <BsToggleOn className={styles.toggleIcon}/>
+      <BsToggleOn className={styles.toggleIcon}/>
     </div>
 
     </div>

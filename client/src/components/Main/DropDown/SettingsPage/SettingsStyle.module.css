@@ -44,12 +44,12 @@
 
 }
 
-.editIcon{
+.toggleIcon{
     color: #3E6751;
     font-size: xx-large;
 }
 
-.inputsDiv,.editDiv,.iconsDiv,.labelsDiv{
+.toggleDiv,.iconsDiv,.labelsDiv{
 
     display: flex;
     flex-direction: column;
@@ -60,10 +60,6 @@
 .labelsDiv{
 width: max-content;
 }
-.inputsDiv input{
-height:30px;
-font-size: 18px;
-width: 95%;
-border:0;
-border-bottom: 1px solid;
+.toggleDiv{
+
 }
