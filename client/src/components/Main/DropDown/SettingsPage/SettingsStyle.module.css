@@ -13,12 +13,12 @@
 
 .icon{
     color: #3E6751;
-    font-size: xx-large;
+    font-size: 40px;
     padding:10px;
     padding-bottom: 0;
 }
 
-.settingItem label{
+/* .settingItem label{
     display: flex;
     margin:10px;
     height: 5vh;
@@ -27,7 +27,7 @@
     padding-bottom: -5px;
     width: fit-content;
 
-}
+} */
 
 
 .button{
@@ -59,6 +59,7 @@
 }
 .labelsDiv{
 width: max-content;
+padding-top: 15px;
 }
 .toggleDiv{
 
