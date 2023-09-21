@@ -46,8 +46,7 @@ function AudioRecorder() {
     if (mediaRecorder.current && isRecording) {
       mediaRecorder.current.stop();
       setIsRecording(false);
-  
-      const tracks = mediaRecorder.current.stream.getTracks();
+        const tracks = mediaRecorder.current.stream.getTracks();
       tracks.forEach((track) => track.stop());
     }
   };

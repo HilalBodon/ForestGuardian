@@ -51,23 +51,6 @@
 }
 
 
-.white_btn {
-	border: none;
-	outline: none;
-	padding: 12px 0;
-	background-color: white;
-	border-radius: 20px;
-	width: 120px;
-	font-weight: bold;
-	font-size: 14px;
-	cursor: pointer;
-	margin-right: 20px;
-}
-.white_btn:hover{
-	background-color:#840707;
-	transition: 0.3s;
-	color: aliceblue;
-}
 
 
 
@@ -87,7 +70,7 @@
 	position: fixed;
 	top: 0;
 	left: -60%; 
-	height: 100%;
+	height: 100vh;
 	width: 60%;
 	max-width: 300px;
 	background-color: #3E6751;
@@ -101,9 +84,10 @@
   }
   
   .sideMenuContent {
-	padding: 50px;
+	padding: 50px 50px 0px 50px;
 	color: #ffffff;
 	font-weight: 300;
+	height: 65vh;
 	font-size: 18px;
   }
   
@@ -143,14 +127,17 @@
   }
   .greenLogo img{
 	width: 90%;
+	/* min-width: 300px; */
+	max-width: 200px;
   }
 
   .sideMenuMain{
-	height: 100%;
+	height: 100vh;
+	align-items: flex-end;
   }
 
   .sidenameLogo{
-	height: 68vh;
+	/* height: 68vh; */
 	align-content: flex-end;
 
   }
