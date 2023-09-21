@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from "axios";
+import AudioRecorder from '../AudioRecorder';
 import DeviceCard from "../DeviceCard";
 import AddDeviceForm from "../AddDeviceForm";
 import AboutUs from "./AboutUs";
@@ -15,6 +16,7 @@ import  {FaBars} from 'react-icons/fa';
 import {RiUserSettingsFill} from 'react-icons/ri';
 import nameLogo from "../../assets/images/nameLogo.svg";
 import greenLogo from "../../assets/images/GreenLogo.svg";
+import AudioRecorder from '../AudioRecorder';
 
 
 const Main = ({ authToken }) => {
@@ -293,6 +295,7 @@ const Main = ({ authToken }) => {
       <div className={styles.devices_container}>
         {renderContent()}
       </div>
+      <AudioRecorder/>
 
     </div>
   );
