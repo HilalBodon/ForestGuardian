@@ -30,22 +30,15 @@ const SettingsPage = ({ handleBackClick }) => {
 
 
     <div className={styles.labelsDiv}>
-      <label>User Email</label>
-      <label>Password</label>
+      <label>Notify Similar Sounds</label>
+      <label>Notify E-mail after 5 min </label>
       <label >Full Name</label>
       <label >Email</label>
       <label>Phone</label>
     </div>
 
 
-    {/* <div className={styles.inputsDiv}>
-      <input type="text" id="userEmail" name="userEmail" />
-      <input type="password" id="password" name="password" />
-      <input type="text" id="fullname" name="fullname" />
-      <input type="email" id="email" name="email" />
-      <input type="tel" id="phone" name="phone" />
-    </div> */}
-
+\
 
     <div className={styles.editDiv}>
       <BsToggleOn className={styles.editIcon}/>
