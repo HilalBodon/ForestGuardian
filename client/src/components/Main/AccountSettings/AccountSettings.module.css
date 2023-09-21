@@ -14,7 +14,7 @@
 .icon{
     color: #3E6751;
     font-size: xx-large;
-    padding:15px;
+    padding:10px;
     padding-bottom: 0;
 }
 
@@ -24,7 +24,7 @@
     height: 5vh;
     font-size: larger;
     border: 0;
-    padding-bottom: 0;
+    padding-bottom: -5px;
     width: fit-content;
 
 }
@@ -39,7 +39,8 @@
     padding: 12px 25px;
     border-radius: 25px;
     cursor: pointer;
-    margin:15px;
+    margin:25px;
+    width: fit-content;
 
 }
 
