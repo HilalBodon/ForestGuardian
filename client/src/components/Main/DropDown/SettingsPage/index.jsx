@@ -11,7 +11,7 @@ import { BsToggleOn } from 'react-icons/bs';
 import { BsToggleOff } from 'react-icons/bs';
 import {MdNotificationsActive} from 'react-icons/md';
 import {IoMdNotificationsOff} from 'react-icons/io';
-
+import {GiAxeInLog} from 'react-icons/gi';
 
 const SettingsPage = ({ handleBackClick }) => {
 
