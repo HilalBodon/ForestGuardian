@@ -1,10 +1,67 @@
-import React from "react";
+// import React from "react";
 
-const SettingsPage = ({ handleBackClick }) => {
+// const SettingsPage = ({ handleBackClick }) => {
+//   return (
+//     <div>
+//       <h2>Settings</h2>
+//       <button onClick={handleBackClick}>Back</button>
+//     </div>
+//   );
+// };
+
+// export default SettingsPage;
+
+import React from 'react';
+import styles from "./AccountSettings.module.css";
+import {FaUserAlt} from "react-icons/fa";
+import {RiLockPasswordFill} from "react-icons/ri";
+import {BsFillQuestionSquareFill} from "react-icons/bs"; 
+import {MdAlternateEmail} from "react-icons/md"; 
+import {BsFillTelephoneFill} from "react-icons/bs"; 
+import {BiSolidEditAlt} from "react-icons/bi"; 
+const AccountSettings = ({ handleBackClick }) => {
+
   return (
-    <div>
-      <h2>Settings</h2>
-      <button onClick={handleBackClick}>Back</button>
+    <div className={styles.mainDiv}>
+    <div className={styles.accountSettingsContainer}>
+
+    <div className={styles.iconsDiv}>
+      <FaUserAlt className={styles.icon}/>
+      <RiLockPasswordFill className={styles.icon}/>
+      <BsFillQuestionSquareFill className={styles.icon}/>
+      <MdAlternateEmail className={styles.icon}/>
+      <BsFillTelephoneFill className={styles.icon}/>
+    </div>
+
+
+    <div className={styles.labelsDiv}>
+      <label htmlFor="userEmail">User Email</label>
+      <label htmlFor="password">Password</label>
+      <label htmlFor="fullname">Full Name</label>
+      <label htmlFor="email">Email</label>
+      <label htmlFor="phone">Phone</label>
+    </div>
+
+
+    <div className={styles.inputsDiv}>
+      <input type="text" id="userEmail" name="userEmail" />
+      <input type="password" id="password" name="password" />
+      <input type="text" id="fullname" name="fullname" />
+      <input type="email" id="email" name="email" />
+      <input type="tel" id="phone" name="phone" />
+    </div>
+
+
+    <div className={styles.editDiv}>
+      <p></p>
+      <BiSolidEditAlt className={styles.editIcon}/>
+      <BiSolidEditAlt className={styles.editIcon}/>
+      <BiSolidEditAlt className={styles.editIcon}/>
+      <BiSolidEditAlt className={styles.editIcon}/>
+    </div>
+
+    </div>
+      <button className={styles.button} onClick={handleBackClick}>Back</button>
     </div>
   );
 };
