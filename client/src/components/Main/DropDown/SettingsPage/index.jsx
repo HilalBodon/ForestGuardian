@@ -1,20 +1,20 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import styles from "./SettingsStyle.module.css";
-import {FaUserAlt} from "react-icons/fa";
-import {RiLockPasswordFill} from "react-icons/ri";
 import {BsFillQuestionSquareFill} from "react-icons/bs"; 
-import {MdAlternateEmail} from "react-icons/md"; 
-import {BsFillTelephoneFill} from "react-icons/bs"; 
-import {BiSolidEditAlt} from "react-icons/bi"; 
-import { BsToggleOn } from 'react-icons/bs';
-import { BsToggleOff } from 'react-icons/bs';
+import { BsToggleOn, BsToggleOff } from 'react-icons/bs';
 import {MdNotificationsActive} from 'react-icons/md';
 import {IoMdNotificationsOff} from 'react-icons/io';
 import {GiAxeInLog} from 'react-icons/gi';
 import {GiSawedOffShotgun} from 'react-icons/gi';
 
 const SettingsPage = ({ handleBackClick }) => {
+
+  const [isToggled, setIsToggled] = useState(false);
+
+  const toggleIcon = () => {
+    setIsToggled(!isToggled);
+  };
 
   return (
     <div className={styles.mainDiv}>
@@ -38,13 +38,32 @@ const SettingsPage = ({ handleBackClick }) => {
     </div>
 
 
-
     <div className={styles.toggleDiv}>
-      <BsToggleOn className={styles.toggleIcon}/>
-      <BsToggleOn className={styles.toggleIcon}/>
-      <BsToggleOn className={styles.toggleIcon}/>
-      <BsToggleOn className={styles.toggleIcon}/>
-      <BsToggleOn className={styles.toggleIcon}/>
+      {isToggled ? (
+        <BsToggleOn className={styles.toggleIcon} onClick={toggleIcon} />
+      ) : (
+        <BsToggleOff className={styles.toggleIcon} onClick={toggleIcon} />
+      )}
+      {isToggled ? (
+        <BsToggleOn className={styles.toggleIcon} onClick={toggleIcon} />
+      ) : (
+        <BsToggleOff className={styles.toggleIcon} onClick={toggleIcon} />
+      )}
+      {isToggled ? (
+        <BsToggleOn className={styles.toggleIcon} onClick={toggleIcon} />
+      ) : (
+        <BsToggleOff className={styles.toggleIcon} onClick={toggleIcon} />
+      )}
+      {isToggled ? (
+        <BsToggleOn className={styles.toggleIcon} onClick={toggleIcon} />
+      ) : (
+        <BsToggleOff className={styles.toggleIcon} onClick={toggleIcon} />
+      )}
+      {isToggled ? (
+        <BsToggleOn className={styles.toggleIcon} onClick={toggleIcon} />
+      ) : (
+        <BsToggleOff className={styles.toggleIcon} onClick={toggleIcon} />
+      )}
     </div>
 
     </div>

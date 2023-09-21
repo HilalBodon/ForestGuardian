@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./HistoryStyle.module.css"
 const History= ({handleBackClick}) => {
 
 return(
@@ -6,7 +7,7 @@ return(
     <div>
         <h2>history</h2>
 
-        <button onClick={handleBackClick}>Back</button>
+        <button className={styles.button}onClick={handleBackClick}>Back</button>
     
     </div>
 );

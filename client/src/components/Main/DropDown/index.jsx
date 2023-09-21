@@ -9,7 +9,7 @@ const Dropdown = ({
     handleSettingsClick,
     handleHistoryClick,
     handleAnalyticsClick
-  }, ref) => { // Corrected the parameter order
+  }, ref) => { 
     return (
       <div className={styles.dotesIconDiv}>
         <FaEllipsisV className={styles.dotesIcon} onClick={toggleDropdown} />
