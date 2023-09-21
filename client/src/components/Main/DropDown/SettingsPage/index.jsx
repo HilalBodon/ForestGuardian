@@ -12,7 +12,7 @@ import { BsToggleOff } from 'react-icons/bs';
 import {MdNotificationsActive} from 'react-icons/md';
 import {IoMdNotificationsOff} from 'react-icons/io';
 import {GiAxeInLog} from 'react-icons/gi';
-
+import {GiSawedOffShotgun} from 'react-icons/gi';
 const SettingsPage = ({ handleBackClick }) => {
 
   return (
