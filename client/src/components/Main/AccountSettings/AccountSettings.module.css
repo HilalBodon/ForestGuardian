@@ -28,19 +28,7 @@
     width: fit-content;
 
 }
-/* .settingItem input{
-    border-bottom: 1px solid darkolivegreen ;
-    width: 50vw;
-} */
 
-/* .settingItem{
-    display: flex;
-    flex-direction: row;
-    align-items: baseline;
-    justify-content: space-between;
-    width: max-content;
-
-} */
 
 .button{
     margin-top: 5%;
@@ -74,7 +62,7 @@ width: max-content;
 .inputsDiv input{
 height:30px;
 font-size: 18px;
-width: 75%;
+width: 95%;
 border:0;
 border-bottom: 1px solid;
 }
