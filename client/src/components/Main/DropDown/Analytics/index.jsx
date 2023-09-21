@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./AnalyticsStyle.module.css"
+import styles from "./AnalyticsStyles.module.css"
 const Analytics= ({handleBackClick}) => {
 
 return(
