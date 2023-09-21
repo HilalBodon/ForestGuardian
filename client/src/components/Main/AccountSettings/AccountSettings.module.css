@@ -28,19 +28,19 @@
     width: fit-content;
 
 }
-.settingItem input{
+/* .settingItem input{
     border-bottom: 1px solid darkolivegreen ;
     width: 50vw;
-}
+} */
 
-.settingItem{
+/* .settingItem{
     display: flex;
     flex-direction: row;
     align-items: baseline;
     justify-content: space-between;
     width: max-content;
 
-}
+} */
 
 .button{
     margin-top: 5%;
@@ -64,13 +64,15 @@
 
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-around;
     background-color: antiquewhite;
     gap: 15px;
+
 }
 .labelsDiv{
 width: max-content;
 }
-.inputsDiv{
-    /* width: 50px; */
+.inputsDiv input{
+height:30px;
+font-size: 18px;
 }
