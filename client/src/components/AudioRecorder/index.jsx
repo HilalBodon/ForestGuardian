@@ -1,15 +1,18 @@
 import React, { useState, useRef } from 'react';
-import './AudioRecorder.css';
 
 function AudioRecorder() {
   const [isRecording, setIsRecording] = useState(false);
   const mediaRecorder = useRef(null);
   const audioChunks = useRef([]);
+  const audioStream = useRef(null);
 
   const startRecording = () => {
-    navigator.mediaDevices.getUserMedia({ audio: true })
+    navigator.mediaDevices
+      .getUserMedia({ audio: true })
       .then((stream) => {
         mediaRecorder.current = new MediaRecorder(stream);
+        audioStream.current = stream;
+
         mediaRecorder.current.ondataavailable = (e) => {
           if (e.data.size > 0) {
             audioChunks.current.push(e.data);
@@ -18,7 +21,6 @@ function AudioRecorder() {
 
         mediaRecorder.current.onstop = () => {
           const audioBlob = new Blob(audioChunks.current, { type: 'audio/wav' });
-        
           const url = URL.createObjectURL(audioBlob);
           const a = document.createElement('a');
           a.href = url;
@@ -26,6 +28,14 @@ function AudioRecorder() {
           document.body.appendChild(a);
           a.click();
           URL.revokeObjectURL(url);
+
+          // Clear the audioChunks for the next recording
+          audioChunks.current = [];
+
+          // Stop and release the audio stream
+          audioStream.current.getTracks().forEach((track) => {
+            track.stop();
+          });
         };
 
         mediaRecorder.current.start();
@@ -44,13 +54,9 @@ function AudioRecorder() {
   };
 
   return (
-    <div className="audio-recorder">
-      <button
-        className={`record-button ${isRecording ? 'recording' : ''}`}
-        onClick={isRecording ? stopRecording : startRecording}
-        disabled={isRecording}
-      >
-        {isRecording ? 'Recording...' : 'Start Recording'}
+    <div>
+      <button onClick={isRecording ? stopRecording : startRecording} disabled={isRecording}>
+        {isRecording ? 'Stop Recording' : 'Start Recording'}
       </button>
     </div>
   );
