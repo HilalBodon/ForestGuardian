@@ -15,6 +15,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.11.0",
+    "react-mic": "^12.4.6",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "util": "^0.12.5",
@@ -26,7 +27,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "nodemon"
-
   },
   "eslintConfig": {
     "extends": [

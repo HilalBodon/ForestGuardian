@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from "axios";
-import AudioRecorder from '../AudioRecorder';
 import DeviceCard from "../DeviceCard";
 import AddDeviceForm from "../AddDeviceForm";
 import AboutUs from "./AboutUs";
