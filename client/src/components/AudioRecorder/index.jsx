@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import './AudioRecorder.css';
 
 function AudioRecorder() {
   const [isRecording, setIsRecording] = useState(false);
@@ -17,7 +18,14 @@ function AudioRecorder() {
 
         mediaRecorder.current.onstop = () => {
           const audioBlob = new Blob(audioChunks.current, { type: 'audio/wav' });
-          // Now, you can send `audioBlob` to your backend for analysis.
+        
+          const url = URL.createObjectURL(audioBlob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'recorded-audio.wav';
+          document.body.appendChild(a);
+          a.click();
+          URL.revokeObjectURL(url);
         };
 
         mediaRecorder.current.start();
@@ -36,9 +44,14 @@ function AudioRecorder() {
   };
 
   return (
-    <div>
-      <button onClick={startRecording} disabled={isRecording}>Start Recording</button>
-      <button onClick={stopRecording} disabled={!isRecording}>Stop Recording</button>
+    <div className="audio-recorder">
+      <button
+        className={`record-button ${isRecording ? 'recording' : ''}`}
+        onClick={isRecording ? stopRecording : startRecording}
+        disabled={isRecording}
+      >
+        {isRecording ? 'Recording...' : 'Start Recording'}
+      </button>
     </div>
   );
 }
