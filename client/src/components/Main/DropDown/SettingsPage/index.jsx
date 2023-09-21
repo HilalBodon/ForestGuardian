@@ -1,25 +1,19 @@
-// import React from "react";
-
-// const SettingsPage = ({ handleBackClick }) => {
-//   return (
-//     <div>
-//       <h2>Settings</h2>
-//       <button onClick={handleBackClick}>Back</button>
-//     </div>
-//   );
-// };
-
-// export default SettingsPage;
 
 import React from 'react';
-import styles from "./AccountSettings.module.css";
+import styles from "./SettingsStyle.module.css";
 import {FaUserAlt} from "react-icons/fa";
 import {RiLockPasswordFill} from "react-icons/ri";
 import {BsFillQuestionSquareFill} from "react-icons/bs"; 
 import {MdAlternateEmail} from "react-icons/md"; 
 import {BsFillTelephoneFill} from "react-icons/bs"; 
 import {BiSolidEditAlt} from "react-icons/bi"; 
-const AccountSettings = ({ handleBackClick }) => {
+import { BsToggleOn } from 'react-icons/bs';
+import { BsToggleOff } from 'react-icons/bs';
+import {MdNotificationsActive} from 'react-icons/md';
+import {IoMdNotificationsOff} from 'react-icons/io';
+
+
+const SettingsPage = ({ handleBackClick }) => {
 
   return (
     <div className={styles.mainDiv}>
@@ -54,10 +48,10 @@ const AccountSettings = ({ handleBackClick }) => {
 
     <div className={styles.editDiv}>
       <p></p>
-      <BiSolidEditAlt className={styles.editIcon}/>
-      <BiSolidEditAlt className={styles.editIcon}/>
-      <BiSolidEditAlt className={styles.editIcon}/>
-      <BiSolidEditAlt className={styles.editIcon}/>
+      <BsToggleOn className={styles.editIcon}/>
+      <BsToggleOn className={styles.editIcon}/>
+      <BsToggleOn className={styles.editIcon}/>
+      <BsToggleOn className={styles.editIcon}/>
     </div>
 
     </div>
