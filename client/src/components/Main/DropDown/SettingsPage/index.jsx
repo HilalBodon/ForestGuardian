@@ -11,7 +11,7 @@ const SettingsPage = ({ handleBackClick }) => {
   const [toggleStates, setToggleStates] = useState([false, false, false, false, false]);
 
   const toggleIcon = (index) => {
-    if (index !== 3 && index !== 4) { // Check if it's not the 4th or 5th button
+    if (index !== 3 && index !== 4) {
       const newToggleStates = [...toggleStates];
       newToggleStates[index] = !newToggleStates[index];
       setToggleStates(newToggleStates);
@@ -46,7 +46,7 @@ const SettingsPage = ({ handleBackClick }) => {
                 key={index}
                 className={styles.toggleIcon}
                 onClick={() => toggleIcon(index)}
-                disabled={index === 3 || index === 4} // Disable the 4th and 5th buttons
+                disabled={index === 3 || index === 4} 
               />
             )
           ))}
