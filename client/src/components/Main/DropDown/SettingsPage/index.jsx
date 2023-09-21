@@ -30,11 +30,11 @@ const SettingsPage = ({ handleBackClick }) => {
 
 
     <div className={styles.labelsDiv}>
-      <label htmlFor="userEmail">User Email</label>
-      <label htmlFor="password">Password</label>
-      <label htmlFor="fullname">Full Name</label>
-      <label htmlFor="email">Email</label>
-      <label htmlFor="phone">Phone</label>
+      <label>User Email</label>
+      <label>Password</label>
+      <label >Full Name</label>
+      <label >Email</label>
+      <label>Phone</label>
     </div>
 
 
