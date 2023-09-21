@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./AnalyticsStyle.module.css"
 const Analytics= ({handleBackClick}) => {
 
 return(
@@ -6,7 +7,7 @@ return(
     <div>
         <h2>Analytics</h2>
 
-        <button onClick={handleBackClick}>Back</button>
+        <button className={styles.button}onClick={handleBackClick}>Back</button>
     
     </div>
 );
