@@ -29,7 +29,7 @@ const Main = ({ authToken }) => {
   const sideMenuRef = useRef(null);
   const dropdownRef = useRef(null);
 
-  const [currentPage, setCurrentPage] = useState(null);
+  // const [currentPage, setCurrentPage] = useState(null);
   const [showSettings, setShowSettings] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
   const [showAnalytics, setShowAnalytics] = useState(false);
@@ -69,13 +69,13 @@ const Main = ({ authToken }) => {
   };
   
 
-  const handleAddDeviceClick = () => {
-    setShowAddDeviceForm(!showAddDeviceForm);
-    setShowAboutUs(false); 
-    setShowHowToUse(false); 
-    setShowAccountSettings(false); 
+  // const handleAddDeviceClick = () => {
+  //   setShowAddDeviceForm(!showAddDeviceForm);
+  //   setShowAboutUs(false); 
+  //   setShowHowToUse(false); 
+  //   setShowAccountSettings(false); 
 
-  };
+  // };
 
   const handleAboutUsClick = () => {
     setShowAboutUs(true);
