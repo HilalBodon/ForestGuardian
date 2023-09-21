@@ -20,8 +20,8 @@ const SettingsPage = ({ handleBackClick }) => {
     <div className={styles.accountSettingsContainer}>
 
     <div className={styles.iconsDiv}>
-      <FaUserAlt className={styles.icon}/>
-      <RiLockPasswordFill className={styles.icon}/>
+      <MdNotificationsActive className={styles.icon}/>
+      <IoMdNotificationsOff className={styles.icon}/>
       <BsFillQuestionSquareFill className={styles.icon}/>
       <MdAlternateEmail className={styles.icon}/>
       <BsFillTelephoneFill className={styles.icon}/>
