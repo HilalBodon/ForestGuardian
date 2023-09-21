@@ -30,15 +30,14 @@ const SettingsPage = ({ handleBackClick }) => {
 
 
     <div className={styles.labelsDiv}>
-      <label>Notify Similar Sounds</label>
+      <label>Notify similar sounds</label>
       <label>Notify E-mail after 5 min </label>
-      <label >Full Name</label>
-      <label >Email</label>
-      <label>Phone</label>
+      <label >Enable live confirmation</label>
+      <label disabled>Axe Sound detection</label>
+      <label>Gun Sound detection</label>
     </div>
 
 
-\
 
     <div className={styles.editDiv}>
       <BsToggleOn className={styles.editIcon}/>
