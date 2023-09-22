@@ -27,13 +27,6 @@ class AudioRecognition extends Component {
     this.setState({ recognizer, classLabels });
   }
 
-  componentWillUnmount() {
-    // Make sure to clean up any asynchronous tasks or timers
-    if (this.state.timer) {
-      clearInterval(this.state.timer);
-    }
-  }
-
   async createModel() {
     const URL = "https://teachablemachine.withgoogle.com/models/RO1FS-bVi/";
     const checkpointURL = URL + "model.json"; // model topology
@@ -55,48 +48,53 @@ class AudioRecognition extends Component {
   init = async () => {
     const { recognizer, classLabels, recognizing, timer, count, alertShown } = this.state;
     const labelContainer = document.getElementById("label-container");
-  
+
     for (let i = 0; i < classLabels.length; i++) {
       labelContainer.appendChild(document.createElement("div"));
     }
-  
+
     if (recognizing) {
       recognizer.stopListening();
       clearInterval(timer);
     } else {
       recognizer.listen(result => {
         const scores = result.scores;
-        let updatedCount = count;
+
+        this.setState(prevState => {
+          let updatedCount = prevState.count;
+
+          for (let i = 0; i < classLabels.length; i++) {
+            const classPrediction = classLabels[i] + ": " + scores[i].toFixed(2);
+            labelContainer.childNodes[i].innerHTML = classPrediction;
+
+            if (scores[i] > 0.98 && classLabels[i] === "Chain Saw") {
+              updatedCount++;
+              console.log(updatedCount);
+
+              if (updatedCount === 1) {
+                const newTimer = setInterval(() => {
+                  if (prevState.timerValue >= 60) {
+                    clearInterval(newTimer);
+                    this.setState({ timerValue: 0, count: 0, alertShown: false });
+                  } else {
+                    this.setState(prevState => ({ timerValue: prevState.timerValue + 1 }));
+                  }
+                }, 1000);
   
-        for (let i = 0; i < classLabels.length; i++) {
-          const classPrediction = classLabels[i] + ": " + scores[i].toFixed(2);
-          labelContainer.childNodes[i].innerHTML = classPrediction;
+                return { count: updatedCount, timer: newTimer, timerValue: 0 };
+              }
   
-          if (scores[i] > 0.98 && classLabels[i] === "Chain Saw") {
-            updatedCount++;
-            console.log(updatedCount);
-  
-            if (updatedCount === 1) {
-              const newTimer = setInterval(() => {
-                if (this.state.timerValue >= 60) {
-                  clearInterval(newTimer);
-                  this.setState({ timerValue: 0, count: 0, alertShown: false });
-                } else {
-                  this.setState(prevState => ({ timerValue: prevState.timerValue + 1 }));
-                }
-              }, 1000);
-  
-              this.setState({ timer: newTimer });
-            }
-  
-            if (updatedCount >= 10 && !alertShown) {
-              this.setState({ alertShown: true });
-              clearInterval(timer);
-              alert("Count reached 10 within one minute!");
-              this.setState({ timerValue: 0, count: 0 });
+              if (updatedCount >= 10 && !prevState.alertShown) {
+                this.setState({ alertShown: true });
+                clearInterval(timer);
+                alert("Count reached 10 within one minute!");
+                this.setState({ timerValue: 0, count: 0 });
+              }
             }
           }
-        }
+  
+          return { count: updatedCount };
+        });
       }, {
         includeSpectrogram: true,
         probabilityThreshold: 0.75,
@@ -104,10 +102,9 @@ class AudioRecognition extends Component {
         overlapFactor: 0.50
       });
     }
-  
+
     this.setState({ recognizing: !recognizing });
   }
-  
 
   render() {
     const { handleBackClick } = this.props;
@@ -132,6 +129,7 @@ class AudioRecognition extends Component {
 }
 
 export default AudioRecognition;
+
 
 
 
