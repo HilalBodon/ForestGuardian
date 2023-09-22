@@ -45,65 +45,59 @@ class AudioRecognition extends Component {
   }
 
   init = async () => {
-    const { recognizer, classLabels } = this.state;
+    const { recognizer, classLabels, recognizing } = this.state;
     const labelContainer = document.getElementById("label-container");
 
     for (let i = 0; i < classLabels.length; i++) {
       labelContainer.appendChild(document.createElement("div"));
     }
 
-    // listen() takes two arguments:
-    // 1. A callback function that is invoked anytime a word is recognized.
-    // 2. A configuration object with adjustable fields
+    if (recognizing) {
+      // Stop recognition
+      recognizer.stopListening();
+    } else {
+      // Start recognition
+      recognizer.listen(result => {
+        const scores = result.scores;
+        let { count } = this.state;
 
-    // recognizer.listen(result => {
-    //   const scores = result.scores; // probability of prediction for each class
-    //   // render the probability scores per class
-    //   for (let i = 0; i < classLabels.length; i++) {
-    //     const classPrediction = classLabels[i] + ": " + result.scores[i].toFixed(2);
-    //     labelContainer.childNodes[i].innerHTML = classPrediction;
-    //     if (result.scores[i].toFixed(2) >= 1.00 && classLabels[i] === "chainSaw Sound"){
-    //         alert("chainsaaaaaaw")
-    //     }
-    //   }
-    // }, {
-
-    recognizer.listen(result => {
-        const scores = result.scores; 
-        let { count } = this.state; 
-  
         for (let i = 0; i < classLabels.length; i++) {
           const classPrediction = classLabels[i] + ": " + scores[i].toFixed(2);
           labelContainer.childNodes[i].innerHTML = classPrediction;
-  
+
           if (scores[i] > 0.98 && classLabels[i] === "chainSaw Sound") {
-            count++; 
+            count++;
             console.log(count);
           }
         }
-  
-        // Update the count in the component's state
+
         this.setState({ count });
-    },{
-      includeSpectrogram: true, // in case listen should return result.spectrogram
-      probabilityThreshold: 0.75,
-      invokeCallbackOnNoiseAndUnknown: true,
-      overlapFactor: 0.50 // probably want between 0.5 and 0.75. More info in README
-    });
+      }, {
+        includeSpectrogram: true,
+        probabilityThreshold: 0.75,
+        invokeCallbackOnNoiseAndUnknown: true,
+        overlapFactor: 0.50
+      });
+    }
+
+
+    this.setState({ recognizing: !recognizing });
+
   }
 
   render() {
-    const {  handleBackClick } = this.props;
+    const { handleBackClick, recognizing } = this.props;
 
     return (
-      <div>
-        <div>Teachable Machine Audio Model</div>
-        <button type="button" onClick={this.init}>Start</button>
-        <div id="label-container"></div>
-        <button  className="button" onClick={handleBackClick}>Back</button>
-      </div>
-
-    );
+        <div>
+          <div>Start ChainSaw Detection</div>
+          <button type="button" onClick={this.init}>
+            {recognizing ? "Stop" : "Start"} Listening
+          </button>
+          <div id="label-container"></div>
+          <button className="button" onClick={handleBackClick}>Back</button>
+        </div>
+      );
   }
 }
 
