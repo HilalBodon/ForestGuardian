@@ -46,70 +46,67 @@ class AudioRecognition extends Component {
   }
 
   init = async () => {
-    const { recognizer, classLabels, recognizing, timer, count, alertShown } = this.state;
+    const { recognizer, classLabels, recognizing, timer } = this.state;
     const labelContainer = document.getElementById("label-container");
-
+  
     for (let i = 0; i < classLabels.length; i++) {
       labelContainer.appendChild(document.createElement("div"));
     }
-
+  
     if (recognizing) {
       recognizer.stopListening();
       clearInterval(timer);
+      this.setState({ timerValue: 0 });
     } else {
       recognizer.listen(result => {
         const scores = result.scores;
-
-        this.setState(prevState => {
-          let updatedCount = prevState.count;
-
-          for (let i = 0; i < classLabels.length; i++) {
-            const classPrediction = classLabels[i] + ": " + scores[i].toFixed(2);
-            labelContainer.childNodes[i].innerHTML = classPrediction;
-
-            if (scores[i] > 0.98 && classLabels[i] === "Chain Saw") {
-              updatedCount++;
-              console.log(updatedCount);
-
-              if (updatedCount === 1) {
-                const newTimer = setInterval(() => {
-                  if (prevState.timerValue >= 60) {
-                    clearInterval(newTimer);
-                    this.setState({ timerValue: 0, count: 0, alertShown: false });
-                  } else {
-                    this.setState(prevState => ({ timerValue: prevState.timerValue + 1 }));
-                  }
-                }, 1000);
   
-                return { count: updatedCount, timer: newTimer, timerValue: 0 };
-              }
+        for (let i = 0; i < classLabels.length; i++) {
+          const classPrediction = classLabels[i] + ": " + scores[i].toFixed(2);
+          labelContainer.childNodes[i].innerHTML = classPrediction;
   
-              if (updatedCount >= 10 && !prevState.alertShown) {
-                this.setState({ alertShown: true });
+          if (scores[i] > 0.90 && classLabels[i] === "Chain Saw") {
+            this.setState(prevState => ({
+              count: prevState.count + 1,
+              timerValue: 0,
+            }), () => {
+              if (this.state.count >= 10) {
                 clearInterval(timer);
-                alert("Count reached 10 within one minute!");
-                this.setState({ timerValue: 0, count: 0 });
+                alert("Count reached 10!");
+                this.setState({ count: 0 });
               }
-            }
+            });
           }
-  
-          return { count: updatedCount };
-        });
+        }
       }, {
         includeSpectrogram: true,
         probabilityThreshold: 0.75,
         invokeCallbackOnNoiseAndUnknown: true,
         overlapFactor: 0.50
       });
+  
+      if (!timer) {
+        const newTimer = setInterval(() => {
+          if (this.state.timerValue >= 60) {
+            clearInterval(newTimer);
+            this.setState({ timerValue: 0 });
+          } else {
+            this.setState(prevState => ({ timerValue: prevState.timerValue + 1 }));
+          }
+        }, 1000);
+  
+        this.setState({ timer: newTimer });
+      }
     }
-
+  
     this.setState({ recognizing: !recognizing });
   }
+  
 
   render() {
     const { handleBackClick } = this.props;
-    const { recognizing, timerValue } = this.state;
-
+    const { recognizing, count, timerValue } = this.state;
+  
     return (
       <div>
         <div>Teachable Machine Audio Model</div>
@@ -121,6 +118,7 @@ class AudioRecognition extends Component {
           {recognizing ? "Stop" : "Start"} Recognition
         </button>
         <div id="label-container"></div>
+        <div>Count: {count}</div>
         <div>Timer: {timerValue} seconds</div>
         <button className="button" onClick={handleBackClick}>Back</button>
       </div>
