@@ -54,10 +54,8 @@ class AudioRecognition extends Component {
     }
 
     if (recognizing) {
-      // Stop recognition
       recognizer.stopListening();
     } else {
-      // Start recognition
       recognizer.listen(result => {
         const scores = result.scores;
         let { count } = this.state;
@@ -81,24 +79,27 @@ class AudioRecognition extends Component {
       });
     }
 
-
     this.setState({ recognizing: !recognizing });
-
   }
 
   render() {
-    const { handleBackClick, recognizing } = this.props;
+    const { handleBackClick } = this.props;
+    const { recognizing } = this.state;
 
     return (
-        <div>
-          <div>Start ChainSaw Detection</div>
-          <button type="button" onClick={this.init}>
-            {recognizing ? "Stop" : "Start"} Listening
-          </button>
-          <div id="label-container"></div>
-          <button className="button" onClick={handleBackClick}>Back</button>
-        </div>
-      );
+      <div>
+        <div>Teachable Machine Audio Model</div>
+        <button
+          type="button"
+          className={`recognize-button ${recognizing ? 'stop' : 'start'}`}
+          onClick={this.init}
+        >
+          {recognizing ? "Stop" : "Start"} Recognition
+        </button>
+        <div id="label-container"></div>
+        <button className="button" onClick={handleBackClick}>Back</button>
+      </div>
+    );
   }
 }
 

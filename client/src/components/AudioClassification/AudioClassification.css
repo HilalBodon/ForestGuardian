@@ -1,0 +1,18 @@
+.recognize-button {
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .recognize-button.start {
+    background-color: green;
+    color: white;
+  }
+  
+  .recognize-button.stop {
+    background-color: red;
+    color: white;
+  }
+  
