@@ -8,6 +8,8 @@ class AudioRecognition extends Component {
     this.state = {
       classLabels: [],
       recognizer: null,
+      count:0,
+      recognizing: false,
     };
   }
 
@@ -53,14 +55,36 @@ class AudioRecognition extends Component {
     // listen() takes two arguments:
     // 1. A callback function that is invoked anytime a word is recognized.
     // 2. A configuration object with adjustable fields
+
+    // recognizer.listen(result => {
+    //   const scores = result.scores; // probability of prediction for each class
+    //   // render the probability scores per class
+    //   for (let i = 0; i < classLabels.length; i++) {
+    //     const classPrediction = classLabels[i] + ": " + result.scores[i].toFixed(2);
+    //     labelContainer.childNodes[i].innerHTML = classPrediction;
+    //     if (result.scores[i].toFixed(2) >= 1.00 && classLabels[i] === "chainSaw Sound"){
+    //         alert("chainsaaaaaaw")
+    //     }
+    //   }
+    // }, {
+
     recognizer.listen(result => {
-      const scores = result.scores; // probability of prediction for each class
-      // render the probability scores per class
-      for (let i = 0; i < classLabels.length; i++) {
-        const classPrediction = classLabels[i] + ": " + result.scores[i].toFixed(2);
-        labelContainer.childNodes[i].innerHTML = classPrediction;
-      }
-    }, {
+        const scores = result.scores; 
+        let { count } = this.state; 
+  
+        for (let i = 0; i < classLabels.length; i++) {
+          const classPrediction = classLabels[i] + ": " + scores[i].toFixed(2);
+          labelContainer.childNodes[i].innerHTML = classPrediction;
+  
+          if (scores[i] > 0.98 && classLabels[i] === "chainSaw Sound") {
+            count++; 
+            console.log(count);
+          }
+        }
+  
+        // Update the count in the component's state
+        this.setState({ count });
+    },{
       includeSpectrogram: true, // in case listen should return result.spectrogram
       probabilityThreshold: 0.75,
       invokeCallbackOnNoiseAndUnknown: true,
@@ -84,3 +108,4 @@ class AudioRecognition extends Component {
 }
 
 export default AudioRecognition;
+
