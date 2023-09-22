@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as tf from '@tensorflow/tfjs';
 import * as speechCommands from '@tensorflow-models/speech-commands';
+import './AudioClassification.css';
 
 class AudioRecognition extends Component {
   constructor(props) {
