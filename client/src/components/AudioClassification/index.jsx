@@ -65,7 +65,7 @@ class AudioRecognition extends Component {
           const classPrediction = classLabels[i] + ": " + scores[i].toFixed(2);
           labelContainer.childNodes[i].innerHTML = classPrediction;
 
-          if (scores[i] > 0.98 && classLabels[i] === "chainSaw Sound") {
+          if (scores[i] > 0.98 && classLabels[i] === "Chain Saw") {
             count++;
             console.log(count);
           }
