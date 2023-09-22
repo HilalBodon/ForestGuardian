@@ -16,6 +16,7 @@ import {RiUserSettingsFill} from 'react-icons/ri';
 import nameLogo from "../../assets/images/nameLogo.svg";
 import greenLogo from "../../assets/images/GreenLogo.svg";
 import AudioRecorder from '../AudioRecorder';
+import AudioClassification from '../AudioClassification';
 
 
 const Main = ({ authToken }) => {
@@ -295,6 +296,7 @@ const Main = ({ authToken }) => {
         {renderContent()}
       </div>
       <AudioRecorder/>
+      <AudioClassification/>
 
     </div>
   );
