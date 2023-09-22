@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import * as tf from '@tensorflow/tfjs';
 import * as speechCommands from '@tensorflow-models/speech-commands';
 import './AudioClassification.css';
-import Spectrogram from './Spectrogram';
 
 class AudioRecognition extends Component {
   constructor(props) {
@@ -10,13 +9,13 @@ class AudioRecognition extends Component {
     this.state = {
       classLabels: [],
       recognizer: null,
-      count:0,
+      count: 0,
       recognizing: false,
+      timer: null,
+      timerValue: 0,
+      alertShown: false,
     };
   }
-
-
-
 
   async componentDidMount() {
     // Initialize TensorFlow.js
@@ -28,9 +27,15 @@ class AudioRecognition extends Component {
     this.setState({ recognizer, classLabels });
   }
 
+  componentWillUnmount() {
+    // Make sure to clean up any asynchronous tasks or timers
+    if (this.state.timer) {
+      clearInterval(this.state.timer);
+    }
+  }
+
   async createModel() {
-    // const URL = "https://teachablemachine.withgoogle.com/models/Xof36KxXS/";
-    const URL ="https://teachablemachine.withgoogle.com/models/RO1FS-bVi/";
+    const URL = "https://teachablemachine.withgoogle.com/models/RO1FS-bVi/";
     const checkpointURL = URL + "model.json"; // model topology
     const metadataURL = URL + "metadata.json"; // model metadata
 
@@ -48,7 +53,7 @@ class AudioRecognition extends Component {
   }
 
   init = async () => {
-    const { recognizer, classLabels, recognizing } = this.state;
+    const { recognizer, classLabels, recognizing, timer, count, alertShown } = this.state;
     const labelContainer = document.getElementById("label-container");
 
     for (let i = 0; i < classLabels.length; i++) {
@@ -57,22 +62,46 @@ class AudioRecognition extends Component {
 
     if (recognizing) {
       recognizer.stopListening();
+      clearInterval(timer);
     } else {
       recognizer.listen(result => {
         const scores = result.scores;
-        let { count } = this.state;
 
-        for (let i = 0; i < classLabels.length; i++) {
-          const classPrediction = classLabels[i] + ": " + scores[i].toFixed(2);
-          labelContainer.childNodes[i].innerHTML = classPrediction;
+        this.setState(prevState => {
+          let updatedCount = prevState.count;
 
-          if (scores[i] > 0.98 && classLabels[i] === "Chain Saw") {
-            count++;
-            console.log(count);
+          for (let i = 0; i < classLabels.length; i++) {
+            const classPrediction = classLabels[i] + ": " + scores[i].toFixed(2);
+            labelContainer.childNodes[i].innerHTML = classPrediction;
+
+            if (scores[i] > 0.98 && classLabels[i] === "Chain Saw") {
+              updatedCount++;
+              console.log(updatedCount);
+
+              if (updatedCount === 1) {
+                const newTimer = setInterval(() => {
+                  if (prevState.timerValue >= 60) {
+                    clearInterval(newTimer);
+                    this.setState({ timerValue: 0, count: 0, alertShown: false });
+                  } else {
+                    this.setState(prevState => ({ timerValue: prevState.timerValue + 1 }));
+                  }
+                }, 1000);
+  
+                return { count: updatedCount, timer: newTimer, timerValue: 0 };
+              }
+  
+              if (updatedCount >= 10 && !prevState.alertShown) {
+                this.setState({ alertShown: true });
+                clearInterval(timer);
+                alert("Count reached 10 within one minute!");
+                this.setState({ timerValue: 0, count: 0 });
+              }
+            }
           }
-        }
-
-        this.setState({ count });
+  
+          return { count: updatedCount };
+        });
       }, {
         includeSpectrogram: true,
         probabilityThreshold: 0.75,
@@ -86,7 +115,7 @@ class AudioRecognition extends Component {
 
   render() {
     const { handleBackClick } = this.props;
-    const { recognizing } = this.state;
+    const { recognizing, timerValue } = this.state;
 
     return (
       <div>
@@ -99,10 +128,9 @@ class AudioRecognition extends Component {
           {recognizing ? "Stop" : "Start"} Recognition
         </button>
         <div id="label-container"></div>
+        <div>Timer: {timerValue} seconds</div>
         <button className="button" onClick={handleBackClick}>Back</button>
-        <Spectrogram/>
       </div>
-
     );
   }
 }
