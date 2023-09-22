@@ -1,55 +1,59 @@
-// import React, { Component } from 'react';
-// import 'p5/lib/p5';
+import React, { Component } from 'react';
+import p5 from 'p5';
 
-// class Spectrogram extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.canvasRef = React.createRef();
-//   }
+class Spectrogram extends Component {
+  constructor(props) {
+    super(props);
+    this.canvasRef = React.createRef();
+    this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    this.micStream = null; 
+  }
 
-//   componentDidMount() {
-//     // Initialize p5.js canvas in componentDidMount
-//     this.createCanvas();
-//   }
+  componentDidMount() {
+    this.p5 = new p5(this.sketch, this.canvasRef.current);
+  }
 
-//   createCanvas() {
-//     const sketch = (p) => {
-//       let mic;
-//       let fft;
+  initMicrophone = async () => {
+    let analyser;
+    let spectrogram = [];
+    
+    try {
+      this.micStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      analyser = this.audioContext.createAnalyser();
+      const source = this.audioContext.createMediaStreamSource(this.micStream);
+      source.connect(analyser);
+      analyser.fftSize = 256;
+      spectrogram = new Uint8Array(analyser.frequencyBinCount);
+      analyser.connect(this.audioContext.destination);
+    } catch (error) {
+      console.error('Error accessing microphone:', error);
+    }
 
-//       p.setup = () => {
-//         const canvas = p.createCanvas(400, 200);
-//         mic = new p5.AudioIn();
-//         mic.start();
-//         fft = new p5.FFT();
-//         fft.setInput(mic);
-//       };
+    this.p5.setup = () => {
+      this.p5.createCanvas(400, 200);
+    };
 
-//       p.draw = () => {
-//         p.background(0);
-//         const spectrum = fft.analyze();
-//         p.noFill();
-//         p.beginShape();
-//         p.stroke(0, 255, 0); // Green color for the spectrogram
+    this.p5.draw = () => {
+      this.p5.background(0);
+      analyser.getByteFrequencyData(spectrogram);
 
-//         for (let i = 0; i < spectrum.length; i++) {
-//           const x = p.map(i, 0, spectrum.length, 0, p.width);
-//           const h = -p.height + p.map(spectrum[i], 0, 255, p.height, 0);
-//           p.vertex(x, p.height);
-//           p.vertex(x, h);
-//         }
+      for (let x = 0; x < spectrogram.length; x++) {
+        let y = this.p5.map(spectrogram[x], 0, 255, 0, this.p5.height);
+        this.p5.stroke(255);
+        this.p5.line(x, this.p5.height, x, this.p5.height - y);
+      }
+    };
+  }
 
-//         p.endShape();
-//       };
-//     };
+  componentWillUnmount() {
+    if (this.micStream) {
+      this.micStream.getTracks().forEach((track) => track.stop());
+    }
+  }
 
-//     // Create a new p5 instance
-//     new window.p5(sketch, this.canvasRef.current);
-//   }
+  render() {
+    return <div ref={this.canvasRef}></div>;
+  }
+}
 
-//   render() {
-//     return <div ref={this.canvasRef}></div>;
-//   }
-// }
-
-// export default Spectrogram;
+export default Spectrogram;
