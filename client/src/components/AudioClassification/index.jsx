@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as tf from '@tensorflow/tfjs';
 import * as speechCommands from '@tensorflow-models/speech-commands';
 import './AudioClassification.css';
+import Spectrogram from './Spectrogram';
 
 class AudioRecognition extends Component {
   constructor(props) {
@@ -99,7 +100,9 @@ class AudioRecognition extends Component {
         </button>
         <div id="label-container"></div>
         <button className="button" onClick={handleBackClick}>Back</button>
+        <Spectrogram/>
       </div>
+
     );
   }
 }
