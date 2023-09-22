@@ -11,6 +11,9 @@ class AudioRecognition extends Component {
     };
   }
 
+
+
+
   async componentDidMount() {
     // Initialize TensorFlow.js
     await tf.ready();
@@ -66,12 +69,16 @@ class AudioRecognition extends Component {
   }
 
   render() {
+    const {  handleBackClick } = this.props;
+
     return (
       <div>
         <div>Teachable Machine Audio Model</div>
         <button type="button" onClick={this.init}>Start</button>
         <div id="label-container"></div>
+        <button  className="button" onClick={handleBackClick}>Back</button>
       </div>
+
     );
   }
 }

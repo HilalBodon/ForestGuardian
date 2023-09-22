@@ -15,7 +15,7 @@ import  {FaBars} from 'react-icons/fa';
 import {RiUserSettingsFill} from 'react-icons/ri';
 import nameLogo from "../../assets/images/nameLogo.svg";
 import greenLogo from "../../assets/images/GreenLogo.svg";
-import AudioRecorder from '../AudioRecorder';
+// import AudioRecorder from '../AudioRecorder';
 import AudioClassification from '../AudioClassification';
 
 
@@ -25,6 +25,7 @@ const Main = ({ authToken }) => {
   const [showAboutUs, setShowAboutUs] = useState(false); 
   const [showHowToUse, setShowHowToUse] = useState(false);
   const [showAccountSettings, setShowAccountSettings] = useState(false);
+  const [showStartDetecting, setShowStartDetecting] = useState(false); 
   const [devices, setDevices] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
@@ -68,6 +69,7 @@ const Main = ({ authToken }) => {
     setShowAboutUs(false); 
     setShowHowToUse(false); 
     setShowAccountSettings(false); 
+    setShowStartDetecting(false);
   };
   
 
@@ -84,6 +86,7 @@ const Main = ({ authToken }) => {
     setShowAddDeviceForm(false);
     setShowHowToUse(false);
     setShowAccountSettings(false); 
+    setShowStartDetecting(false);
   };
 
   const handleBackClick = () => {
@@ -93,6 +96,7 @@ const Main = ({ authToken }) => {
     setShowSettings(false)
     setShowHistory(false)
     setShowAnalytics(false);
+    setShowStartDetecting(false);
   };
 
 
@@ -101,10 +105,20 @@ const Main = ({ authToken }) => {
     setShowAboutUs(false);
     setShowAddDeviceForm(false);
     setShowAccountSettings(false); 
+    setShowStartDetecting(false);
   };
 
   const handleAccountSettingsClick = () => {
     setShowAccountSettings(true);
+    setShowAboutUs(false);
+    setShowAddDeviceForm(false);
+    setShowHowToUse(false);
+    setShowStartDetecting(false);
+  };
+
+  const handleStartDetectingClick= () => {
+    setShowStartDetecting(true)
+    setShowAccountSettings(false);
     setShowAboutUs(false);
     setShowAddDeviceForm(false);
     setShowHowToUse(false);
@@ -192,7 +206,7 @@ const Main = ({ authToken }) => {
         authToken={authToken}
         onDeviceAdded={handleDeviceAdded}
         setShowAddDeviceForm={setShowAddDeviceForm}
-        handleBackClick={handleBackClick} // Pass the handleBackClick prop
+        handleBackClick={handleBackClick}
       />
       );
     } else if (showAboutUs) {
@@ -201,6 +215,8 @@ const Main = ({ authToken }) => {
       return <HowToUse handleBackClick={handleBackClick} />;
     } else if (showAccountSettings) {
       return <AccountSettings handleBackClick={handleBackClick} />;
+    } else if (showStartDetecting) {
+      return <AudioClassification handleBackClick={handleBackClick}/>;
     } else if (showSettings) {
       return <SettingsPage handleBackClick={handleBackClick}/>;
     } else if (showHistory) {
@@ -252,6 +268,9 @@ const Main = ({ authToken }) => {
             <a  onClick={handleAccountSettingsClick} className={styles.sideMenuItem}>
               Account Settings
             </a>
+            <a   onClick={handleStartDetectingClick}className={styles.sideMenuItem}> 
+              ChainSaw Detect
+            </a>
             <a   onClick={handleLogout}className={styles.sideMenuItem}> 
               Logout
             </a>
@@ -295,8 +314,8 @@ const Main = ({ authToken }) => {
       <div className={styles.devices_container}>
         {renderContent()}
       </div>
-      <AudioRecorder/>
-      <AudioClassification/>
+      {/* <AudioRecorder/> */}
+      {/* <AudioClassification/> */}
 
     </div>
   );
