@@ -100,7 +100,7 @@ class AudioRecognition extends Component {
         </button>
         <div id="label-container"></div>
         <button className="button" onClick={handleBackClick}>Back</button>
-        <Spectrogram/>
+        {/* <Spectrogram/> */}
       </div>
 
     );
