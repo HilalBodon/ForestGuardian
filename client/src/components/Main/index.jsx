@@ -12,11 +12,12 @@ import Analytics from './DropDown/Analytics';
 import jwt_decode from "jwt-decode";
 import styles from "./main.module.css";
 import  {FaBars} from 'react-icons/fa';
+import {FaHistory} from 'react-icons/fa';
 import {RiUserSettingsFill} from 'react-icons/ri';
 import nameLogo from "../../assets/images/nameLogo.svg";
 import greenLogo from "../../assets/images/GreenLogo.svg";
 import AudioClassification from '../AudioClassification';
-import NumberLocalStorageSetter from '../NumberLocalStorageSetter';
+// import NumberLocalStorageSetter from '../NumberLocalStorageSetter';
 
 
 const Main = ({ authToken }) => {
@@ -291,7 +292,10 @@ const Main = ({ authToken }) => {
     <h1 className={styles.navbarHead}>How to Use</h1>
   ): showAccountSettings ? (
     <h1 className={styles.navbarHead}> Account Settings<RiUserSettingsFill className={styles.navbarHead}/></h1>
+  ) : showHistory ? (
+    <h1 className={styles.navbarHead}> History < FaHistory className={styles.navbarHead}/></h1>
   ) : (
+  
     <div><img className={styles.nameLogo} src={nameLogo} alt="NameLogo" /></div>
   )}
 </div>
@@ -314,7 +318,6 @@ const Main = ({ authToken }) => {
       <div className={styles.devices_container}>
         {renderContent()}
       </div>
-    {/* <NumberLocalStorageSetter/> */}
 
     </div>
   );
