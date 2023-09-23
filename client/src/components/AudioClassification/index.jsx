@@ -97,6 +97,29 @@ class AudioRecognition extends Component {
 
 
 
+            // After adding notification to the database
+            const emailData = {
+                recipientEmail: 'hilal_bodon@hotmail.com',
+                subject: 'New Notification',
+                message: 'chainsaw detected',
+            };
+
+            
+            axios.post('/api/send-email', emailData)
+                .then(response => {
+                if (response.status === 200) {
+                    console.log('Email sent successfully');
+                } else {
+                    console.error('Failed to send email');
+                }
+                })
+                .catch(error => {
+                console.error('Error sending email:', error);
+                });
+
+
+
+
 
             });
           }
