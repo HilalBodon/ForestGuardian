@@ -11,7 +11,9 @@
     width: fit-content;
 
 }
-.notificationContainer{}
+.buttonsDiv{
+    background-color: bisque;
+}
 
 .notificationCard{
     font-weight: 500;
@@ -33,7 +35,6 @@
 }
 
 .mainHistoryContainer{
-    /* background-color: rgb(121, 121, 27); */
 }
 
 .deviceName{
@@ -43,4 +44,5 @@ font-weight: 700;
 
 .icon{
     font-size: 3rem;
+    color: #3E6751;
 }

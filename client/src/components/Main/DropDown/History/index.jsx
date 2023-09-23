@@ -4,7 +4,7 @@ import axios from 'axios';
 import { GiAxeInLog } from 'react-icons/gi';
 import { GiSawedOffShotgun } from 'react-icons/gi';
 import {GiChainsaw} from 'react-icons/gi';
-
+import {RiDeleteBinFill} from 'react-icons/ri';
 
 const History = ({ handleBackClick }) => {
   const [notifications, setNotifications] = useState([]);
@@ -21,11 +21,12 @@ const History = ({ handleBackClick }) => {
 
   return (
     <div className={styles.mainHistoryContainer}>
-      <h1>History</h1>
-
+        <div className={styles.buttonsDiv}>
       <button className={styles.button} onClick={handleBackClick}>
         Back
       </button>
+      <RiDeleteBinFill className={styles.icon}/>
+      </div>
 
 
 <div className={styles.notificationContainer}>
