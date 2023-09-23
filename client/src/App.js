@@ -6,6 +6,8 @@ import Login from "./components/Login";
 function App() {
 	// const user = localStorage.getItem("token");
 	const [authToken, setAuthToken] = useState(localStorage.getItem("token") || "");
+	console.log("token:",authToken);
+	localStorage.setItem("token",authToken);
 
 	return (
 		<Routes>

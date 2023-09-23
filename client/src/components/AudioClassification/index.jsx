@@ -132,18 +132,20 @@ class AudioRecognition extends Component {
   
     return (
       <div>
-        <div>Teachable Machine Audio Model</div>
-        <button
-          type="button"
-          className={`recognize-button ${recognizing ? 'stop' : 'start'}`}
-          onClick={this.init}
-        >
-          {recognizing ? "Stop" : "Start"} Recognition
-        </button>
         <div id="label-container"></div>
         <div>Count: {count}</div>
         <div>Timer: {timerValue} seconds</div>
+        <div className="buttonsDiv">
+        <button
+          type="button"
+          className={`recognize-button ${recognizing ? 'bounceStop' : 'start'}`}
+          onClick={this.init}
+        >
+          {recognizing ? "Stop" : "Start"} Listening 
+        </button>
         <button className="button" onClick={handleBackClick}>Back</button>
+
+        </div>
       </div>
     );
   }

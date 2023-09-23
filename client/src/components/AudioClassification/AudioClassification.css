@@ -1,18 +1,51 @@
+.mainAudioDiv{
+  display: flex;
+  justify-content: center;
+}
 .recognize-button {
     font-size: 16px;
     padding: 10px 20px;
+    margin: 50px;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
+  .backButton {
+    background-color: #27302b;
+    color: white;
+    height: 45px;
+    border-radius: 25px;
+  }
   
   .recognize-button.start {
-    background-color: green;
+    background-color: #27302b;
     color: white;
+    height: 45px;
+    border-radius: 25px;
+  }
+
+  .recognize-button.start:hover{
+    background-color: rgb(89, 133, 89);
   }
   
-  .recognize-button.stop {
-    background-color: red;
-    color: white;
+  .recognize-button.bounceStop {
+    height: 45px;
+    text-align:center;
+    opacity: 1;
+    background: rgb(128, 0, 62);
+    color:#fff;
+    border-radius:25px;
+    animation: bounce .6s infinite alternate;
+  }
+  @keyframes bounce {
+    to { transform: scale(1.2); }
   }
   
+  .label-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* background-color: #3c1010; */
+    pAdding: 25px;
+
+  }

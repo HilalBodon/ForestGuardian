@@ -6,7 +6,7 @@ const userRoutes = require("./routes/users");
 const authRoutes = require("./routes/auth");
 const deviceRoutes = require("./routes/devices");
 const notificationRoutes = require("./routes/notifications");
-const soundsRoutes = require("./routes/sounds");
+// const soundsRoutes = require("./routes/sounds");
 
 const mongoose = require("mongoose");
 

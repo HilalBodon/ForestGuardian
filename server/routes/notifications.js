@@ -5,27 +5,6 @@ const Device = require('../models/device');
 const User = require('../models/user');
 
 
-// ____________________________________________________send notification
-// router.post('/', async (req, res) => {
-//   try {
-//     const { device, user, message } = req.body; 
-
-//     const notification = new Notification({
-//       device,
-//       user,
-//       message
-//         });
-
-//     await notification.save();
-
-//     res.status(201).json(notification);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: 'Internal server error' });
-//   }
-// });
-
-
 // __________________________________________get all notifications
 
 router.get('/', async (req, res) => {
@@ -41,7 +20,7 @@ router.get('/', async (req, res) => {
       res.status(500).json({ error: 'Internal server error' });
     }
   });
-// ___________________________________________________________
+// ___________________________________________________________//send notification
 router.post('/', async (req, res) => {
   try {
     const { device, user, message } = req.body;

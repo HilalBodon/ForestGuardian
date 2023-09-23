@@ -15,8 +15,8 @@ import  {FaBars} from 'react-icons/fa';
 import {RiUserSettingsFill} from 'react-icons/ri';
 import nameLogo from "../../assets/images/nameLogo.svg";
 import greenLogo from "../../assets/images/GreenLogo.svg";
-// import AudioRecorder from '../AudioRecorder';
 import AudioClassification from '../AudioClassification';
+import NumberLocalStorageSetter from '../NumberLocalStorageSetter';
 
 
 const Main = ({ authToken }) => {
@@ -314,8 +314,7 @@ const Main = ({ authToken }) => {
       <div className={styles.devices_container}>
         {renderContent()}
       </div>
-      {/* <AudioRecorder/> */}
-      {/* <AudioClassification/> */}
+    {/* <NumberLocalStorageSetter/> */}
 
     </div>
   );
