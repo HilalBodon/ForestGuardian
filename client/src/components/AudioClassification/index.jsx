@@ -100,6 +100,12 @@ class AudioRecognition extends Component {
                   .catch(error => {
                     console.error('Error sending notification:', error);
                   });
+
+
+
+                    this.sendEmail();
+                    console.log('Sent notification to email');
+
               }
   
             });
@@ -134,18 +140,18 @@ class AudioRecognition extends Component {
 
 
   
-   sendEmail = async (e) => {
-    e.preventDefault();
-    const { email } = this.state;
-    const data = {
-      email,
-    };
-    const response = await axios.post(
-      "http://localhost:8080/api/sendemail",
-      data
-    );
-    console.log(response.data);
+sendEmail = async () => {
+  const { email } = this.state;
+  const data = {
+    email,
   };
+  const response = await axios.post(
+    "http://localhost:8080/api/sendemail",
+    data
+  );
+  console.log(response.data);
+};
+
 
 
   
@@ -174,20 +180,20 @@ class AudioRecognition extends Component {
 
 
 
-        <div className="--width-500px --card --p --bg-light">
+        {/* <div className="--width-500px --card --p --bg-light">
           <form className="--form-control" onSubmit={this.sendEmail}> 
-            {/* <input
+             <input
               type="email"
               placeholder="Email"
               required
-              value={email} // eslint-disable-next-line no-undef
+                value={this.state.email}
               onChange={(e) => this.setState({ email: e.target.value })} 
-            /> */}
+            /> 
             <button type="submit" className="--btn --btn-primary">
               Send Email
             </button>
           </form>
-        </div>
+        </div> */}
       </div>
     );
   }
