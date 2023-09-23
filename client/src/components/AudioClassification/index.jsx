@@ -137,21 +137,6 @@ class AudioRecognition extends Component {
 
 
 
-
-
-  
-// sendEmail = async () => {
-//   const { email } = this.state;
-//   const data = {
-//     email,
-//   };
-//   const response = await axios.post(
-//     "http://localhost:8080/api/sendemail",
-//     data
-//   );
-//   console.log(response.data);
-// };
-
 sendEmail = async () => {
     const { email } = this.state;
     const data = {
@@ -175,9 +160,6 @@ sendEmail = async () => {
     }
   };
 
-
-
-  
 
   render() {
     const { handleBackClick } = this.props;
