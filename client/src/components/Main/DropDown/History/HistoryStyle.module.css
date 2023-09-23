@@ -49,3 +49,55 @@ font-weight: 700;
     font-size: 3rem;
     color: #3E6751;
 }
+
+
+
+.confirmationContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+  .confirmationContainer p {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+  
+  .confirmationContainer button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .confirmationContainer button.yes {
+    background-color: #e74c3c; 
+    color: white;
+  }
+  
+  .confirmationContainer button.no {
+    background-color: #3498db; 
+    color: white;
+  }
+  
+  .confirmationContainer button:hover {
+    opacity: 0.8;
+  }
+  
+  .YesNo{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+  }
