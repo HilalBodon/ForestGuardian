@@ -24,7 +24,7 @@ router.post('/',authMiddleware, async (req, res) => {
 
 
   // ________________________________________________________
-    router.get('/',authMiddleware, async (req, res) => {
+    router.get('/', async (req, res) => {// i removed authMiddleware because token problem
       try {
       const devices = await Device.find();
       res.status(200).send(devices);
