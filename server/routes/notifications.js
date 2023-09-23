@@ -42,7 +42,7 @@ router.get('/', async (req, res) => {
     }
   });
 // ___________________________________________________________
-router.post('/notifications', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const { device, user, message } = req.body;
 

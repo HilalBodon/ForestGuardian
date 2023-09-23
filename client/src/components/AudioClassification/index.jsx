@@ -75,19 +75,16 @@ class AudioRecognition extends Component {
                 this.setState({ count: 0 });
               }
 
-
-              if (this.state.count >= 10) {
+              if (this.state.count >= 2) {
                 const notificationData = {
-                  device: 'device_id_here', 
-                  user: 'user_id_here',    
+                  device: '6509c07a0252b1c899f2af2b', 
+                  user: '6509ae106682a65e6a41efd3',
+                  message: 'chainSaw detected',    
                 };
             
-                // Send the notification data to your backend using Axios
-                axios.post('/api/notifications', notificationData)
+                axios.post('http://localhost:8080/api/notifications', notificationData)
                   .then(response => {
                     if (response.status === 201) {
-                      // The notification was successfully sent and stored in the database
-                      // You can handle this in your frontend as needed
                       console.log('Notification sent and stored.');
                     } else {
                       console.error('Failed to send notification.');
