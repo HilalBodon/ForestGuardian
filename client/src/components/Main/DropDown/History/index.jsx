@@ -14,6 +14,9 @@
 // }
 // export default History;
 
+
+
+
 import React, { useEffect, useState } from "react";
 import styles from "./HistoryStyle.module.css";
 import axios from 'axios';
@@ -22,7 +25,7 @@ const History = ({ handleBackClick }) => {
   const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:8080/api/notifications')
+    axios.get('http://localhost:8080/api/notifications/6509ae106682a65e6a41efd3')
       .then((response) => {
         setNotifications(response.data);
       })
@@ -42,9 +45,10 @@ const History = ({ handleBackClick }) => {
       <div className={styles.notificationContainer}>
         {notifications.map((notification) => (
           <div key={notification._id} className={styles.notificationCard}>
-            <p>Device: {notification.device.name}</p>
+            <p>Device: {notification.device.deviceName}</p>
             <p>User: {notification.user.firstName} {notification.user.lastName}</p>
             <p>Message: {notification.message}</p>
+            <p>Created At: {notification.createdAt}</p>
             {/* Add more information as needed */}
           </div>
         ))}

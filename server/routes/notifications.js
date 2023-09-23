@@ -7,7 +7,7 @@ const { format } = require('date-fns');
 
 // __________________________________________get all notifications
 
-
+ 
 
 router.get('/', async (req, res) => {
   try {
@@ -62,8 +62,11 @@ router.get('/:userId', async (req, res) => {
       return res.status(404).json({ error: 'User not found' });
     }
 
-    const notifications = await Notification.find({ user: userId }).exec();
-
+    const notifications = await Notification.find({ user: userId })
+    .populate('device', 'deviceName') 
+    .populate('user', 'firstName lastName')
+    .exec();
+  
     const formattedNotifications = notifications.map(notification => ({
       _id: notification._id,
       device: notification.device,
