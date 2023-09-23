@@ -31,8 +31,8 @@ class AudioRecognition extends Component {
     const metadataURL = URL + "metadata.json";
 
     const recognizer = speechCommands.create(
-      "BROWSER_FFT", // fourier transform type, not useful to change
-      undefined, // speech commands vocabulary feature, not useful for your models
+      "BROWSER_FFT", 
+      undefined,
       checkpointURL,
       metadataURL
     );
