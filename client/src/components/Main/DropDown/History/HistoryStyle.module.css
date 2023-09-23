@@ -11,3 +11,28 @@
     width: fit-content;
 
 }
+.notificationContainer{
+    /* background-color: #ff8; */
+}
+
+.notificationCard{
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    row-gap: 5px;
+    column-gap: 7%;
+    flex-wrap: wrap;
+    /* background-color: rgb(25, 69, 144); */
+    border-bottom: 1px solid ;
+    box-shadow: #3E6751;
+
+}
+
+.mainHistoryContainer{
+    /* background-color: rgb(121, 121, 27); */
+}
+
+.deviceName{
+color: #3E6751;
+font-weight: 700;
+}

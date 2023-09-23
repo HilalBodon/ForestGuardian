@@ -1,25 +1,10 @@
-// import React from "react";
-// import styles from "./HistoryStyle.module.css"
-// const History= ({handleBackClick}) => {
-
-// return(
-
-//     <div>
-//         <h2>history</h2>
-
-//         <button className={styles.button}onClick={handleBackClick}>Back</button>
-    
-//     </div>
-// );
-// }
-// export default History;
-
-
-
-
 import React, { useEffect, useState } from "react";
 import styles from "./HistoryStyle.module.css";
 import axios from 'axios';
+import { GiAxeInLog } from 'react-icons/gi';
+import { GiSawedOffShotgun } from 'react-icons/gi';
+import {GiChainsaw} from 'react-icons/gi';
+
 
 const History = ({ handleBackClick }) => {
   const [notifications, setNotifications] = useState([]);
@@ -35,24 +20,36 @@ const History = ({ handleBackClick }) => {
   }, []);
 
   return (
-    <div>
-      <h2>History</h2>
+    <div className={styles.mainHistoryContainer}>
+      <h1>History</h1>
 
       <button className={styles.button} onClick={handleBackClick}>
         Back
       </button>
 
-      <div className={styles.notificationContainer}>
-        {notifications.map((notification) => (
-          <div key={notification._id} className={styles.notificationCard}>
-            <p>Device: {notification.device.deviceName}</p>
-            <p>User: {notification.user.firstName} {notification.user.lastName}</p>
-            <p>Message: {notification.message}</p>
-            <p>Created At: {notification.createdAt}</p>
-            {/* Add more information as needed */}
-          </div>
-        ))}
-      </div>
+
+<div className={styles.notificationContainer}>
+  {notifications.map((notification) => (
+    <div key={notification._id} className={styles.notificationCard}>
+      {notification.message === 'chainSaw detected' && (
+        <div className={styles.icon}>
+          < GiChainsaw className={styles.icon} />          <i className="chainsaw-icon"></i>
+        </div>
+      )}
+      {notification.message === 'axe' && (
+        <div className={styles.icon}>
+          <GiAxeInLog className={styles.icon} />
+          <i className="axe-icon"></i>
+        </div>
+      )}
+      <div className={styles.deviceName}>{notification.device.deviceName}:</div>
+      <div>{notification.message}</div>
+      <div>At: {notification.createdAt}</div>
+    </div>
+  ))}
+</div>
+
+
     </div>
   );
 };
