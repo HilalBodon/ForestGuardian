@@ -31,9 +31,11 @@ const History = ({ handleBackClick }) => {
 <div className={styles.notificationContainer}>
   {notifications.map((notification) => (
     <div key={notification._id} className={styles.notificationCard}>
+        <div>
       {notification.message === 'chainSaw detected' && (
         <div className={styles.icon}>
-          < GiChainsaw className={styles.icon} />          <i className="chainsaw-icon"></i>
+          < GiChainsaw className={styles.icon} />
+          <i className="chainsaw-icon"></i>
         </div>
       )}
       {notification.message === 'axe' && (
@@ -42,9 +44,12 @@ const History = ({ handleBackClick }) => {
           <i className="axe-icon"></i>
         </div>
       )}
+      </div>
+      <div className={styles.insideNotificationCard}>
       <div className={styles.deviceName}>{notification.device.deviceName}:</div>
       <div>{notification.message}</div>
       <div>At: {notification.createdAt}</div>
+    </div>
     </div>
   ))}
 </div>

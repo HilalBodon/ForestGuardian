@@ -16,16 +16,23 @@
 }
 
 .notificationCard{
+    font-weight: 500;
     font-size: 20px;
     display: flex;
     flex-direction: row;
+    width: 100vw;
     row-gap: 5px;
-    column-gap: 7%;
+    column-gap: 7%; 
     flex-wrap: wrap;
     /* background-color: rgb(25, 69, 144); */
     border-bottom: 1px solid ;
     box-shadow: #3E6751;
-
+}
+.insideNotificationCard{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .mainHistoryContainer{
@@ -35,4 +42,8 @@
 .deviceName{
 color: #3E6751;
 font-weight: 700;
+}
+
+.icon{
+    font-size: 3rem;
 }
