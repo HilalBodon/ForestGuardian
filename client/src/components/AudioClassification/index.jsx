@@ -46,6 +46,7 @@ class AudioRecognition extends Component {
   init = async () => {
     const { recognizer, classLabels, recognizing, timer } = this.state;
     const labelContainer = document.getElementById("label-container");
+    
   
     for (let i = 0; i < classLabels.length; i++) {
       labelContainer.appendChild(document.createElement("div"));
@@ -75,23 +76,27 @@ class AudioRecognition extends Component {
               }
 
 
-
-
               if (this.state.count >= 10) {
-                const alertMessage = "Count reached 10!";
-                // console.log('Alert message sent and stored.');
-
-                axios.post('/api/alerts', { message: alertMessage })
+                // Create a data object to send to the backend
+                const notificationData = {
+                  device: 'device_id_here', // Replace with the actual device ID
+                  user: 'user_id_here',     // Replace with the actual user ID
+                  message: "Count reached 10!",
+                };
+            
+                // Send the notification data to your backend using Axios
+                axios.post('/api/notifications', notificationData)
                   .then(response => {
-                    if (response.status === 200) {
-        
-                      console.log('Alert message sent and stored.');
+                    if (response.status === 201) {
+                      // The notification was successfully sent and stored in the database
+                      // You can handle this in your frontend as needed
+                      console.log('Notification sent and stored.');
                     } else {
-                      console.error('Failed to send alert message.');
+                      console.error('Failed to send notification.');
                     }
                   })
                   .catch(error => {
-                    console.error('Error sending alert message:', error);
+                    console.error('Error sending notification:', error);
                   });
               }
 
