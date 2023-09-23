@@ -41,11 +41,15 @@
     to { transform: scale(1.2); }
   }
   
-  .label-container{
+  .countContainer{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* background-color: #3c1010; */
-    pAdding: 25px;
+    padding: 25px;
 
+  }
+
+  .label-container{
+    display: flex;
+    justify-content: center;
   }

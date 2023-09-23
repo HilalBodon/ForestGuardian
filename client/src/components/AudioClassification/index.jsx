@@ -133,8 +133,6 @@ class AudioRecognition extends Component {
     return (
       <div>
         <div id="label-container"></div>
-        <div>Count: {count}</div>
-        <div>Timer: {timerValue} seconds</div>
         <div className="buttonsDiv">
         <button
           type="button"
@@ -144,7 +142,10 @@ class AudioRecognition extends Component {
           {recognizing ? "Stop" : "Start"} Listening 
         </button>
         <button className="button" onClick={handleBackClick}>Back</button>
-
+        <div className='countContainer'>
+            <div>ChainSaw:{count}</div>
+            <div>Timer: {timerValue} seconds</div>
+        </div>
         </div>
       </div>
     );
