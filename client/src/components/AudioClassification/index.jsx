@@ -82,7 +82,7 @@ class AudioRecognition extends Component {
                 this.setState({ count: 0 });
               }
 
-              if (this.state.count >= 2) {
+              if (this.state.count >= 5) {
                 const notificationData = {
                   device: '6509c07a0252b1c899f2af2b', 
                   user: '6509ae106682a65e6a41efd3',
@@ -140,17 +140,40 @@ class AudioRecognition extends Component {
 
 
   
+// sendEmail = async () => {
+//   const { email } = this.state;
+//   const data = {
+//     email,
+//   };
+//   const response = await axios.post(
+//     "http://localhost:8080/api/sendemail",
+//     data
+//   );
+//   console.log(response.data);
+// };
+
 sendEmail = async () => {
-  const { email } = this.state;
-  const data = {
-    email,
+    const { email } = this.state;
+    const data = {
+      email,
+    };
+  
+    try {
+      const response = await axios.post(
+        "http://localhost:8080/api/sendemail",
+        data
+      );
+  
+      if (response.status === 200) {
+        this.setState({ emailResponse: "Email sent successfully." });
+      } else {
+        this.setState({ emailResponse: "Failed to send email." });
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      this.setState({ emailResponse: "Error sending email." });
+    }
   };
-  const response = await axios.post(
-    "http://localhost:8080/api/sendemail",
-    data
-  );
-  console.log(response.data);
-};
 
 
 
@@ -158,7 +181,7 @@ sendEmail = async () => {
 
   render() {
     const { handleBackClick } = this.props;
-    const { recognizing, count, timerValue } = this.state;
+    const { recognizing, count, timerValue, emailResponse } = this.state;
 
     return (
       <div>
@@ -176,24 +199,14 @@ sendEmail = async () => {
             <div>ChainSaw:{count}</div>
             <div>Timer: {timerValue} seconds</div>
         </div>
+    </div>
+
+    {emailResponse && (
+        <div className="emailResponse">
+          {emailResponse}
         </div>
+      )}
 
-
-
-        {/* <div className="--width-500px --card --p --bg-light">
-          <form className="--form-control" onSubmit={this.sendEmail}> 
-             <input
-              type="email"
-              placeholder="Email"
-              required
-                value={this.state.email}
-              onChange={(e) => this.setState({ email: e.target.value })} 
-            /> 
-            <button type="submit" className="--btn --btn-primary">
-              Send Email
-            </button>
-          </form>
-        </div> */}
       </div>
     );
   }
