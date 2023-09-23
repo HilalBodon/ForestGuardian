@@ -3,6 +3,8 @@ import * as tf from '@tensorflow/tfjs';
 import * as speechCommands from '@tensorflow-models/speech-commands';
 import './AudioClassification.css';
 import axios from 'axios'; 
+import { useState } from "react";
+
 
 class AudioRecognition extends Component {
   constructor(props) {
@@ -15,9 +17,14 @@ class AudioRecognition extends Component {
       timer: null,
       timerValue: 0,
       alertShown: false,
+      email: "hilal.bodon@gmail.com",
     };
+
   }
 
+
+
+  
   async componentDidMount() {
     await tf.ready();
 
@@ -94,33 +101,7 @@ class AudioRecognition extends Component {
                     console.error('Error sending notification:', error);
                   });
               }
-
-
-
-            // After adding notification to the database
-            const emailData = {
-                recipientEmail: 'hilal_bodon@hotmail.com',
-                subject: 'New Notification',
-                message: 'chainsaw detected',
-            };
-
-            
-            axios.post('/api/send-email', emailData)
-                .then(response => {
-                if (response.status === 200) {
-                    console.log('Email sent successfully');
-                } else {
-                    console.error('Failed to send email');
-                }
-                })
-                .catch(error => {
-                console.error('Error sending email:', error);
-                });
-
-
-
-
-
+  
             });
           }
         }
@@ -147,12 +128,32 @@ class AudioRecognition extends Component {
   
     this.setState({ recognizing: !recognizing });
   }
+
+
+
+
+
+  
+   sendEmail = async (e) => {
+    e.preventDefault();
+    const { email } = this.state;
+    const data = {
+      email,
+    };
+    const response = await axios.post(
+      "http://localhost:8080/api/sendemail",
+      data
+    );
+    console.log(response.data);
+  };
+
+
   
 
   render() {
     const { handleBackClick } = this.props;
     const { recognizing, count, timerValue } = this.state;
-  
+
     return (
       <div>
         <div id="label-container"></div>
@@ -169,6 +170,23 @@ class AudioRecognition extends Component {
             <div>ChainSaw:{count}</div>
             <div>Timer: {timerValue} seconds</div>
         </div>
+        </div>
+
+
+
+        <div className="--width-500px --card --p --bg-light">
+          <form className="--form-control" onSubmit={this.sendEmail}> 
+            {/* <input
+              type="email"
+              placeholder="Email"
+              required
+              value={email} // eslint-disable-next-line no-undef
+              onChange={(e) => this.setState({ email: e.target.value })} 
+            /> */}
+            <button type="submit" className="--btn --btn-primary">
+              Send Email
+            </button>
+          </form>
         </div>
       </div>
     );
