@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as tf from '@tensorflow/tfjs';
 import * as speechCommands from '@tensorflow-models/speech-commands';
 import './AudioClassification.css';
+import axios from 'axios'; 
 
 class AudioRecognition extends Component {
   constructor(props) {
@@ -37,7 +38,6 @@ class AudioRecognition extends Component {
       metadataURL
     );
 
-    // check that model and metadata are loaded via HTTPS requests.
     await recognizer.ensureModelLoaded();
 
     return recognizer;
@@ -73,6 +73,31 @@ class AudioRecognition extends Component {
                 alert("Count reached 10!");
                 this.setState({ count: 0 });
               }
+
+
+
+
+              if (this.state.count >= 10) {
+                const alertMessage = "Count reached 10!";
+                // console.log('Alert message sent and stored.');
+
+                axios.post('/api/alerts', { message: alertMessage })
+                  .then(response => {
+                    if (response.status === 200) {
+        
+                      console.log('Alert message sent and stored.');
+                    } else {
+                      console.error('Failed to send alert message.');
+                    }
+                  })
+                  .catch(error => {
+                    console.error('Error sending alert message:', error);
+                  });
+              }
+
+
+
+
             });
           }
         }
