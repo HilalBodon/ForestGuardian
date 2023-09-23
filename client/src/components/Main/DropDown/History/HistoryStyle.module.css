@@ -11,9 +11,7 @@
     width: fit-content;
 
 }
-.notificationContainer{
-    /* background-color: #ff8; */
-}
+.notificationContainer{}
 
 .notificationCard{
     font-weight: 500;
@@ -24,9 +22,8 @@
     row-gap: 5px;
     column-gap: 7%; 
     flex-wrap: wrap;
-    /* background-color: rgb(25, 69, 144); */
     border-bottom: 1px solid ;
-    box-shadow: #3E6751;
+    box-shadow: 1px 1px 7px #707f77;
 }
 .insideNotificationCard{
     width: 80%;
