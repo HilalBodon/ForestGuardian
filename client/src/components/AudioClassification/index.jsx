@@ -77,11 +77,9 @@ class AudioRecognition extends Component {
 
 
               if (this.state.count >= 10) {
-                // Create a data object to send to the backend
                 const notificationData = {
-                  device: 'device_id_here', // Replace with the actual device ID
-                  user: 'user_id_here',     // Replace with the actual user ID
-                  message: "Count reached 10!",
+                  device: 'device_id_here', 
+                  user: 'user_id_here',    
                 };
             
                 // Send the notification data to your backend using Axios
