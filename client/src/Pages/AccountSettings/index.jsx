@@ -99,7 +99,6 @@ const AccountSettings = ({ userData, handleBackClick }) => {
   const [notifyEmail, setNotifyEmail] = useState(initialNotifyEmail);
   const [phoneNumber, setPhoneNumber] = useState(initialPhoneNumber);
 
-  const [isEmailEditing, setEmailEditing] = useState(false);
   const [isPasswordEditing, setPasswordEditing] = useState(false);
   const [isFullNameEditing, setFullNameEditing] = useState(false);
   const [isNotifyEmailEditing, setNotifyEmailEditing] = useState(false);
@@ -107,9 +106,6 @@ const AccountSettings = ({ userData, handleBackClick }) => {
 
   const handleEditClick = (fieldName) => {
     switch (fieldName) {
-      case 'email':
-        setEmailEditing(!isEmailEditing);
-        break;
       case 'password':
         setPasswordEditing(!isPasswordEditing);
         break;
@@ -139,8 +135,6 @@ const AccountSettings = ({ userData, handleBackClick }) => {
 
       await axios.put(`http://localhost:8080/api/users/${_id}`, updatedUserData);
 
-      // Disable editing mode after saving
-      setEmailEditing(false);
       setPasswordEditing(false);
       setFullNameEditing(false);
       setNotifyEmailEditing(false);
@@ -180,7 +174,7 @@ const AccountSettings = ({ userData, handleBackClick }) => {
         </div>
 
         <div className={styles.inputsDiv}>
-          <input type="text" id="userEmail" name="userEmail" value={email} onChange={(e) => setEmail(e.target.value)} disabled={!isEmailEditing} />
+          <input type="text" id="userEmail" name="userEmail" value={email} onChange={(e) => setEmail(e.target.value)} disabled/>
           <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} disabled={!isPasswordEditing} />
           <input type="text" id="fullname" name="fullname" value={fullName} onChange={(e) => setFullName(e.target.value)} disabled={!isFullNameEditing} />
           <input type="email" id="email" name="email" value={notifyEmail} onChange={(e) => setNotifyEmail(e.target.value)} disabled={!isNotifyEmailEditing} />
@@ -189,14 +183,13 @@ const AccountSettings = ({ userData, handleBackClick }) => {
 
         <div className={styles.editDiv}>
           <p></p>
-          <BiSolidEditAlt className={styles.editIcon} onClick={() => handleEditClick('email')} />
           <BiSolidEditAlt className={styles.editIcon} onClick={() => handleEditClick('password')} />
           <BiSolidEditAlt className={styles.editIcon} onClick={() => handleEditClick('fullName')} />
           <BiSolidEditAlt className={styles.editIcon} onClick={() => handleEditClick('notifyEmail')} />
           <BiSolidEditAlt className={styles.editIcon} onClick={() => handleEditClick('phoneNumber')} />
         </div>
 
-        {isEmailEditing || isPasswordEditing || isFullNameEditing || isNotifyEmailEditing || isPhoneNumberEditing ? (
+        { isPasswordEditing || isFullNameEditing || isNotifyEmailEditing || isPhoneNumberEditing ? (
           <button className={styles.button} onClick={handleSaveClick}>Save</button>
         ) : null}
       </div>
