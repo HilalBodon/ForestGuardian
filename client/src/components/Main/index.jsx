@@ -277,7 +277,7 @@ useEffect(() => {
     } else if (showHowToUse) {
       return <HowToUse handleBackClick={handleBackClick} />;
     } else if (showAccountSettings) {
-      return <AccountSettings handleBackClick={handleBackClick} />;
+      return <AccountSettings userData={userData} handleBackClick={handleBackClick} />
     } else if (showStartDetecting) {
       return <AudioClassification handleBackClick={handleBackClick}/>;
     } else if (showSettings) {

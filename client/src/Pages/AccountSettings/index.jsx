@@ -6,12 +6,14 @@ import {BsFillQuestionSquareFill} from "react-icons/bs";
 import {MdAlternateEmail} from "react-icons/md"; 
 import {BsFillTelephoneFill} from "react-icons/bs"; 
 import {BiSolidEditAlt} from "react-icons/bi"; 
-const AccountSettings = ({ handleBackClick }) => {
+
+const AccountSettings = ({  userData ,handleBackClick}) => {
+console.log(userData);
+const { email, fullName, password } = userData.user;
 
   return (
     <div className={styles.mainDiv}>
     <div className={styles.accountSettingsContainer}>
-
     <div className={styles.iconsDiv}>
       <FaUserAlt className={styles.icon}/>
       <RiLockPasswordFill className={styles.icon}/>
@@ -31,11 +33,11 @@ const AccountSettings = ({ handleBackClick }) => {
 
 
     <div className={styles.inputsDiv}>
-      <input type="text" id="userEmail" name="userEmail" />
-      <input type="password" id="password" name="password" />
-      <input type="text" id="fullname" name="fullname" />
-      <input type="email" id="email" name="email" />
-      <input type="tel" id="phone" name="phone" />
+          <input type="text" id="userEmail" name="userEmail" defaultValue={email} disabled />
+          <input type="password" id="password" name="password" defaultValue={password} />
+          <input type="text" id="fullname" name="fullname" defaultValue={fullName} />
+          <input type="email" id="email" name="email" defaultValue={userData.email} />
+          <input type="tel" id="phone" name="phone" defaultValue={userData.phoneNumber} />
     </div>
 
 
