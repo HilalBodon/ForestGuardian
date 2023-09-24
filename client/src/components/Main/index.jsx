@@ -17,7 +17,6 @@ import {RiUserSettingsFill} from 'react-icons/ri';
 import nameLogo from "../../assets/images/nameLogo.svg";
 import greenLogo from "../../assets/images/GreenLogo.svg";
 import AudioClassification from '../AudioClassification';
-// import NumberLocalStorageSetter from '../NumberLocalStorageSetter';
 
 
 const Main = ({ authToken }) => {
@@ -28,12 +27,12 @@ const Main = ({ authToken }) => {
   const [showAccountSettings, setShowAccountSettings] = useState(false);
   const [showStartDetecting, setShowStartDetecting] = useState(false); 
   const [devices, setDevices] = useState([]);
+  const [userData, setUserData] = useState({});
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const sideMenuRef = useRef(null);
   const dropdownRef = useRef(null);
 
-  // const [currentPage, setCurrentPage] = useState(null);
   const [showSettings, setShowSettings] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
   const [showAnalytics, setShowAnalytics] = useState(false);
@@ -98,8 +97,11 @@ const Main = ({ authToken }) => {
     setShowHistory(false)
     setShowAnalytics(false);
     setShowStartDetecting(false);
-  };
 
+
+ 
+};
+   
 
    const handleHowToUseClick = () => {
     setShowHowToUse(true);
@@ -131,25 +133,85 @@ const Main = ({ authToken }) => {
     window.location.reload();
   };
 
-  useEffect(() => {
-    const decodedToken = jwt_decode(authToken);
-    const fetchedUserId = decodedToken._id;
-    setUserId(fetchedUserId);
 
-    const fetchDevices = async () => {
-      try {
-        const response = await axios.get("http://localhost:8080/api/devices", {
-          headers: {
-            Authorization: `Bearer ${authToken}`,
-          },
-        });
-        setDevices(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchDevices();
-  }, [authToken]);
+  
+// useEffect(() => {
+//   const decodedToken = jwt_decode(authToken);
+//   const fetchedUserId = decodedToken._id;
+//   setUserId(fetchedUserId);
+//   console.log("User ID:", fetchedUserId);
+
+//   const fetchUserData = async () => {
+//     try {
+//       const response = await axios.get(`http://localhost:8080/api/users/${fetchedUserId}`, {
+//         headers: {
+//           Authorization: `Bearer ${authToken}`,
+//         },
+//       });
+//       setUserData(response.data);
+//       console.log("User Data:", response.data);
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
+//   fetchUserData();
+// }, [authToken]);
+
+
+
+//   useEffect(() => {
+//     const decodedToken = jwt_decode(authToken);
+//     const fetchedUserId = decodedToken._id;
+//     setUserId(fetchedUserId);
+
+//     const fetchDevices = async () => {
+//       try {
+//         const response = await axios.get("http://localhost:8080/api/devices", {
+//           headers: {
+//             Authorization: `Bearer ${authToken}`,
+//           },
+//         });
+//         setDevices(response.data);
+//       } catch (error) {
+//         console.error(error);
+//       }
+//     };
+//     fetchDevices();
+//   }, [authToken]);
+
+
+
+useEffect(() => {
+  const decodedToken = jwt_decode(authToken);
+  const fetchedUserId = decodedToken._id;
+  setUserId(fetchedUserId);
+  console.log("User ID:", fetchedUserId);
+
+  const fetchData = async () => {
+    try {
+      const userDataResponse = await axios.get(`http://localhost:8080/api/users/${fetchedUserId}`, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
+      setUserData(userDataResponse.data);
+      console.log("User Data:", userDataResponse.data);
+
+      const devicesResponse = await axios.get("http://localhost:8080/api/devices", {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
+      setDevices(devicesResponse.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  fetchData();
+}, [authToken]);
+
+
 
   const handleDeviceAdded = (newDevice) => {
     setDevices([...devices, newDevice]);

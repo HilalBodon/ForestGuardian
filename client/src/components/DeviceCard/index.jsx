@@ -36,7 +36,7 @@ export default DeviceCard;
   //           },
   //         }
   //       );
-  //       // setCreatorName(response.data.name);
+  //       setCreatorName(response.data.name);
   //     } catch (error) {
   //       console.error(error);
   //     }

@@ -4,9 +4,7 @@ import Main from "./components/Main";
 import Login from "./Pages/Login"
 
 function App() {
-	// const user = localStorage.getItem("token");
 	const [authToken, setAuthToken] = useState(localStorage.getItem("token") || "");
-	console.log("token:",authToken);
 	localStorage.setItem("token",authToken);
 
 	return (
