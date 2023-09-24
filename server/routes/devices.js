@@ -24,14 +24,30 @@ router.post('/',authMiddleware, async (req, res) => {
 
 
   // ________________________________________________________
-    router.get('/',authMiddleware, async (req, res) => {// i removed authMiddleware because token problem
-      try {
-      const devices = await Device.find();
+  // get all devices
+  //   router.get('/',authMiddleware, async (req, res) => {
+  //     try {
+  //     const devices = await Device.find();
+  //     res.status(200).send(devices);
+  //   } catch (error) {
+  //     res.status(500).send({ message: "Internal Server Error" });
+  //   }
+  // });
+
+  // ________________________________________________________
+  // get user devices
+  router.get('/', authMiddleware, async (req, res) => {
+    try {
+      const user = req.user._id;
+      const devices = await Device.find({ user }); 
+  
       res.status(200).send(devices);
+
     } catch (error) {
       res.status(500).send({ message: "Internal Server Error" });
     }
   });
+  
 
 
   module.exports = router;
