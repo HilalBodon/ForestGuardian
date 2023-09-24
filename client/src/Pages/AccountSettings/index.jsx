@@ -58,11 +58,14 @@ const AccountSettings = ({ userData, handleBackClick }) => {
       setNotifyEmailEditing(false);
       setPhoneNumberEditing(false);
 
+
+
       console.log('Data saved successfully');
     } catch (error) {
       console.error('Error saving data:', error);
     }
   };
+  
 
   useEffect(() => {
     setEmail(initialEmail);
