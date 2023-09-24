@@ -23,12 +23,15 @@
     font-size: 20px;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    align-content: center;
     width: 100vw;
     row-gap: 5px;
     column-gap: 7%; 
     flex-wrap: wrap;
     border-bottom: 1px solid ;
     box-shadow: 1px 1px 7px #707f77;
+    min-height:10vw;
 }
 .insideNotificationCard{
     width: 80%;
@@ -47,7 +50,7 @@ font-weight: 700;
 
 .icon{
     font-size: 3rem;
-    color: #3E6751;
+    color: #9c5e28;
 }
 
 
@@ -99,5 +102,6 @@ font-weight: 700;
   .YesNo{
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     padding: 10px;
   }

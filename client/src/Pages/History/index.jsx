@@ -20,18 +20,21 @@ const History = ({ handleBackClick }) => {
       });
   }, []);
 
-  const handleDeleteAll = async () => {
-    const confirmed = window.confirm('Are you sure you want to delete all notifications?');
 
+
+const handleDeleteNotifications = async (userId) => {
+  try {
+    await axios.delete(`http://localhost:8080/api/notifications/${userId}`);
+  } catch (error) {
+    console.error('Error deleting notifications:', error);
+  }
+};
+
+const handleDeleteNotificationsClick = () => {
+    const confirmed = window.confirm('Are you sure you want to delete all notifications for this user?');
     if (confirmed) {
-      try {
-        await axios.delete('http://localhost:8080/api/notifications/6509ae106682a65e6a41efd3');
-        setNotifications([]);
-      } catch (error) {
-        console.error('Error deleting notifications:', error);
-      }
+      handleDeleteNotifications('6509ae106682a65e6a41efd3'); 
     }
-    setShowConfirmation(false); 
   };
 
   return (
@@ -49,7 +52,7 @@ const History = ({ handleBackClick }) => {
             <p>Are you sure you want to delete all notifications?</p>
         </div>
         <div className={styles.YesNo} >
-          <button className={`${styles.button} ${styles.yes}`} onClick={handleDeleteAll}>
+          <button className={`${styles.button} ${styles.yes}`} onClick={handleDeleteNotificationsClick}>
             Yes
           </button>
           <button className={`${styles.button} ${styles.no}`} onClick={() => setShowConfirmation(false)}>
@@ -63,7 +66,7 @@ const History = ({ handleBackClick }) => {
         {notifications.map((notification) => (
           <div key={notification._id} className={styles.notificationCard}>
             <div>
-              {notification.message === 'Chainsaw detected' && (
+              {notification.message === 'chainSaw detected' && (
                 <div className={styles.icon}>
                   <GiChainsaw className={styles.icon} />
                 </div>

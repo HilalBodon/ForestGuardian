@@ -1,10 +1,7 @@
 import React from "react";
 import "./HowToUse.css";
-import deviceImg from "../../../assets/images/deviceImg.png";
-import onTreeDevice from "../../../assets/images/onTreeDevice.png"; 
-
-
-
+import deviceImg from "../../assets/images/deviceImg.png";
+import onTreeDevice from "../../assets/images/onTreeDevice.png"; 
 const HowToUse= ({handleBackClick}) => {
 
 return(

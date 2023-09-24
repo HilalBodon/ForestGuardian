@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Route, Routes, Navigate} from "react-router-dom";
 import Main from "./components/Main";
-import Login from "./components/Login";
+import Login from "./Pages/Login"
 
 function App() {
 	// const user = localStorage.getItem("token");
