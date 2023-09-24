@@ -9,7 +9,7 @@ import {BiSolidEditAlt} from "react-icons/bi";
 
 const AccountSettings = ({  userData ,handleBackClick}) => {
 console.log(userData);
-const { email, fullName, password } = userData.user;
+const { email, fullName, password ,notifyEmail,phoneNumber} = userData.user;
 
   return (
     <div className={styles.mainDiv}>
@@ -36,8 +36,8 @@ const { email, fullName, password } = userData.user;
           <input type="text" id="userEmail" name="userEmail" defaultValue={email} disabled />
           <input type="password" id="password" name="password" defaultValue={password} />
           <input type="text" id="fullname" name="fullname" defaultValue={fullName} />
-          <input type="email" id="email" name="email" defaultValue={userData.email} />
-          <input type="tel" id="phone" name="phone" defaultValue={userData.phoneNumber} />
+          <input type="email" id="email" name="email" defaultValue={notifyEmail} />
+          <input type="tel" id="phone" name="phone" defaultValue={phoneNumber} />
     </div>
 
 
