@@ -3,24 +3,7 @@ const { User, validate } = require("../models/user");
 const bcrypt = require("bcrypt");
 const authMiddleware = require('../middlewares/auth.middleware');
 
-// router.get('/:userId', async (req, res) => {
-// 	try {
-// 	  const userId = req.params.userId;
-// 	  const user = await User.findById(userId);
-
-// 	  if (!user) {
-// 		return res.status(404).json({ message: 'User not found' });
-// 	  }
-// 	  res.status(200).json({ name: user.firstName +" "+user.lastName }); 
-// 	} catch (error) {
-// 	  console.error(error);
-// 	  res.status(500).json({ message: 'Internal Server Error' });
-// 	}
-//   });
-
-
-
-
+// get the user info
   router.get("/:userId", authMiddleware, async (req, res) => {
 	try {
 	  const userId = req.user._id;
@@ -39,9 +22,27 @@ const authMiddleware = require('../middlewares/auth.middleware');
   });
 
 
+// update the user
+router.put('/:userId', async (req, res) => {
+	try {
+	  const userId = req.params.userId;
+	  const updatedUserData = req.body;
+  
+	  const updatedUser = await User.findOneAndUpdate({ _id: userId }, updatedUserData, { new: true });
+  
+	  if (!updatedUser) {
+		return res.status(404).json({ message: 'User not found' });
+	  }
+  
+	  return res.status(200).json(updatedUser);
+	} catch (error) {
+	  console.error(error);
+	  return res.status(500).json({ message: 'Internal server error' });
+	}
+  });  
 
 
-
+// user registration
 router.post("/", async (req, res) => {
 	try {
 		const { error } = validate(req.body);
