@@ -153,7 +153,7 @@ useEffect(() => {
   const decodedToken = jwt_decode(authToken);
   const fetchedUserId = decodedToken._id;
   setUserId(fetchedUserId);
-  console.log("User ID:", fetchedUserId);
+  // console.log("User ID:", fetchedUserId);
 
   const fetchData = async () => {
     try {
@@ -163,7 +163,7 @@ useEffect(() => {
         },
       });
       setUserData(userDataResponse.data);
-      console.log("User Data:", userDataResponse.data);
+      // console.log("User Data:", userDataResponse.data);
 
       const devicesResponse = await axios.get("http://localhost:8080/api/devices", {
         headers: {
