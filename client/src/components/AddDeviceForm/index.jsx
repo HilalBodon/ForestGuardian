@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect,useRef } from "react";
 import axios from "axios";
 import styles from "./AddDeviceForm.module.css";
 import { PiCameraPlusBold } from "react-icons/pi";
@@ -15,6 +15,24 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm, handleB
     details: "",
     picture: "",
   });
+
+  useEffect(() => {
+    const getUserLocation = () => {
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          const { latitude, longitude } = position.coords;
+          const location = `${latitude}, ${longitude}`;
+          setFormData({ ...formData, location });
+        });
+      } else {
+        console.error("Geolocation is not available in this browser.");
+      }
+    };
+
+    getUserLocation();
+  }, []);
+
+
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
