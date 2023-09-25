@@ -2,13 +2,16 @@ import React, { useState ,useEffect } from "react";
 import styles from "./DeviceCard.module.css"; 
 import axios from "axios";
 
-const DeviceCard = ({ authToken, device,userId }) => {
+const DeviceCard = ({ authToken, device, userId, onDeviceClick }) => {
+  const handleDeviceClick = () => {
+    onDeviceClick(device);
+    console.log("Device name:", device.deviceName);
 
-
+  };
 
   return (
-    <div className={styles.mainContainer}>
-      <div className={styles.card}>
+    <div className={styles.mainContainer} onClick={handleDeviceClick}>
+      <div className={styles.card} onClick={handleDeviceClick}>
           <img src={device.picture} alt="device" />
           <h3 className={styles.title}>{device.deviceName}</h3>
       </div>
@@ -36,7 +39,7 @@ export default DeviceCard;
   //           },
   //         }
   //       );
-  //       setCreatorName(response.data.name);
+  //       // setCreatorName(response.data.name);
   //     } catch (error) {
   //       console.error(error);
   //     }

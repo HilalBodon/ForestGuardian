@@ -9,6 +9,7 @@ import Dropdown from '../DropDown';
 import History from '../../Pages/History';
 import SettingsPage from '../../Pages/SettingsPage';
 import Analytics from '../../Pages/Analytics';
+import DeviceDetail from '../../Pages/DeviceDetail';
 import jwt_decode from "jwt-decode";
 import styles from "./main.module.css";
 import  {FaBars} from 'react-icons/fa';
@@ -32,11 +33,15 @@ const Main = ({ authToken }) => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
   const sideMenuRef = useRef(null);
   const dropdownRef = useRef(null);
-
   const [showSettings, setShowSettings] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
   const [showAnalytics, setShowAnalytics] = useState(false);
+  const [selectedDevice, setSelectedDevice] = useState(null);
 
+
+  const handleDeviceClick = (device) => {
+    setSelectedDevice(device);
+  };
 
 
   const handleSettingsClick = () => {
@@ -47,6 +52,8 @@ const Main = ({ authToken }) => {
     setShowAccountSettings(false); 
     setShowHistory(false); 
     setShowAnalytics(false)
+    setSelectedDevice(false);
+
 
   };
   
@@ -58,6 +65,8 @@ const Main = ({ authToken }) => {
     setShowHowToUse(false); 
     setShowAccountSettings(false); 
     setShowAnalytics(false)
+    setSelectedDevice(false);
+
 
   };
   
@@ -70,16 +79,11 @@ const Main = ({ authToken }) => {
     setShowHowToUse(false); 
     setShowAccountSettings(false); 
     setShowStartDetecting(false);
+    setSelectedDevice(false);
+
   };
   
 
-  // const handleAddDeviceClick = () => {
-  //   setShowAddDeviceForm(!showAddDeviceForm);
-  //   setShowAboutUs(false); 
-  //   setShowHowToUse(false); 
-  //   setShowAccountSettings(false); 
-
-  // };
 
   const handleAboutUsClick = () => {
     setShowAboutUs(true);
@@ -87,6 +91,8 @@ const Main = ({ authToken }) => {
     setShowHowToUse(false);
     setShowAccountSettings(false); 
     setShowStartDetecting(false);
+    setSelectedDevice(false);
+
   };
 
   const handleBackClick = () => {
@@ -97,6 +103,8 @@ const Main = ({ authToken }) => {
     setShowHistory(false)
     setShowAnalytics(false);
     setShowStartDetecting(false);
+    setSelectedDevice(false);
+
 
 
  
@@ -109,6 +117,8 @@ const Main = ({ authToken }) => {
     setShowAddDeviceForm(false);
     setShowAccountSettings(false); 
     setShowStartDetecting(false);
+    setSelectedDevice(false);
+
   };
 
   const handleAccountSettingsClick = () => {
@@ -117,6 +127,8 @@ const Main = ({ authToken }) => {
     setShowAddDeviceForm(false);
     setShowHowToUse(false);
     setShowStartDetecting(false);
+    setSelectedDevice(false);
+
   };
 
   const handleStartDetectingClick= () => {
@@ -125,6 +137,8 @@ const Main = ({ authToken }) => {
     setShowAboutUs(false);
     setShowAddDeviceForm(false);
     setShowHowToUse(false);
+    setSelectedDevice(false);
+
   };
 
 
@@ -132,52 +146,6 @@ const Main = ({ authToken }) => {
     localStorage.removeItem("token");
     window.location.reload();
   };
-
-
-  
-// useEffect(() => {
-//   const decodedToken = jwt_decode(authToken);
-//   const fetchedUserId = decodedToken._id;
-//   setUserId(fetchedUserId);
-//   console.log("User ID:", fetchedUserId);
-
-//   const fetchUserData = async () => {
-//     try {
-//       const response = await axios.get(`http://localhost:8080/api/users/${fetchedUserId}`, {
-//         headers: {
-//           Authorization: `Bearer ${authToken}`,
-//         },
-//       });
-//       setUserData(response.data);
-//       console.log("User Data:", response.data);
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   };
-//   fetchUserData();
-// }, [authToken]);
-
-
-
-//   useEffect(() => {
-//     const decodedToken = jwt_decode(authToken);
-//     const fetchedUserId = decodedToken._id;
-//     setUserId(fetchedUserId);
-
-//     const fetchDevices = async () => {
-//       try {
-//         const response = await axios.get("http://localhost:8080/api/devices", {
-//           headers: {
-//             Authorization: `Bearer ${authToken}`,
-//           },
-//         });
-//         setDevices(response.data);
-//       } catch (error) {
-//         console.error(error);
-//       }
-//     };
-//     fetchDevices();
-//   }, [authToken]);
 
 
 
@@ -263,29 +231,36 @@ useEffect(() => {
 
 
   const renderContent = () => {
-    if (showAddDeviceForm) {
+    if (selectedDevice) {
       return (
-      <AddDeviceForm
-        authToken={authToken}
-        onDeviceAdded={handleDeviceAdded}
-        setShowAddDeviceForm={setShowAddDeviceForm}
-        handleBackClick={handleBackClick}
-      />
+        <DeviceDetail
+          device={selectedDevice}
+          handleBackClick={handleBackClick}
+        />
+      );
+    } else if (showAddDeviceForm) {
+      return (
+        <AddDeviceForm
+          authToken={authToken}
+          onDeviceAdded={handleDeviceAdded}
+          setShowAddDeviceForm={setShowAddDeviceForm}
+          handleBackClick={handleBackClick}
+        />
       );
     } else if (showAboutUs) {
       return <AboutUs handleBackClick={handleBackClick} />;
     } else if (showHowToUse) {
       return <HowToUse handleBackClick={handleBackClick} />;
     } else if (showAccountSettings) {
-      return <AccountSettings userData={userData} handleBackClick={handleBackClick} />
+      return <AccountSettings userData={userData} handleBackClick={handleBackClick} />;
     } else if (showStartDetecting) {
-      return <AudioClassification handleBackClick={handleBackClick}/>;
+      return <AudioClassification handleBackClick={handleBackClick} />;
     } else if (showSettings) {
-      return <SettingsPage handleBackClick={handleBackClick}/>;
+      return <SettingsPage handleBackClick={handleBackClick} />;
     } else if (showHistory) {
       return <History handleBackClick={handleBackClick} />;
     } else if (showAnalytics) {
-      return <Analytics handleBackClick={handleBackClick}/>;
+      return <Analytics handleBackClick={handleBackClick} />;
     } else {
       return devices.map((device) => (
         <DeviceCard
@@ -293,6 +268,7 @@ useEffect(() => {
           device={device}
           authToken={authToken}
           userId={userId}
+          onDeviceClick={handleDeviceClick} 
         />
       ));
     }
