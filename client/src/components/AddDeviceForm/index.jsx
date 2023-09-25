@@ -79,14 +79,7 @@ console.log("camera")
             setFormData({ ...formData, deviceName: e.target.value })
           }
         />
-        {/* <input
-          type="text"
-          placeholder="Device Password"
-          value={formData.devicePass}
-          onChange={(e) =>
-            setFormData({ ...formData, devicePass: e.target.value })
-          }
-        /> */}
+
         <input
           type="text"
           placeholder="Tree Type"
