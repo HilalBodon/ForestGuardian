@@ -1,4 +1,7 @@
 .device-detail-container{
-    /* background-color: aqua; */
     width: 90vw;
+}
+
+.device-detail-container img{
+    margin-top: 3vh;
 }
