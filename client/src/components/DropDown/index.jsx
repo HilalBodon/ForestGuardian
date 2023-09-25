@@ -15,9 +15,9 @@ const Dropdown = ({
         <FaEllipsisV className={styles.dotesIcon} onClick={toggleDropdown} />
         {isDropdownOpen && (
           <div className={styles.dropdownContent}>
-            <a onClick={() => { handleSettingsClick(); closeDropdown(); }} className={styles.dropdownItem}>
+            {/* <a onClick={() => { handleSettingsClick(); closeDropdown(); }} className={styles.dropdownItem}>
               <span className={styles.icon}>🔧</span> Settings
-            </a>
+            </a> */}
             <a onClick={() => { handleHistoryClick(); closeDropdown(); }} className={styles.dropdownItem}>
               <span className={styles.icon}>🕒</span> History
             </a>

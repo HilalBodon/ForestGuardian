@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./HistoryStyle.module.css";
 import axios from 'axios';
-import { GiAxeInLog } from 'react-icons/gi';
+import { GiAxeInLog, GiShotgun } from 'react-icons/gi';
 import { GiSawedOffShotgun } from 'react-icons/gi';
 import {GiChainsaw} from 'react-icons/gi';
 import {RiDeleteBinFill} from 'react-icons/ri';
@@ -74,6 +74,11 @@ const handleDeleteNotificationsClick = () => {
               {notification.message === 'Axe detected' && (
                 <div className={styles.icon}>
                   <GiAxeInLog className={styles.icon} />
+                </div>
+              )}
+              {notification.message === 'shotGun detected' && (
+                <div className={styles.icon}>
+                  <GiSawedOffShotgun className={styles.icon} />
                 </div>
               )}
             </div>

@@ -58,6 +58,7 @@ const AccountSettings = ({ userData, handleBackClick }) => {
       setNotifyEmailEditing(false);
       setPhoneNumberEditing(false);
 
+      window.location.reload();
 
 
       console.log('Data saved successfully');
