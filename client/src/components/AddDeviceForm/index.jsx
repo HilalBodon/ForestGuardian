@@ -6,7 +6,7 @@ import { PiCameraPlusBold } from "react-icons/pi";
 const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm, handleBackClick }) => {
   const [formData, setFormData] = useState({
     deviceName: "",
-    devicePass: "",
+    // devicePass: "",
     treeType: "",
     treeHeight: "",
     location: "",
@@ -29,7 +29,7 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm, handleB
       const newDevice = response.data;
       setFormData({
         deviceName: "",
-        devicePass: "",
+        // devicePass: "",
         treeType: "",
         treeHeight: "",
         location: "",
@@ -51,7 +51,7 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm, handleB
   const handleCancel = () => {
     setFormData({
       deviceName: "",
-      devicePass: "",
+      // devicePass: "",
       treeType: "",
       treeHeight: "",
       location: "",
@@ -79,14 +79,14 @@ console.log("camera")
             setFormData({ ...formData, deviceName: e.target.value })
           }
         />
-        <input
+        {/* <input
           type="text"
           placeholder="Device Password"
           value={formData.devicePass}
           onChange={(e) =>
             setFormData({ ...formData, devicePass: e.target.value })
           }
-        />
+        /> */}
         <input
           type="text"
           placeholder="Tree Type"
