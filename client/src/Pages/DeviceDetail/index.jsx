@@ -22,14 +22,13 @@ import AudioClassification from "../../components/AudioClassification"; // Impor
 const DeviceDetail = ({ device, userId, handleBackClick }) => {
     return (
     <div className="device-detail-container">
-      <h2>Device Details</h2>
+      <button className="button" onClick={handleBackClick}>
+        Back
+      </button>
       <p>Device Name: {device.deviceName}</p>
       <p>Device ID: {device._id}</p>
       <p>user ID :{userId}</p>
 
-      <button className="button" onClick={handleBackClick}>
-        Back
-      </button>
 
       <AudioClassification userId={userId} deviceId={device._id} />
     </div>
