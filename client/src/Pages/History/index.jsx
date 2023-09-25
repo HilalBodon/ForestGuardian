@@ -9,7 +9,7 @@ import {RiDeleteBinFill} from 'react-icons/ri';
 const History = ({ handleBackClick }) => {
   const [notifications, setNotifications] = useState([]);
   const [showConfirmation, setShowConfirmation] = useState(false);
-
+   
   useEffect(() => {
     axios.get('http://localhost:8080/api/notifications/6509ae106682a65e6a41efd3')
       .then((response) => {
