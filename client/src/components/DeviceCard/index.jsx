@@ -5,7 +5,6 @@ import axios from "axios";
 const DeviceCard = ({ authToken, device, userId, onDeviceClick }) => {
   const handleDeviceClick = () => {
     onDeviceClick(device);
-    // console.log("Device nameee:", device.deviceName);
 
   };
 

@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 import styles from "./AddDeviceForm.module.css";
 import { PiCameraPlusBold } from "react-icons/pi";
+import Resizer from "react-image-file-resizer";
 
 const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm, handleBackClick }) => {
+  const fileInputRef = useRef(null);
+
   const [formData, setFormData] = useState({
     deviceName: "",
-    // devicePass: "",
     treeType: "",
     treeHeight: "",
     location: "",
@@ -29,7 +31,6 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm, handleB
       const newDevice = response.data;
       setFormData({
         deviceName: "",
-        // devicePass: "",
         treeType: "",
         treeHeight: "",
         location: "",
@@ -44,14 +45,9 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm, handleB
     }
   };
 
-  const handlePictureChange = (url) => {
-    setFormData({ ...formData, picture: url });
-  };
-
   const handleCancel = () => {
     setFormData({
       deviceName: "",
-      // devicePass: "",
       treeType: "",
       treeHeight: "",
       location: "",
@@ -61,15 +57,45 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm, handleB
     setShowAddDeviceForm(false);
     handleBackClick();
   };
-  
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      Resizer.imageFileResizer(
+        file,
+        200,
+        200, 
+        "JPEG",
+        100, 
+        0, 
+        (uri) => {
+          setFormData({ ...formData, picture: uri });
+        },
+        "base64" 
+      );
+    }
+  };
 
   const handleCameraIconClick = () => {
-console.log("camera")
+    fileInputRef.current.click();
   };
 
   return (
     <div className={styles.formContainer}>
-      <div className={styles.camIcon}><PiCameraPlusBold onClick={handleCameraIconClick}/></div>
+      <input
+        type="file"
+        accept="image/*"
+        style={{ display: "none" }}
+        ref={fileInputRef}
+        onChange={handleImageUpload}
+      />
+      {formData.picture ? (
+        <img src={formData.picture} alt="Uploaded" className={styles.uploadedImage}         style={{ width: "45vh", height: "30vh" }}/>
+      ) : (
+        <div className={styles.camIcon}>
+          <PiCameraPlusBold onClick={handleCameraIconClick} />
+        </div>
+      )}
       <form className={styles.formStyle} onSubmit={handleFormSubmit}>
         <input
           type="text"
@@ -114,13 +140,20 @@ console.log("camera")
             setFormData({ ...formData, details: e.target.value })
           }
         />
-
+{/* 
         <input
           type="text"
           placeholder="Image URL"
           value={formData.picture}
           onChange={(e) => handlePictureChange(e.target.value)}
-        />
+        /> */}
+{/* 
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleImageUpload}
+        /> */}
+
 
         <div className={styles.buttonContainer}>
           <button type="submit" className={styles.addButton}>
