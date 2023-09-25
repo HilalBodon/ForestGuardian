@@ -158,20 +158,6 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm, handleB
             setFormData({ ...formData, details: e.target.value })
           }
         />
-{/* 
-        <input
-          type="text"
-          placeholder="Image URL"
-          value={formData.picture}
-          onChange={(e) => handlePictureChange(e.target.value)}
-        /> */}
-{/* 
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleImageUpload}
-        /> */}
-
 
         <div className={styles.buttonContainer}>
           <button type="submit" className={styles.addButton}>
