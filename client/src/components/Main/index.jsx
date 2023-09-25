@@ -235,6 +235,7 @@ useEffect(() => {
       return (
         <DeviceDetail
           device={selectedDevice}
+          userId={userId}
           handleBackClick={handleBackClick}
         />
       );
@@ -253,12 +254,12 @@ useEffect(() => {
       return <HowToUse handleBackClick={handleBackClick} />;
     } else if (showAccountSettings) {
       return <AccountSettings userData={userData} handleBackClick={handleBackClick} />;
-    } else if (showStartDetecting) {
-      return <AudioClassification handleBackClick={handleBackClick} />;
+    // } else if (showStartDetecting) {
+    //   return <AudioClassification handleBackClick={handleBackClick} />;
     } else if (showSettings) {
       return <SettingsPage handleBackClick={handleBackClick} />;
     } else if (showHistory) {
-      return <History handleBackClick={handleBackClick} />;
+      return <History handleBackClick={handleBackClick} userId={userId} />
     } else if (showAnalytics) {
       return <Analytics handleBackClick={handleBackClick} />;
     } else {
@@ -307,9 +308,9 @@ useEffect(() => {
             <a  onClick={handleAccountSettingsClick} className={styles.sideMenuItem}>
               Account Settings
             </a>
-            <a   onClick={handleStartDetectingClick}className={styles.sideMenuItem}> 
+            {/* <a   onClick={handleStartDetectingClick}className={styles.sideMenuItem}> 
               ChainSaw Detect
-            </a>
+            </a> */}
             <a   onClick={handleLogout}className={styles.sideMenuItem}> 
               Logout
             </a>

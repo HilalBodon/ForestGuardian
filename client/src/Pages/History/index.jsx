@@ -6,12 +6,12 @@ import { GiSawedOffShotgun } from 'react-icons/gi';
 import {GiChainsaw} from 'react-icons/gi';
 import {RiDeleteBinFill} from 'react-icons/ri';
 
-const History = ({ handleBackClick }) => {
+const History = ({ handleBackClick, userId }) => {
   const [notifications, setNotifications] = useState([]);
   const [showConfirmation, setShowConfirmation] = useState(false);
    
   useEffect(() => {
-    axios.get('http://localhost:8080/api/notifications/6509ae106682a65e6a41efd3')
+    axios.get(`http://localhost:8080/api/notifications/${userId}`)
       .then((response) => {
         setNotifications(response.data);
       })
@@ -33,7 +33,7 @@ const handleDeleteNotifications = async (userId) => {
 const handleDeleteNotificationsClick = () => {
     const confirmed = window.confirm('Are you sure you want to delete all notifications for this user?');
     if (confirmed) {
-      handleDeleteNotifications('6509ae106682a65e6a41efd3'); 
+      handleDeleteNotifications(userId); 
     }
   };
 

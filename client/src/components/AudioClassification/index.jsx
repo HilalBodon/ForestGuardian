@@ -53,7 +53,8 @@ class AudioRecognition extends Component {
   init = async () => {
     const { recognizer, classLabels, recognizing, timer } = this.state;
     const labelContainer = document.getElementById("label-container");
-    
+    const { userId, deviceId } = this.props; 
+console.log(userId, deviceId);
   
     for (let i = 0; i < classLabels.length; i++) {
       labelContainer.appendChild(document.createElement("div"));
@@ -84,15 +85,15 @@ class AudioRecognition extends Component {
 
               if (this.state.count >= 5) {
                 const notificationData = {
-                  device: '6509c07a0252b1c899f2af2b', 
-                  user: '6509ae106682a65e6a41efd3',
+                  device: deviceId, 
+                  user:userId ,
                   message: 'chainSaw detected',    
                 };
             
                 axios.post('http://localhost:8080/api/notifications', notificationData)
                   .then(response => {
                     if (response.status === 201) {
-                      console.log('Notification sent and stored.');
+                      console.log('Notification sent to DB and stored.');
                     } else {
                       console.error('Failed to send notification.');
                     }
@@ -162,7 +163,7 @@ sendEmail = async () => {
 
 
   render() {
-    const { handleBackClick } = this.props;
+    // const { handleBackClick } = this.props;
     const { recognizing, count, timerValue, emailResponse } = this.state;
 
     return (
@@ -176,7 +177,7 @@ sendEmail = async () => {
         >
           {recognizing ? "Stop" : "Start"} Listening 
         </button>
-        <button className="button" onClick={handleBackClick}>Back</button>
+        {/* <button className="button" onClick={handleBackClick}>Back</button> */}
         <div className='countContainer'>
             <div>ChainSaw:{count}</div>
             <div>Timer: {timerValue} seconds</div>
