@@ -17,7 +17,7 @@ import {FaHistory} from 'react-icons/fa';
 import {RiUserSettingsFill} from 'react-icons/ri';
 import nameLogo from "../../assets/images/nameLogo.svg";
 import greenLogo from "../../assets/images/GreenLogo.svg";
-import AudioClassification from '../AudioClassification';
+// import AudioClassification from '../AudioClassification';
 
 
 const Main = ({ authToken }) => {
