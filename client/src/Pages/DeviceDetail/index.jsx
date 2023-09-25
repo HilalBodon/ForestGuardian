@@ -15,6 +15,7 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
           <p>More details: {device.details}</p>
 
           <AudioClassification userId={userId} deviceId={device._id} />
+          
         </div>
     </div>
   );
