@@ -3,4 +3,4 @@
 ForestGuardian is sound Classification Web app designed to be used on any old mobile phone.
 The app created using MERN stack with tensorFlow.js to use the audio model.
 
-The user can have multiple devices  to detect the illegal logging.
+The user can have multiple devices  to detect the illegal logging(chainSaw, shotGun, Axe stumping).
