@@ -1,13 +1,7 @@
 import React from "react";
 import "./DeviceDetailStyle.css";
 import AudioClassification from "../../components/AudioClassification";
-// import LeafletMap from "../../components/leaflet";
 import CustomMap from "../../components/leaflet";
-
-
-
-
-
 
 const DeviceDetail = ({ device, userId, handleBackClick }) => {
   return (
@@ -23,7 +17,6 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
 
           <AudioClassification userId={userId} deviceId={device._id} />
           <CustomMap />
-          {/* <LeafletMap selectedLocation={this.state.selectedLocation} /> */}
 
 
         </div>
