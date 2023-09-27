@@ -27,11 +27,10 @@
     align-content: center;
     width: 100vw;
     row-gap: 5px;
-    /* column-gap: 7%;  */
     flex-wrap: wrap;
-    border-bottom: 1px solid ;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3); 
     box-shadow: 1px 1px 7px #707f77;
-    min-height:10vw;
+    min-height: 10vw;
 }
 .insideNotificationCard{
     width: 80%;
