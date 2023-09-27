@@ -23,7 +23,7 @@
 > We designed Forest Guardian using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
 ### Wireframes
-![wireframes](./readme/pictures/wireframes.gif)
+![wireframes](./readme/pictures/smallwireframes.gif)
 
 ### Mockups
 ![mockups](./readme/pictures/forestGuardian.gif)
