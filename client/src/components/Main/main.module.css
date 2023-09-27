@@ -50,6 +50,11 @@
 	justify-self: right ;
 }
 
+.flexLeft{
+	display: flex;
+	justify-content: left;
+	background-color: #3E6751;
+}
 
 
 
@@ -58,7 +63,7 @@
 	width: 100%;
 	display: flex;
 	align-items: center;
-	/* justify-content:center; */
+	justify-content:center;
 	flex-direction: row;
 	flex-wrap:wrap ;
 	row-gap:10px;

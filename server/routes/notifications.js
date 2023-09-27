@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
       res.status(200).json(formattedNotifications);
   } catch (error) {
       console.error(error);
-      res.status(500).json({ error: 'Internal server error' });
+      res.status(500).json({ error: 'Internal server error1' });
   }
 });
 // ___________________________________________________________//send notification
@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
     res.status(201).json(notification);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: 'Internal server error2' });
   }
 });
 
@@ -79,7 +79,7 @@ router.get('/:userId', async (req, res) => {
     res.status(200).json(formattedNotifications);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: 'Internal server error3' });
   }
 });
 // ____________________________________________
@@ -94,7 +94,7 @@ router.delete('/:userId', async (req, res) => {
     res.status(204).send();
   } catch (error) {
     console.error('Error deleting notifications:', error);
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(500).json({ error: 'Internal server error4' });
   }
 });
 
@@ -103,22 +103,26 @@ router.delete('/:userId', async (req, res) => {
 
 
 
-router.get("/analytics", async (req, res) => {
+router.get("/analytics/analytics", async (req, res) => {
   try {
-    // const notificationCounts = await Notification.aggregate([
-    //   {
-    //     $group: {
-    //       _id: "$deviceId", 
-    //       count: { $sum: 1 }, 
-    //     },
-    //   },
-    //   { $sort: { count: -1 } }, 
-    // ]);
-console.log("helo")
+    const notificationCounts = await Notification.aggregate([
+      {
+        $group: {
+          _id: "$deviceId", 
+          count: { $sum: 1 }, 
+        },
+      },
+      { $sort: { count: -1 } }, 
+    ]);
+    
     // const devices = notificationCounts.map((item) => item._id.toString());
-    // const counts = notificationCounts.map((item) => item.count);
+    const devices = notificationCounts.map((item) => (item._id ? item._id.toString() : ''));
 
-    res.json({  notificationCounts: counts });
+    // const counts = notificationCounts.map((item) => item.count);
+    const counts = notificationCounts.map((item) => (item.count ? item.count : 0));
+
+
+    res.json({ notificationCounts:devices, notificationCount: counts });
   } catch (error) {
     console.error("Error fetching analytics data:", error);
     res.status(200).json({ error});
