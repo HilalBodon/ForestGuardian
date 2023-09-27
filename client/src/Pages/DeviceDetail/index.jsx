@@ -4,6 +4,8 @@ import AudioClassification from "../../components/AudioClassification";
 import CustomMap from "../../components/leaflet";
 
 const DeviceDetail = ({ device, userId, handleBackClick }) => {
+    const [latitude, longitude] = device.location.split(',').map(parseFloat);
+
   return (
     <div className="device-detail-container">
       <button className="button addMargin" onClick={handleBackClick}>
@@ -14,9 +16,10 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
           <p>{device.deviceName} is attached to a {device.treeType} 
           tree, With Approximate Height of: {device.treeHeight} meters, in {device.location}</p>
           <p>More details: {device.details}</p>
+          <p>{device.location}</p>
 
           <AudioClassification userId={userId} deviceId={device._id} />
-          <CustomMap />
+          <CustomMap latitude={latitude} longitude={longitude} />
 
 
         </div>
