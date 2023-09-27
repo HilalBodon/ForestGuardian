@@ -5,21 +5,22 @@
 <!-- project philosophy -->
 <img src="./readme/title2.svg"/>
 
-> A mobile app for ordering coffee on-the-go, making it easier for coffee lovers to get their favorite beverages without waiting in line.
+> A web app designed to be used on the mobile,the purpose of that app is to decrease the illegal logging to the forest using sound detection.
 >
-> Coffee Express aims to streamline the coffee-ordering process by providing a user-friendly platform for customers to place orders and pick up their coffee at their convenience. We believe in enhancing the coffee experience by saving time and ensuring customer satisfaction.
+> The app notify the user by email about the type of the needed sound if its a chainsaw, a shotgun or axe stumping sound.
 
 ### User Stories
-- As a user, I want to browse the menu, so I can find my favorite coffee drinks.
-- As a user, I want to customize my order, so I can add or remove ingredients according to my preferences.
-- As a user, I want to pay for my order through the app, so I can avoid waiting in line at the store.
+- As a user, I want to receive email notifications so I can stay informed about incidents of illegal logging and identify their types.
+- As a user, I want the flexibility to add as many devices as needed to protect a larger area of trees effectively.
+- As a user, I want a centralized location within the app to view and manage all my notifications, preventing them from getting lost in my email inbox.
+- As a user,  I want to easily locate my devices on a map, ensuring they are not lost within the forest.
 
 <br><br>
 
 <!-- Prototyping -->
 <img src="./readme/title3.svg"/>
 
-> We designed Coffee Express using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
+> We designed Forest Guardian using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
 ### Wireframes
 | Login screen  | Register screen |  Landing screen |
@@ -27,9 +28,15 @@
 | ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
 
 ### Mockups
-| Home screen  | Menu Screen | Order Screen |
-| ---| ---| ---|
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+| Home screen  | SideMenu Screen | Add New Device Screen | History |
+| ---| ---| ---| ---|
+|      | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+![home](https://github.com/HilalBodon/ForestGuardian/assets/95381575/eff30d90-8864-434d-9edd-67e8ae8792bc)
+![side menu](https://github.com/HilalBodon/ForestGuardian/assets/95381575/27666904-9480-48e1-8444-04e596c6d73d)
+![Add new device](https://github.com/HilalBodon/ForestGuardian/assets/95381575/59580359-af95-4e0e-b3b5-eacba9cc53c7)
+![All devices History](https://github.com/HilalBodon/ForestGuardian/assets/95381575/22ad3e84-f6b7-4763-9b79-8f05727c79e0)
+
+
 
 <br><br>
 
