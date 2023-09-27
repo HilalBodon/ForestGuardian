@@ -332,7 +332,7 @@ useEffect(() => {
         </div>
         <div className={styles.logoDot}>
          
-        <div className={styles.devices_container}>
+        <div className={styles.logoCenter}>
   {showAddDeviceForm ? (
     <h1 className={styles.navbarHead}>Add New Device</h1>
   ) : showAboutUs ? (

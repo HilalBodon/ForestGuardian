@@ -21,7 +21,7 @@
 	width: 100%;
 	display: flex;
 	align-items: center;
-	justify-content: space-around;
+	justify-content: space-between;
 }
 
 .nameLogo{
@@ -65,7 +65,11 @@
 	margin-top: 10px;
 }
 
-
+.logoCenter{
+	width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
  .sideMenu {
 	position: fixed;
