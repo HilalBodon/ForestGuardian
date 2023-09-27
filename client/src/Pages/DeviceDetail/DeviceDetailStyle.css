@@ -5,3 +5,20 @@
 .device-detail-container img{
     margin-top: 3vh;
 }
+
+.locationDiv{
+   display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    margin: 10px;
+}
+.icon{
+    font-size: 12vw;
+    max-height: 60px;
+    opacity: 60%;
+}
+
+.addMargin{
+    margin-top: 0px;
+}

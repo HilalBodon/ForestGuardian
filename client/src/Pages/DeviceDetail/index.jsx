@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "./DeviceDetailStyle.css";
+import { MdLocationOn, MdLocationOff } from "react-icons/md"; 
 import AudioClassification from "../../components/AudioClassification";
 import CustomMap from "../../components/leaflet";
 
@@ -24,13 +25,27 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
     error = "Invalid device.location format";
   }
 
+  const [mapVisible, setMapVisible] = useState(false);
+
+  const toggleMap = () => {
+    setMapVisible(!mapVisible);
+  };
+
   return (
     <div className="device-detail-container">
+        <div className="locationDiv">
       <button className="button addMargin" onClick={handleBackClick}>
         Back
       </button>
-
-      <img src={device.picture} alt="Device Image" />
+      <div onClick={toggleMap} style={{ cursor: "pointer" }}>
+        {mapVisible ? <MdLocationOff className="icon" /> : <MdLocationOn className="icon"/>}{" "}
+      </div>
+      </div>
+      {mapVisible ? (
+        <CustomMap latitude={latitude} longitude={longitude} />
+      ) : (
+        <img src={device.picture} alt="Device Image" />
+      )}
       <div key={device._id}>
         <p>
           {device.deviceName} is attached to a {device.treeType} tree, With
@@ -45,7 +60,6 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
             <p>Latitude: {latitude}</p>
             <p>Longitude: {longitude}</p>
             <AudioClassification userId={userId} deviceId={device._id} />
-            <CustomMap latitude={latitude} longitude={longitude} />
           </div>
         )}
       </div>
@@ -54,4 +68,3 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
 };
 
 export default DeviceDetail;
-
