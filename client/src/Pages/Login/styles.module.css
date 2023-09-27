@@ -1,9 +1,4 @@
-
-/* body{
-	display:flex;
-	align-items: center;
-	justify-content: center;
-} */
+/* 
 
 .mainDiv{
 	background-image:url('../../assets/images/bgWallpaer1.jpg') ;
@@ -15,15 +10,42 @@
 	flex-direction: column;
 	height: 100vh;
 	width: 392x;
-}
+} */
 
-.logoDiv{
+/* Default background for screens smaller than 500px */
+.mainDiv {
+	background-image: url('../../assets/images/bgWallpaper1.jpg');
+	background-size: cover;
+	background-size: 100% 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-direction: column;
+	height: 100vh;
+	/* width: 392px; */
+  }
+  
+  /* Change background for screens larger than 500px */
+  @media screen and (min-width: 501px) {
+	.mainDiv {
+	  background-image: url('../../assets/images/spooky-forest-mystery-horror-beauty-nature-generated-by-ai.jpg');
+	}
+  }
+  
+
+.logoDiv {
 	content: url('../../assets/images/logo.svg');
 	width: 85%;
 	height: 50%;
 	opacity: 60%;
-
- }
+  }
+  
+  @media screen and (min-width: 501px) {
+	.logoDiv {
+	  opacity: 100%;
+	}
+  }
+  
 
  .inputDiv{
 	display: flex;
@@ -61,6 +83,8 @@
 	background-color: #135A56;
 	color: white;
 	margin: 10px;
+	max-width: 250px;
+	
 }
 
 .error_msg {

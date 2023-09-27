@@ -17,7 +17,6 @@ import {FaHistory} from 'react-icons/fa';
 import {RiUserSettingsFill} from 'react-icons/ri';
 import nameLogo from "../../assets/images/nameLogo.svg";
 import greenLogo from "../../assets/images/GreenLogo.svg";
-// import AudioClassification from '../AudioClassification';
 
 
 const Main = ({ authToken }) => {
@@ -43,6 +42,8 @@ const Main = ({ authToken }) => {
     setSelectedDevice(device);
   };
 
+  
+
 
   const handleSettingsClick = () => {
     setShowSettings(!showSettings);
@@ -56,6 +57,17 @@ const Main = ({ authToken }) => {
 
 
   };
+
+  const handleAddDeviceClick = () => {
+    setShowAddDeviceForm(true); 
+    setShowHistory(false);
+    setShowSettings(false); 
+    setShowAboutUs(false); 
+    setShowHowToUse(false); 
+    setShowAccountSettings(false); 
+    setShowAnalytics(false)
+    setSelectedDevice(false);
+  };
   
   const handleHistoryClick = () => {
     setShowHistory(!showHistory);
@@ -66,8 +78,6 @@ const Main = ({ authToken }) => {
     setShowAccountSettings(false); 
     setShowAnalytics(false)
     setSelectedDevice(false);
-
-
   };
   
   const handleAnalyticsClick = () => {
@@ -96,6 +106,7 @@ const Main = ({ authToken }) => {
   };
 
   const handleBackClick = () => {
+    setShowAddDeviceForm(false)
     setShowAboutUs(false);
     setShowHowToUse(false);
     setShowAccountSettings(false); 
@@ -131,15 +142,15 @@ const Main = ({ authToken }) => {
 
   };
 
-  const handleStartDetectingClick= () => {
-    setShowStartDetecting(true)
-    setShowAccountSettings(false);
-    setShowAboutUs(false);
-    setShowAddDeviceForm(false);
-    setShowHowToUse(false);
-    setSelectedDevice(false);
+  // const handleStartDetectingClick= () => {
+  //   setShowStartDetecting(true)
+  //   setShowAccountSettings(false);
+  //   setShowAboutUs(false);
+  //   setShowAddDeviceForm(false);
+  //   setShowHowToUse(false);
+  //   setSelectedDevice(false);
 
-  };
+  // };
 
 
   const handleLogout = () => {
@@ -153,7 +164,6 @@ useEffect(() => {
   const decodedToken = jwt_decode(authToken);
   const fetchedUserId = decodedToken._id;
   setUserId(fetchedUserId);
-  // console.log("User ID:", fetchedUserId);
 
   const fetchData = async () => {
     try {
@@ -163,7 +173,6 @@ useEffect(() => {
         },
       });
       setUserData(userDataResponse.data);
-      // console.log("User Data:", userDataResponse.data);
 
       const devicesResponse = await axios.get("http://localhost:8080/api/devices", {
         headers: {
@@ -244,7 +253,8 @@ useEffect(() => {
         <AddDeviceForm
           authToken={authToken}
           onDeviceAdded={handleDeviceAdded}
-          setShowAddDeviceForm={setShowAddDeviceForm}
+          // setShowAddDeviceForm={setShowAddDeviceForm}
+          handleAddDeviceClick = {handleAddDeviceClick}
           handleBackClick={handleBackClick}
         />
       );
@@ -294,7 +304,7 @@ useEffect(() => {
         <div className={styles.sideMenuMain}>
           <div className={styles.sideMenuContent}>
             
-            <a onClick={() => {setShowAddDeviceForm(true) }} 
+            <a onClick= {handleAddDeviceClick } 
           className={styles.sideMenuItem}>
               Add Device
             </a>

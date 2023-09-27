@@ -4,7 +4,7 @@ import styles from "./AddDeviceForm.module.css";
 import { PiCameraPlusBold } from "react-icons/pi";
 import Resizer from "react-image-file-resizer";
 
-const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm, handleBackClick }) => {
+const AddDeviceForm = ({ authToken, onDeviceAdded, handleBackClick }) => {
   const fileInputRef = useRef(null);
 
   const [formData, setFormData] = useState({
@@ -57,7 +57,9 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm, handleB
       });
 
       onDeviceAdded(newDevice);
-      setShowAddDeviceForm(false);
+      // setShowAddDeviceForm(false);
+      handleBackClick();
+
     } catch (error) {
       console.error(error);
     }
@@ -72,7 +74,7 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, setShowAddDeviceForm, handleB
       details: "",
       picture: "",
     });
-    setShowAddDeviceForm(false);
+    // setShowAddDeviceForm(false);
     handleBackClick();
   };
 

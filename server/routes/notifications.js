@@ -98,4 +98,33 @@ router.delete('/:userId', async (req, res) => {
   }
 });
 
+
+
+
+
+
+router.get("/analytics", async (req, res) => {
+  try {
+    // const notificationCounts = await Notification.aggregate([
+    //   {
+    //     $group: {
+    //       _id: "$deviceId", 
+    //       count: { $sum: 1 }, 
+    //     },
+    //   },
+    //   { $sort: { count: -1 } }, 
+    // ]);
+console.log("helo")
+    // const devices = notificationCounts.map((item) => item._id.toString());
+    // const counts = notificationCounts.map((item) => item.count);
+
+    res.json({  notificationCounts: counts });
+  } catch (error) {
+    console.error("Error fetching analytics data:", error);
+    res.status(200).json({ error});
+  }
+});
+
+
+
 module.exports = router;
