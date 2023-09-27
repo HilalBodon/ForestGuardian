@@ -23,19 +23,10 @@
 > We designed Forest Guardian using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
 ### Wireframes
-| Login screen  | Register screen |  Landing screen |
-| ---| ---| ---|
-| ![Landing](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
+![wireframes](./readme/pictures/wireframes.gif)
 
 ### Mockups
-| Home screen  | SideMenu Screen | Add New Device Screen | History |
-| ---| ---| ---| ---|
-|      | ![fsdaf](./readme/demo/1440x1024.png) | ![fsdaf](./readme/demo/1440x1024.png) |
-![home](https://github.com/HilalBodon/ForestGuardian/assets/95381575/eff30d90-8864-434d-9edd-67e8ae8792bc)
-![side menu](https://github.com/HilalBodon/ForestGuardian/assets/95381575/27666904-9480-48e1-8444-04e596c6d73d)
-![Add new device](https://github.com/HilalBodon/ForestGuardian/assets/95381575/59580359-af95-4e0e-b3b5-eacba9cc53c7)
-![All devices History](https://github.com/HilalBodon/ForestGuardian/assets/95381575/22ad3e84-f6b7-4763-9b79-8f05727c79e0)
-
+![mockups](./readme/pictures/forestGuardian.gif)
 
 
 <br><br>
