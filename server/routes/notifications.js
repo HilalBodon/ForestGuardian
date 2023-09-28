@@ -4,7 +4,7 @@ const Notification = require('../models/notification');
 const Device = require('../models/device');
 const { User } = require('../models/user');
 const { format } = require('date-fns');
-
+const mongoose = require('mongoose');
 // __________________________________________get all notifications
 
  
@@ -100,32 +100,63 @@ router.delete('/:userId', async (req, res) => {
 
 
 
+// router.get("/analytics/analytics", async (req, res) => {
+//   try {
+//     const notificationCounts = await Notification.aggregate([
+//       {
+//         $group: {
+//           _id: "$device", // Group by device ID
+//           count: { $sum: 1 }, // Count the notifications
+//         },
+//       },
+//       { $sort: { count: -1 } },
+//     ]);
 
+//     // Map device IDs to strings
+//     const devices = notificationCounts.map((item) =>
+//       item._id ? item._id.toString() : ""
+//     );
 
+//     const counts = notificationCounts.map((item) =>
+//       item.count ? item.count : 0
+//     );
 
-router.get("/analytics/analytics", async (req, res) => {
+//     res.json({ notificationCounts: devices, notificationCount: counts });
+//   } catch (error) {
+//     console.error("Error fetching analytics data:", error);
+//     res.status(200).json({ error });
+//   }
+// });
+
+router.get("/analytics/analytics/:userId", async (req, res) => {
   try {
+    const userId = req.params.userId; 
+
     const notificationCounts = await Notification.aggregate([
       {
+        $match: { user: mongoose.Types.ObjectId(userId) },
+      },
+      {
         $group: {
-          _id: "$deviceId", 
+          _id: "$device", 
           count: { $sum: 1 }, 
         },
       },
-      { $sort: { count: -1 } }, 
+      { $sort: { count: -1 } },
     ]);
-    
-    // const devices = notificationCounts.map((item) => item._id.toString());
-    const devices = notificationCounts.map((item) => (item._id ? item._id.toString() : ''));
 
-    // const counts = notificationCounts.map((item) => item.count);
-    const counts = notificationCounts.map((item) => (item.count ? item.count : 0));
+    const devices = notificationCounts.map((item) =>
+      item._id ? item._id.toString() : ""
+    );
 
+    const counts = notificationCounts.map((item) =>
+      item.count ? item.count : 0
+    );
 
-    res.json({ notificationCounts:devices, notificationCount: counts });
+    res.json({ Devices: devices, notificationCount: counts });
   } catch (error) {
     console.error("Error fetching analytics data:", error);
-    res.status(200).json({ error});
+    res.status(200).json({ error });
   }
 });
 
