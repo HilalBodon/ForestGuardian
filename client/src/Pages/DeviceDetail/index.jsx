@@ -49,16 +49,16 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
       <div key={device._id}>
         <p>
           {device.deviceName} is attached to a {device.treeType} tree, With
-          Approximate Height of: {device.treeHeight} meters, in{" "}
-          {device.location}
+          Approximate Height of: {device.treeHeight} meters 
+          {/* in{" "} {device.location} */}
         </p>
         <p>More details: {device.details}</p>
         {error ? (
           <p className="error-message">{error}</p>
         ) : (
           <div>
-            <p>Latitude: {latitude}</p>
-            <p>Longitude: {longitude}</p>
+            {/* <p>Latitude: {latitude}</p>
+            <p>Longitude: {longitude}</p> */}
             <AudioClassification userId={userId} deviceId={device._id} />
           </div>
         )}
