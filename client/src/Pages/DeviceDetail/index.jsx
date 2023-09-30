@@ -34,9 +34,9 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
   return (
     <div className="device-detail-container">
         <div className="locationDiv">
-      <button className="button addMargin" onClick={handleBackClick}>
+      {/* <button className="button addMargin" onClick={handleBackClick}>
         Back
-      </button>
+      </button> */}
       <div onClick={toggleMap} style={{ cursor: "pointer" }}>
         {mapVisible ? <MdLocationOff className="icon" /> : <MdLocationOn className="icon"/>}{" "}
       </div>
