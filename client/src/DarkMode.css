@@ -23,7 +23,6 @@ a {
   color: var(--link-color);
 }
 
-/* Custom Dark Mode Toggle Element */
 
 .toggle-theme-wrapper {
   display: flex;

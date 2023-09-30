@@ -3,7 +3,6 @@ import { Route, Routes, Navigate} from "react-router-dom";
 import Main from "./components/Main";
 import Login from "./Pages/Login"
 import DeviceDetail from "./Pages/DeviceDetail";
-import DarkMode from "./DarkMode";
 
 function App() {
 	const [authToken, setAuthToken] = useState(localStorage.getItem("token") || "");

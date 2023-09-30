@@ -36,7 +36,12 @@ const Main = ({ authToken }) => {
   const [showHistory, setShowHistory] = useState(false);
   const [showAnalytics, setShowAnalytics] = useState(false);
   const [selectedDevice, setSelectedDevice] = useState(null);
+  const [darkMode, setDarkMode] = useState(false);
 
+
+  const toggleDarkMode = (isDark) => {
+    setDarkMode(isDark);
+  };
 
   const handleDeviceClick = (device) => {
     setSelectedDevice(device);
@@ -254,7 +259,6 @@ useEffect(() => {
         <AddDeviceForm
           authToken={authToken}
           onDeviceAdded={handleDeviceAdded}
-          // setShowAddDeviceForm={setShowAddDeviceForm}
           handleAddDeviceClick = {handleAddDeviceClick}
           handleBackClick={handleBackClick}
         />
@@ -265,8 +269,6 @@ useEffect(() => {
       return <HowToUse handleBackClick={handleBackClick} />;
     } else if (showAccountSettings) {
       return <AccountSettings userData={userData} handleBackClick={handleBackClick} />;
-    // } else if (showStartDetecting) {
-    //   return <AudioClassification handleBackClick={handleBackClick} />;
     } else if (showSettings) {
       return <SettingsPage handleBackClick={handleBackClick} />;
     } else if (showHistory) {
@@ -290,16 +292,22 @@ useEffect(() => {
 
   return (
     
-    <div className={styles.main_container}>
-      <nav className={styles.navbar}>
+    // <div className={styles.main_container}>
+    //   <nav className={styles.navbar}>
+    <div className={`${styles.main_container} ${darkMode ? "dark-mode" : ""}`}>
+      <nav className={`${styles.navbar} ${darkMode ? "navbar-dark" : ""}`}>
         <p className={styles.menuIcon}><FaBars onClick={toggleSideMenu} /></p>
         {isSideMenuOpen && (
           <div className={styles.overlay}></div>
         )}
-        <div
-          ref={sideMenuRef}
-          className={`${styles.sideMenu} ${isSideMenuOpen ? styles.open : ''}`}
-        >
+<div
+  ref={sideMenuRef}
+  className={`${styles.sideMenu} ${isSideMenuOpen ? styles.open : ''}`}
+  style={{
+    backgroundColor: darkMode ? 'var(--menu-background-dark)' : 'var(--menu-background-light)',
+    color: darkMode ? 'var(--menu-text-color-dark)' : 'var(--menu-text-color-light)',
+  }}
+>
         <div className={styles.greenLogo}>
           <img  src={greenLogo} alt="Green Guardian Logo" /> 
         </div>
@@ -320,13 +328,10 @@ useEffect(() => {
             <a  onClick={handleAccountSettingsClick} className={styles.sideMenuItem}>
               Account Settings
             </a>
-            {/* <a   onClick={handleStartDetectingClick}className={styles.sideMenuItem}> 
-              ChainSaw Detect
-            </a> */}
             <a   onClick={handleLogout}className={styles.sideMenuItem}> 
               Logout
             </a>
-            <DarkMode/>
+            <DarkMode darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
             </div>
 
             <div className={styles.sidenameLogo}><img src={nameLogo} alt="nameLogo" /></div>
