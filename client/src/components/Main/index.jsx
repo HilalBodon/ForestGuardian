@@ -17,7 +17,7 @@ import {FaHistory} from 'react-icons/fa';
 import {RiUserSettingsFill} from 'react-icons/ri';
 import nameLogo from "../../assets/images/nameLogo.svg";
 import greenLogo from "../../assets/images/GreenLogo.svg";
-
+import DarkMode from '../../DarkMode';
 
 const Main = ({ authToken }) => {
   const [userId, setUserId] = useState(null);
@@ -289,6 +289,7 @@ useEffect(() => {
 
 
   return (
+    
     <div className={styles.main_container}>
       <nav className={styles.navbar}>
         <p className={styles.menuIcon}><FaBars onClick={toggleSideMenu} /></p>
@@ -325,7 +326,7 @@ useEffect(() => {
             <a   onClick={handleLogout}className={styles.sideMenuItem}> 
               Logout
             </a>
-
+            <DarkMode/>
             </div>
 
             <div className={styles.sidenameLogo}><img src={nameLogo} alt="nameLogo" /></div>
