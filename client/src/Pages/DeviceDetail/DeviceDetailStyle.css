@@ -1,6 +1,5 @@
 .device-detail-container{
     width: 100vw;
-    padding: 2vw;
 }
 
 .device-detail-container img{
@@ -12,14 +11,23 @@
     flex-direction: row;
     justify-content:space-between;
     align-items: center;
-    margin: 10px;
+    background-color: #2A533D;
+    height: 10vh;
+    box-shadow: 0px -8px 12px#3E6751;
+    background: linear-gradient(to top, #2A533D, #3E6751); 
 }
 .icon{
     font-size: 12vw;
     max-height: 60px;
     opacity: 60%;
+    color: aliceblue;
 }
 
 .addMargin{
     margin-top: 0px;
+}
+
+.imgDiv img{
+border-radius: 0px;
+margin-top: 0px;
 }
