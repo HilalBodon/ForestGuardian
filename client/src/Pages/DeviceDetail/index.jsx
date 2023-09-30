@@ -23,10 +23,11 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
   } else {
     error = "Invalid device.location format";
   }
-
+  
   const [mapVisible, setMapVisible] = useState(false);
   const [infoVisible, setInfoVisible] = useState(true);
-
+  const [activeButton, setActiveButton] = useState('info'); // 'info' is the default active button
+  
   const toggleMap = () => {
     setMapVisible(true);
     setInfoVisible(false);
@@ -37,12 +38,33 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
     setMapVisible(false);
   };
 
+  const toggleButton = (buttonName) => {
+    setActiveButton(buttonName);
+
+    if (buttonName === 'info') {
+      toggleInfo();
+    } else if (buttonName === 'map') {
+      toggleMap();
+    }
+  };
+
+
   return (
     <div className="device-detail-container">
+      
       <div className="locationDiv">
-
-        <button onClick={toggleInfo}>Info</button>
-        <button onClick={toggleMap}>Map</button>
+        <button
+          className={activeButton === 'info' ? 'active-button' : ''}
+          onClick={() => toggleButton('info')}
+        >
+          Info
+        </button>
+        <button
+          className={activeButton === 'map' ? 'active-button' : ''}
+          onClick={() => toggleButton('map')}
+        >
+          Map
+        </button>
       </div>
 
       {mapVisible && <CustomMap latitude={latitude} longitude={longitude} />}
