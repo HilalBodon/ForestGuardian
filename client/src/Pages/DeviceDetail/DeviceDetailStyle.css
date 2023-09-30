@@ -43,10 +43,12 @@ border-radius: 0px;
 
 .infoMainDiv{
 display: flex;
-flex-direction: row;
+flex-direction: column;
 border: 1px solid #3E6751;
 }
 
 .heightDiv{
     background-color: antiquewhite;
+    display: flex;
+    flex-direction: row;
 }
