@@ -50,7 +50,9 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
       {infoVisible && (
         
         <div key={device._id}>
-          <img src={device.picture} alt="Device Image" />
+          <div className="imgDiv">
+          <img  src={device.picture} alt="Device Image" />
+          </div>
           <p>
             {device.deviceName} is attached to a {device.treeType} tree, With
             Approximate Height of: {device.treeHeight} meters
