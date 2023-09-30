@@ -39,5 +39,14 @@
 
 .imgDiv img{
 border-radius: 0px;
-/* margin-top: 0px; */
+}
+
+.infoMainDiv{
+display: flex;
+flex-direction: row;
+border: 1px solid #3E6751;
+}
+
+.heightDiv{
+    background-color: antiquewhite;
 }

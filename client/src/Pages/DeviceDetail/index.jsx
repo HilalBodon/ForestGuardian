@@ -75,11 +75,24 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
           <div className="imgDiv">
           <img  src={device.picture} alt="Device Image" />
           </div>
-          <p>
+
+          <div className="infoMainDiv">
+            <div  className="nameDiv">
+              <p>{device.deviceName}</p>
+            </div>
+            <div className="heightDiv">
+              <div>{device.treeType}</div>
+              <div>{device.treeHeight}</div>
+            </div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          {/* <p>
             {device.deviceName} is attached to a {device.treeType} tree, With
             Approximate Height of: {device.treeHeight} meters
-          </p>
-          <p>More details: {device.details}</p>
+          </p> */}
+          {/* <p>More details: {device.details}</p> */}
           {error ? (
             <p className="error-message">{error}</p>
           ) : (
