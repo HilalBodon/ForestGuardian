@@ -313,7 +313,7 @@ useEffect(() => {
         </div>
         <div className={styles.sideMenuMain}>
           <div className={styles.sideMenuContent}>
-            
+            <hr />
             <a onClick= {handleAddDeviceClick } 
           className={styles.sideMenuItem}>
               Add Device
@@ -328,6 +328,7 @@ useEffect(() => {
             <a  onClick={handleAccountSettingsClick} className={styles.sideMenuItem}>
               Account Settings
             </a>
+            <hr />
             <a   onClick={handleLogout}className={styles.sideMenuItem}> 
               Logout
             </a>

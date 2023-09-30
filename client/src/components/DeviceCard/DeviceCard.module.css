@@ -13,7 +13,8 @@
     align-content: center;
     margin: 5px;
     border-radius: 15px;
-    background-color: #C0D6BF;
+    /* background-color: #8a8989; */
+    border-bottom: 1px solid;
     width: 90%;
     height: 40vh;
 
