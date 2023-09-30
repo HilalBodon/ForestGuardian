@@ -1,21 +1,19 @@
 .device-detail-container{
     width: 100vw;
+    padding-top: 0%;
 }
 
-.device-detail-container img{
-    margin-top: 3vh;
-}
 
-.locationDiv{
-   display: flex;
+.locationDiv {
+    display: flex;
     flex-direction: row;
-    justify-content:space-between;
+    justify-content: space-between;
     align-items: center;
-    background-color: #2A533D;
     height: 10vh;
-    box-shadow: 0px -8px 12px#3E6751;
-    background: linear-gradient(to top, #2A533D, #3E6751); 
-}
+    box-shadow: 0px -30px 1px #3E6751;
+    background: linear-gradient(to top, #2A533D 0%, #2A533D 30%, #3E6751 90%, #3E6751 50%);
+  }
+  
 .icon{
     font-size: 12vw;
     max-height: 60px;
@@ -29,5 +27,5 @@
 
 .imgDiv img{
 border-radius: 0px;
-margin-top: 0px;
+/* margin-top: 0px; */
 }
