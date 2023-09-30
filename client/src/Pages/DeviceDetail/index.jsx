@@ -84,9 +84,11 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
               <div>{device.treeType}</div>
               <div>{device.treeHeight}</div>
             </div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <div>Location</div>
+            <div>More Details:</div>
+            <div>            <div>
+              <AudioClassification userId={userId} deviceId={device._id} />
+            </div></div>
           </div>
           {/* <p>
             {device.deviceName} is attached to a {device.treeType} tree, With
@@ -97,7 +99,7 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
             <p className="error-message">{error}</p>
           ) : (
             <div>
-              <AudioClassification userId={userId} deviceId={device._id} />
+              {/* <AudioClassification userId={userId} deviceId={device._id} /> */}
             </div>
           )}
         </div>
