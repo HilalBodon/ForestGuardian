@@ -16,7 +16,7 @@ return(
 
         <p>3.Make sure you have a near WIFI network to enable the device connection (you can check the WIFI SSID(name) and signal strength from you mobile ).
 Add new device and provide the needed information.</p>
-        <button  className="button" onClick={handleBackClick}>Back</button>
+        {/* <button  className="button" onClick={handleBackClick}>Back</button> */}
     
     </div>
 );

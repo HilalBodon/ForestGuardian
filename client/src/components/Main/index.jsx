@@ -313,7 +313,12 @@ useEffect(() => {
         </div>
         <div className={styles.sideMenuMain}>
           <div className={styles.sideMenuContent}>
-            <hr />
+
+          <a onClick= {handleBackClick } 
+          className={styles.sideMenuItem}>
+              Home Menu
+            </a>
+
             <a onClick= {handleAddDeviceClick } 
           className={styles.sideMenuItem}>
               Add Device
@@ -328,7 +333,6 @@ useEffect(() => {
             <a  onClick={handleAccountSettingsClick} className={styles.sideMenuItem}>
               Account Settings
             </a>
-            <hr />
             <a   onClick={handleLogout}className={styles.sideMenuItem}> 
               Logout
             </a>
@@ -340,9 +344,9 @@ useEffect(() => {
         </div>
         <div className={styles.logoDot}>
          
-        <div className={styles.logoCenter}>
+        <div className={styles.namelogo}>
   {showAddDeviceForm ? (
-    <h1 className={styles.navbarHead}>Add New Device</h1>
+    <h1 className={styles.namelogo}>Add New Device</h1>
   ) : showAboutUs ? (
     <h1 className={styles.navbarHead}>About Us</h1>
   ) : showHowToUse ? (
@@ -353,7 +357,7 @@ useEffect(() => {
     <h1 className={styles.navbarHead}> History < FaHistory className={styles.navbarHead}/></h1>
   ) : (
   
-    <div><img className={styles.nameLogo} src={nameLogo} alt="NameLogo" /></div>
+    <img  src={nameLogo} alt="NameLogo" />
   )}
 </div>
 

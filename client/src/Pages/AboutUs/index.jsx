@@ -15,7 +15,7 @@ return(
             made for saving trees and animals in the forest from intruders. </p>
             <br />
 
-        <button className="button" onClick={handleBackClick}>Back</button>
+        {/* <button className="button" onClick={handleBackClick}>Back</button> */}
     
     </div>
 );

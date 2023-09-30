@@ -165,13 +165,13 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, handleBackClick }) => {
           <button type="submit" className={styles.addButton}>
             Add Device
           </button>
-          <button
+          {/* <button
             type="button"
             className={styles.cancelButton}
             onClick={handleCancel}
           >
             Cancel
-          </button>
+          </button> */}
         </div>
       </form>
     </div>

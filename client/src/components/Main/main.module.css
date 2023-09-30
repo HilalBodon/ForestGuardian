@@ -15,7 +15,7 @@
 	background-color: var(--navbar-background); 
 	display: flex;
 	align-items: center;
-	justify-content: left;
+	justify-content: space-between;
 	color: #333333; 
   }
 
@@ -68,13 +68,20 @@
 	width: 100%;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: space-around;
+	margin-left: 9%;
+}
+.logoDot img{
+	width: 100%;
 }
 
 .nameLogo{
-	padding-top: 2%;
-	padding-left: 5%;
-	width: 100%;
+	/* padding-top: 2%;
+	padding-left: 5%; */
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	width: 80%;
 	height: 8vh;
 	max-width: 300px;
 	font-size: 2rem;
@@ -117,10 +124,11 @@
 	margin-top: 10px;
 }
 
-.logoCenter{
-	width: 100%;
+.logoCenter img{
+	width: 90%;
     display: flex;
     justify-content: center;
+	align-items: center;
 }
 
  .sideMenu {
@@ -177,7 +185,7 @@
   }
 
   .greenLogo{
-	/* background-color: #C0D6BF; */
+	background-color: #C0D6BF;
 	width: 100%;
 	display: grid;
 	place-items: center; 

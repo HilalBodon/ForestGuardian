@@ -115,7 +115,7 @@ const AccountSettings = ({ userData, handleBackClick }) => {
           <button className={styles.button} onClick={handleSaveClick}>Save</button>
         ) : null}
       </div>
-      <button className={styles.button} onClick={handleBackClick}>Back</button>
+      {/* <button className={styles.button} onClick={handleBackClick}>Back</button> */}
     </div>
   );
 };

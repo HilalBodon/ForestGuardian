@@ -52,7 +52,7 @@ const SettingsPage = ({ handleBackClick }) => {
           ))}
         </div>
       </div>
-      <button className={styles.button} onClick={handleBackClick}>Back</button>
+      {/* <button className={styles.button} onClick={handleBackClick}>Back</button> */}
     </div>
   );
 };
