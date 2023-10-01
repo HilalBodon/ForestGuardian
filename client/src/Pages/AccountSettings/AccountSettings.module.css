@@ -1,17 +1,41 @@
 .accountSettingsMainDiv{
+
+    height: 100vh;
+    width: 100%;
+    background-color: #fff;
+}
+
+.accountSettingscontentDiv{
     display: flex;
     flex-direction: column; 
+    row-gap: 15px;
+    margin: 20px;
+
 }
 
 
 .inlineShapeDiv{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    column-gap: 10px;
+    border: 1px solid black;
+    padding: 15px;
+
+
 }
+.inlineShapeDiv input{
+    font-size: 20px;
+    border: 0px;
+    
+}
+
+
 
 .labels{
     font-size: 20px;
     opacity: 80%;
+
 }
 /* 
 .accountSettingsContainer{

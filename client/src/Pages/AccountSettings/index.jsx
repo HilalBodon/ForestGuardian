@@ -78,6 +78,7 @@ const AccountSettings = ({ userData, handleBackClick }) => {
 
   return (
         <div className={styles.accountSettingsMainDiv}>
+          <div className={styles.accountSettingscontentDiv}> 
           <div>
             <div className={styles.labels}>User Id:</div>
             <div className={styles.inlineShapeDiv}>
@@ -140,7 +141,7 @@ const AccountSettings = ({ userData, handleBackClick }) => {
           <button className={styles.button} onClick={handleSaveClick}>Save</button>
          ) : null}
         </div>
-
+        </div>
   );
 };
 
