@@ -19,17 +19,10 @@
 	--menu-background-dark: #333333; 
 	--menu-text-color-dark: #ffffff; 
 	--font-color: #333;
-	/* --background-color: #eee; */
 	--link-color: cornflowerblue;
 	--navbar-background: #3E6751; 
   }
 
-
-
-
-:root {
-
-  }
   
   [data-theme="dark"] {
 	--font-color: #eee;
