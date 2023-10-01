@@ -40,9 +40,6 @@ const handleDeleteNotificationsClick = () => {
   return (
     <div className={styles.mainHistoryContainer}>
       <div className={styles.buttonsDiv}>
-        {/* <button className={styles.button} onClick={handleBackClick}>
-          Back
-        </button> */}
         <RiDeleteBinFill className={styles.icon} onClick={() => setShowConfirmation(true)} />
       </div>
 
