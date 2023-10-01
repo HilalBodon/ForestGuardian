@@ -1,6 +1,6 @@
 :root {
     --background-color-dark: #333; 
-    --background-color-light: #7b287d;
+    --background-color-light: #eee;
     --font-color-dark: #eee; 
     --font-color-light: #333; 
     --box-shadow-color-dark: rgba(0, 0, 0, 0.5); 
@@ -34,10 +34,6 @@
     font-size: 20px;
 }
 
-.active-button {
-    color: rgb(255, 255, 255);
-    font-weight: 600;
-  }
   
 
 .locationDiv {
@@ -50,7 +46,18 @@
     box-shadow: 0px -30px 1px #3E6751;
     background: linear-gradient(to top, #2A533D 0%, #2A533D 30%, #3E6751 90%, #3E6751 50%);
   }
+
+  [data-theme="dark"] .locationDiv  {
+    background: linear-gradient(to top, #000000 1%, #333 42%, #333 90%, #333 50%);
+}
   
+[data-theme="dark"] .locationDiv button {
+    color: rgb(103, 202, 138);
+}
+
+.active-button {
+    color: rgb(255, 255, 255);
+  }
 .icon{
     font-size: 12vw;
     max-height: 60px;
@@ -77,10 +84,13 @@ font-size: 20px;
 
 .nameDiv {
     display: flex;
-    font-weight: 600;
+    font-weight: 700;
+    opacity: 70%;
+    font-size: 22px;
+
 }
 
-.heighTypeDiv{
+.heightTypeDiv{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -88,7 +98,7 @@ font-size: 20px;
     font-weight: 600;
 }
 
-.heighDiv {
+.heightDiv {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -101,14 +111,12 @@ font-size: 20px;
     width: 42%;
 }
 
-[data-theme="light"] .heighDiv ,
+[data-theme="light"] .heightDiv ,
 [data-theme="light"] .locationDiv2,
 [data-theme="light"] .moredetailsDiv  {
     background-color: #D1E7D0;
 }
-[data-theme="dark"] button {
-    
-}
+
 
 
 .infoSuperDiv{
@@ -170,11 +178,11 @@ font-size: 20px;
     opacity: 70%;
 }
 
-.heighLabel{
+.heightLabel{
     font-weight: 700;
 
 }
-.heighValue{
+.heightValue{
     font-weight: 500;
     opacity: 70%;
 }

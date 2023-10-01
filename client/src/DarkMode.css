@@ -19,7 +19,8 @@ body {
 a {
   color: var(--link-color);
 }
-/* form{
+/* 
+form{
   background-color: var(--background-color);
   color: var(--font-color);
 

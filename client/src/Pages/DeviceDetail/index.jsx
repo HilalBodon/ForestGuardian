@@ -88,22 +88,20 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
           </div>
           <div className="infoSuperDiv">
             <div className="infoMainDiv">
-            <div  className="nameDiv">
-              {device.deviceName}
-            </div>
-            <div className="heighTypeDiv">
-              <div className="heighDiv">
+            <div  className="nameDiv">{device.deviceName}</div>
+            <div className="heightTypeDiv">
+              <div className="heightDiv">
                 <div className="typeLabel">Type: </div>
                 <div className="typeValue"> {device.treeType}</div>
                 </div>
-              <div className="heighDiv">
-                <div  className="heighLabel">Heigh:</div>
-              <div className="heighValue">{device.treeHeigh}</div>
+              <div className="heightDiv">
+                <div  className="heightLabel">Height:</div>
+              <div className="heightValue">{device.treeHeight}</div>
               </div>
 
             </div>
             <div className="locationDiv2">
-              <div className="locationLabel">location</div>
+              <div className="locationLabel">Location</div>
               <div className="locationValue">{device.location}</div>
               </div>
             <div className="locationDiv2">
