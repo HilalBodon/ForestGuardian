@@ -31,22 +31,22 @@
     align-items: center;
     column-gap: 10px;
     border: 1px solid black;
-    padding: 15px;
+    padding: 10px;
 
 
 }
 .inlineShapeDiv input{
     font-size: 20px;
-    border: 0px;
-    
+    border: 0px;   
 }
-
-
+.editIcon, .icon{
+font-size: 25px;
+padding: 0px 5px 0px 5px;
+}
 
 .labels{
     font-size: 20px;
     opacity: 80%;
-
 }
 /* 
 .accountSettingsContainer{
