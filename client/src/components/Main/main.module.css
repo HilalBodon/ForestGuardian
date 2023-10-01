@@ -41,7 +41,7 @@
 
 
 .menuIcon{
-	padding-left: 3%;
+	/* padding-left: 3%; */
 	color: white;
 	font-size: 4vh;
 	
@@ -52,12 +52,14 @@
 	width: 100%;
 	display: flex;
 	align-items: center;
-	justify-content: space-around;
-	margin-left: 9%;
+	justify-content: space-between;
+	margin-left: 14%;
 }
 .logoDot img{
 	width: 100%;
 }
+
+
 
 .nameLogo{
 	/* padding-top: 2%;
@@ -65,12 +67,10 @@
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	width: 80%;
+	width: 100%;
 	height: 8vh;
 	max-width: 300px;
 	font-size: 2rem;
-
-
 }
 
 .dotesIconDiv{
@@ -196,9 +196,10 @@
   .navbarHead{
 
 	color: #ffffff;
-	align-self: self-start;
-	margin-top: 4px;
-	padding-left: 1.5rem;
+	/* align-self: self-start; */
+	/* margin-top: 4px; */
+	/* padding-left: 1.5rem; */
+	margin-bottom: 35px;
 	font-family: 'Barlow Condensed', sans-serif;
 	font-weight: 300;
 	font-size: xx-large;

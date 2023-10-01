@@ -15,15 +15,11 @@ const Dropdown = ({
         <FaEllipsisV className={styles.dotesIcon} onClick={toggleDropdown} />
         {isDropdownOpen && (
           <div className={styles.dropdownContent}>
-            {/* <a onClick={() => { handleSettingsClick(); closeDropdown(); }} className={styles.dropdownItem}>
-              <span className={styles.icon}>🔧</span> Settings
-            </a> */}
+
             <a onClick={() => { handleHistoryClick(); closeDropdown(); }} className={styles.dropdownItem}>
               <span className={styles.icon}>🕒</span> History
             </a>
-            <a onClick={() => { handleAnalyticsClick(); closeDropdown(); }} className={styles.dropdownItem}>
-              <span className={styles.icon}>📊</span> Analytics
-            </a>
+
           </div>
         )}
       </div>

@@ -347,15 +347,15 @@ useEffect(() => {
          
         <div className={styles.namelogo}>
   {showAddDeviceForm ? (
-    <h1 className={styles.namelogo}>Add New Device</h1>
+    <h1 className={styles.navbarHead}>Add New Device</h1>
   ) : showAboutUs ? (
     <h1 className={styles.navbarHead}>About Us</h1>
   ) : showHowToUse ? (
     <h1 className={styles.navbarHead}>How to Use</h1>
   ): showAccountSettings ? (
-    <h1 className={styles.navbarHead}> Account Settings<RiUserSettingsFill className={styles.navbarHead}/></h1>
+    <h1 className={styles.navbarHead}> Account Settings</h1>
   ) : showHistory ? (
-    <h1 className={styles.navbarHead}> History < FaHistory className={styles.navbarHead}/></h1>
+    <h1 className={styles.navbarHead}> History </h1>
   ) : (
   
     <img  src={nameLogo} alt="NameLogo" />
