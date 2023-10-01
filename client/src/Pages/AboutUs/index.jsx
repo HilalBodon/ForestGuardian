@@ -7,7 +7,7 @@ return(
     <div className="mainContainer">
         <p>Forest Guardian Is a web app based on sound
              classification and deep learning using
-              Python and integrated with Node.js and React</p>
+              TensorFlow and integrated with Node.js and React</p>
 
               <br />
         <p>The app is responsible of sending notification 
