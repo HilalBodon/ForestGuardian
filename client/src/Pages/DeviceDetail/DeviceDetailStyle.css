@@ -44,15 +44,23 @@ border-radius: 0px;
 .infoMainDiv{
 display: flex;
 flex-direction: column;
-border: 1px solid #3E6751;
-width: 85%;
-row-gap: 10px;
+width: 90%;
+row-gap: 15px;
 font-size: 25px;
+
 }
 
 
 .nameDiv {
     display: flex;
+    font-weight: 600;
+}
+
+.heightTypeDiv{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
     font-weight: 600;
 }
 
@@ -63,8 +71,9 @@ font-size: 25px;
     background-color: #D1E7D0;
     font-weight: 600;
     padding: 10px;
-    box-shadow: 1px 1px 1px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
+    width: 42%;
 }
 
 .infoSuerDiv{
@@ -73,6 +82,7 @@ font-size: 25px;
     align-items: center;
     width: 100vw;
     font-size: 20px;
+    margin-top: 20px;
 }
 
 .locationDiv2{
@@ -84,7 +94,20 @@ font-size: 25px;
     box-shadow: 1px 1px 1px;
     border-radius: 10px;
     font-size: 16px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 
+}
+
+.moredetailsDiv{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    background-color: #D1E7D0;
+    font-weight: 600;
+    box-shadow: 1px 1px 1px;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 
 
 }

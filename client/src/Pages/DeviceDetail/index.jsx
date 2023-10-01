@@ -80,15 +80,15 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
             <div  className="nameDiv">
               {device.deviceName}
             </div>
-            <div className="heightDiv">
-              <div>{device.treeType}</div>
-              <div>{device.treeHeight}</div>
+            <div className="heightTypeDiv">
+              <div className="heightDiv">{device.treeType}</div>
+              <div className="heightDiv">asasd</div>
             </div>
             <div className="locationDiv2">
               <label>location</label>
               <label>{device.location}</label>
               </div>
-            <div>More Details:</div>
+            <div className="moredetailsDiv">More Details:</div>
             <div>            <div>
               <AudioClassification userId={userId} deviceId={device._id} />
             </div></div>

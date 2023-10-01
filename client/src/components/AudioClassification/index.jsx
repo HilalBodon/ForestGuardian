@@ -163,7 +163,6 @@ sendEmail = async () => {
 
 
   render() {
-    // const { handleBackClick } = this.props;
     const { recognizing, count, timerValue, emailResponse } = this.state;
 
     return (
@@ -177,10 +176,9 @@ sendEmail = async () => {
         >
           {recognizing ? "Stop" : "Start"} Listening 
         </button>
-        {/* <button className="button" onClick={handleBackClick}>Back</button> */}
         <div className='countContainer'>
             <div>ChainSaw:{count}</div>
-            <div>Timer: {timerValue} seconds</div>
+            <div>Timer: {timerValue}</div>
         </div>
     </div>
 
