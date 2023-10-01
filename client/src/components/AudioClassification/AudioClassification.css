@@ -5,28 +5,29 @@
 .recognize-button {
     font-size: 16px;
     padding: 10px 20px;
-    margin: 50px;
-    max-width: 200px;
+    margin: 50px 0px 50px 0px;
+    max-width: 380px;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
   .backButton {
-    background-color: #27302b;
+    background-color: #3E6751;
     color: white;
     height: 45px;
     border-radius: 25px;
   }
   
   .recognize-button.start {
-    background-color: #27302b;
+    background-color: #3E6751;
     color: white;
     height: 45px;
+    width:95%;
     border-radius: 25px;
   }
 
   .recognize-button.start:hover{
-    background-color: rgb(89, 133, 89);
+    background-color: rgb(142, 142, 142);
   }
   
   .recognize-button.bounceStop {

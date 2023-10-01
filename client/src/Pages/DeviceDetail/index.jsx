@@ -75,20 +75,24 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
           <div className="imgDiv">
           <img  src={device.picture} alt="Device Image" />
           </div>
-
+          <div className="infoSuerDiv">
           <div className="infoMainDiv">
             <div  className="nameDiv">
-              <p>{device.deviceName}</p>
+              {device.deviceName}
             </div>
             <div className="heightDiv">
               <div>{device.treeType}</div>
               <div>{device.treeHeight}</div>
             </div>
-            <div>Location</div>
+            <div className="locationDiv2">
+              <label>location</label>
+              <label>{device.location}</label>
+              </div>
             <div>More Details:</div>
             <div>            <div>
               <AudioClassification userId={userId} deviceId={device._id} />
             </div></div>
+          </div>
           </div>
           {/* <p>
             {device.deviceName} is attached to a {device.treeType} tree, With
