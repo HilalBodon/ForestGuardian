@@ -100,7 +100,7 @@ const AccountSettings = ({ userData, handleBackClick }) => {
           </div>
           <div>
             <div>Full Name:</div>
-            <div>
+            <div className={styles.inlineShapeDiv}>
             <div> <BsFillQuestionSquareFill className={styles.icon} /></div>
               <div>
               <input type="text" id="fullname" name="fullname" value={fullName} onChange={(e) => setFullName(e.target.value)} disabled={!isFullNameEditing} />
