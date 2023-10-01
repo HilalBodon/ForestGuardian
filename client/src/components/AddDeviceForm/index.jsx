@@ -74,7 +74,6 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, handleBackClick }) => {
       details: "",
       picture: "",
     });
-    // setShowAddDeviceForm(false);
     handleBackClick();
   };
 
@@ -116,6 +115,7 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, handleBackClick }) => {
           <PiCameraPlusBold onClick={handleCameraIconClick} />
         </div>
       )}
+
       <form className={styles.formStyle} onSubmit={handleFormSubmit}>
         <input
           type="text"
@@ -144,14 +144,14 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, handleBackClick }) => {
           }
         />
 
-        <input
+        {/* <input
           type="text"
           placeholder="Location"
           value={formData.location}
           onChange={(e) =>
             setFormData({ ...formData, location: e.target.value })
           }
-        />
+        /> */}
 
         <textarea
           placeholder="Details"
@@ -165,13 +165,6 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, handleBackClick }) => {
           <button type="submit" className={styles.addButton}>
             Add Device
           </button>
-          {/* <button
-            type="button"
-            className={styles.cancelButton}
-            onClick={handleCancel}
-          >
-            Cancel
-          </button> */}
         </div>
       </form>
     </div>
