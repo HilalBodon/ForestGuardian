@@ -66,14 +66,14 @@
 border-radius: 0px;
 }
 
-/* .infoMainDiv{
+.infoMainDiv{
 display: flex;
 flex-direction: column;
 width: 90%;
 row-gap: 15px;
 font-size: 20px;
 
-} */
+}
 
 
 .nameDiv {
@@ -177,13 +177,4 @@ font-size: 20px;
     opacity: 70%;
 }
 
-
-.infoMainDiv {
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    row-gap: 15px;
-    font-size: 20px;
-  }
-  
 
