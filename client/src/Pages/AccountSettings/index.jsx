@@ -113,7 +113,7 @@ const AccountSettings = ({ userData, handleBackClick }) => {
 
           <div>
             <div>E-mail:</div>
-            <div>
+            <div className={styles.inlineShapeDiv}>
             <div><MdAlternateEmail className={styles.icon} /></div>
               <div>
               <input type="email" id="email" name="email" value={notifyEmail} onChange={(e) => setNotifyEmail(e.target.value)} disabled={!isNotifyEmailEditing} />
