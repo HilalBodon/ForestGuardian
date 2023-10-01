@@ -361,7 +361,6 @@ useEffect(() => {
   )}
 </div>
 
-
       <Dropdown
         ref={dropdownRef}
         isDropdownOpen={isDropdownOpen}
