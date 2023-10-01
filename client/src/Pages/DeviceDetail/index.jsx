@@ -8,8 +8,8 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
   let latitude = 0;
   let longitude = 0;
   let error = null;
-  const [cityName, setCityName] = useState("");
-
+  const [locationDetails, setLocationDetails] = useState({});
+  const [loading, setLoading] = useState(true);
   
   useEffect(() => {
     const theme = localStorage.getItem("theme");
@@ -40,17 +40,17 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
 
     try {
       const response = await axios.get(
-        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
+        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}&zoom=18&addressdetails=1`
       );
 
-      if (response.data.address && response.data.address.city) {
-        setCityName(response.data.address.city);
+      if (response.data.address) {
+        setLocationDetails(response.data.address);
+        setLoading(false);
       }
     } catch (error) {
       console.error("Error reverse geocoding:", error);
     }
   }
-
 
 
   if (device.location && /^\d+\.\d+,\s*\d+\.\d+$/.test(device.location)) {
@@ -93,11 +93,6 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
     }
   };
 
-
-
-  
-
-
   return (
     <div className="device-detail-container">
       
@@ -134,15 +129,21 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
                 </div>
               <div className="heightDiv">
                 <div  className="heightLabel">Height:</div>
-              <div className="heightValue">{device.treeHeight}</div>
+              <div className="heightValue">{device.treeHeight} m</div>
               </div>
 
             </div>
             <div className="locationDiv2">
-              <div className="locationLabel">Location</div>
-              {/* <div className="locationValue">{device.location}</div> */}
-              <div className="locationValue">{cityName}</div>
-
+              <div className="locationLabel">Location:</div>
+              <div className={`locationValue ${loading ? 'loading' : 'loaded'}`}>
+                {loading ? (
+                  <div>Loading...</div>
+                ) : (
+                  <div>
+                    {locationDetails.road}, {locationDetails.city}
+                  </div>
+                )}
+              </div>
               </div>
             <div className="locationDiv2">
                 <div className="detailsLabel" >More Details:</div>
