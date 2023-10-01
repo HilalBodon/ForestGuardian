@@ -37,8 +37,9 @@
     font-family:  Georgia, Times, 'Times New Roman', serif;
   }
   
-  img {
+  .mainContainer img {
     height: 80%;
-    width: 85%;  
+    width: 100%;
+    border-radius: 15px;  
   }
 

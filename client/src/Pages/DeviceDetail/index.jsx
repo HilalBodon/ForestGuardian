@@ -2,12 +2,15 @@ import React, { useState, useEffect} from "react";
 import "./DeviceDetailStyle.css";
 import AudioClassification from "../../components/AudioClassification";
 import CustomMap from "../../components/leaflet";
+import axios from "axios";
 
 const DeviceDetail = ({ device, userId, handleBackClick }) => {
   let latitude = 0;
   let longitude = 0;
   let error = null;
+  const [cityName, setCityName] = useState("");
 
+  
   useEffect(() => {
     const theme = localStorage.getItem("theme");
   
@@ -16,8 +19,39 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
     } else {
       document.documentElement.setAttribute("data-theme", "light");
     }
-  }, []);
+    reverseGeocode(device.location);
+  }, [device.location]);
   
+
+
+  async function reverseGeocode(location) {
+    if (!location || !/^\d+\.\d+,\s*\d+\.\d+$/.test(location)) {
+      return;
+    }
+
+    const [latStr, lonStr] = location.split(",").map((str) => str.trim());
+
+    const lat = parseFloat(latStr);
+    const lon = parseFloat(lonStr);
+
+    if (isNaN(lat) || isNaN(lon)) {
+      return;
+    }
+
+    try {
+      const response = await axios.get(
+        `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lon}`
+      );
+
+      if (response.data.address && response.data.address.city) {
+        setCityName(response.data.address.city);
+      }
+    } catch (error) {
+      console.error("Error reverse geocoding:", error);
+    }
+  }
+
+
 
   if (device.location && /^\d+\.\d+,\s*\d+\.\d+$/.test(device.location)) {
     const [latStr, lonStr] = device.location.split(",").map((str) => str.trim());
@@ -58,6 +92,10 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
       toggleMap();
     }
   };
+
+
+
+  
 
 
   return (
@@ -102,7 +140,9 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
             </div>
             <div className="locationDiv2">
               <div className="locationLabel">Location</div>
-              <div className="locationValue">{device.location}</div>
+              {/* <div className="locationValue">{device.location}</div> */}
+              <div className="locationValue">{cityName}</div>
+
               </div>
             <div className="locationDiv2">
                 <div className="detailsLabel" >More Details:</div>
