@@ -252,6 +252,7 @@ useEffect(() => {
           device={selectedDevice}
           userId={userId}
           handleBackClick={handleBackClick}
+          darkMode={darkMode}
         />
       );
     } else if (showAddDeviceForm) {
@@ -300,13 +301,13 @@ useEffect(() => {
         {isSideMenuOpen && (
           <div className={styles.overlay}></div>
         )}
-<div
-  ref={sideMenuRef}
-  className={`${styles.sideMenu} ${isSideMenuOpen ? styles.open : ''}`}
-  style={{
-    backgroundColor: darkMode ? 'var(--menu-background-dark)' : 'var(--menu-background-light)',
-    color: darkMode ? 'var(--menu-text-color-dark)' : 'var(--menu-text-color-light)',
-  }}
+        <div
+          ref={sideMenuRef}
+          className={`${styles.sideMenu} ${isSideMenuOpen ? styles.open : ''}`}
+          style={{
+            backgroundColor: darkMode ? 'var(--menu-background-dark)' : 'var(--menu-background-light)',
+            color: darkMode ? 'var(--menu-text-color-dark)' : 'var(--menu-text-color-light)',
+          }}
 >
         <div className={styles.greenLogo}>
           <img  src={greenLogo} alt="Green Guardian Logo" /> 

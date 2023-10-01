@@ -30,12 +30,13 @@
 	--link-color: peachpuff;
 	--navbar-background: #333; 
 	--menu-background: #444; 
+	
   }
   
-  body {
+  /* body {
 	background-color: var(--background-color);
 	color: var(--font-color);
-  }
+  } */
   
   a {
 	color: var(--link-color);

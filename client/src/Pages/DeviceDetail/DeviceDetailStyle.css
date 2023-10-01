@@ -1,3 +1,26 @@
+:root {
+    --background-color-dark: #333; 
+    --background-color-light: #7b287d;
+    --font-color-dark: #eee; 
+    --font-color-light: #333; 
+    --box-shadow-color-dark: rgba(0, 0, 0, 0.5); 
+    --box-shadow-color-light: rgba(0, 0, 0, 0.5); 
+}
+
+[data-theme="dark"] {
+    --background-color: var(--background-color-dark);
+    --font-color: var(--font-color-dark);
+    --box-shadow-color: var(--box-shadow-color-dark);
+}
+
+[data-theme="light"] {
+    --background-color: var(--background-color-light);
+    --font-color: var(--font-color-light);
+    --box-shadow-color: var(--box-shadow-color-light);
+}
+  
+
+
 
 .device-detail-container{
     width: 100vw;
@@ -43,14 +66,14 @@
 border-radius: 0px;
 }
 
-.infoMainDiv{
+/* .infoMainDiv{
 display: flex;
 flex-direction: column;
 width: 90%;
 row-gap: 15px;
 font-size: 20px;
 
-}
+} */
 
 
 .nameDiv {
@@ -66,21 +89,27 @@ font-size: 20px;
     font-weight: 600;
 }
 
-.heighDiv{
+.heighDiv {
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
-    background-color: #D1E7D0;
+    color: var(--font-color); 
     font-weight: 600;
     padding: 10px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     width: 42%;
-
 }
 
-.infoSuerDiv{
+[data-theme="light"] .heighDiv ,
+[data-theme="light"] .locationDiv2,
+[data-theme="light"] .moredetailsDiv  {
+    background-color: #D1E7D0;
+}
+
+
+.infoSuperDiv{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,7 +123,7 @@ font-size: 20px;
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
-    background-color: #D1E7D0;
+    /* background-color: #D1E7D0; */
     font-weight: 600;
     padding: 10px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
@@ -105,7 +134,7 @@ font-size: 20px;
     display: flex;
     align-items: center;
     flex-direction: row;
-    background-color: #D1E7D0;
+    /* background-color: #D1E7D0; */
     font-weight: 600;
     box-shadow: 1px 1px 1px;
     border-radius: 10px;
@@ -149,3 +178,16 @@ font-size: 20px;
     font-weight: 500;
     opacity: 70%;
 }
+
+
+.infoMainDiv {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    row-gap: 15px;
+    font-size: 20px;
+    /* background-color: var(--background-color);  */
+    /* color: var(--font-color); */
+  }
+  
+
