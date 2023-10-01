@@ -78,8 +78,8 @@ const AccountSettings = ({ userData, handleBackClick }) => {
 
   return (
         <div className={styles.accountSettingsMainDiv}>
-          <div >
-            <div>User Id:</div>
+          <div>
+            <div className={styles.labels}>User Id:</div>
             <div className={styles.inlineShapeDiv}>
               <div><FaUserAlt className={styles.icon} /></div>
               <div><input type="text" id="userEmail" name="userEmail" value={email} onChange={(e) => setEmail(e.target.value)} disabled/></div>
@@ -87,7 +87,7 @@ const AccountSettings = ({ userData, handleBackClick }) => {
           </div>
 
           <div>
-            <div>Password:</div>
+            <div className={styles.labels}>Password:</div>
             <div className={styles.inlineShapeDiv}>
               <div><RiLockPasswordFill className={styles.icon} /></div>
               <div>
@@ -99,7 +99,7 @@ const AccountSettings = ({ userData, handleBackClick }) => {
             </div>
           </div>
           <div>
-            <div>Full Name:</div>
+            <div className={styles.labels}>Full Name:</div>
             <div className={styles.inlineShapeDiv}>
             <div> <BsFillQuestionSquareFill className={styles.icon} /></div>
               <div>
@@ -112,7 +112,7 @@ const AccountSettings = ({ userData, handleBackClick }) => {
           </div>
 
           <div>
-            <div>E-mail:</div>
+            <div className={styles.labels}>E-mail:</div>
             <div className={styles.inlineShapeDiv}>
             <div><MdAlternateEmail className={styles.icon} /></div>
               <div>
@@ -125,7 +125,7 @@ const AccountSettings = ({ userData, handleBackClick }) => {
           </div>
 
           <div>
-            <div>Phone:</div>
+            <div className={styles.labels}>Phone:</div>
             <div className={styles.inlineShapeDiv}>
             <div><BsFillTelephoneFill className={styles.icon} /></div>
               <div>
