@@ -41,10 +41,8 @@
 
 
 .menuIcon{
-	/* padding-left: 3%; */
 	color: white;
 	font-size: 4vh;
-	
 	margin-left: 20px;
 }
 
@@ -62,8 +60,6 @@
 
 
 .nameLogo{
-	/* padding-top: 2%;
-	padding-left: 5%; */
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
@@ -138,16 +134,16 @@
 	color: #ffffff;
 	font-weight: 300;
 	height: 65vh;
-	font-size: 18px;
+	font-size: 20px;
   }
   
   .sideMenuItem {
 	display: block;
-	padding: 15px 0;
+	padding: 20px 0px 20px 20px ;
 	color: #ffffff;
-	padding: 10px;
 	text-decoration: none;
 	transition: background-color 0.3s ease;
+
 
   }
   
@@ -189,19 +185,20 @@
   }
 
   .sidenameLogo{
-	/* height: 68vh; */
 	align-content: flex-end;
-
+	display: flex;
+	justify-content: center;
   }
   .navbarHead{
 
 	color: #ffffff;
-	/* align-self: self-start; */
-	/* margin-top: 4px; */
-	/* padding-left: 1.5rem; */
 	margin-bottom: 35px;
 	font-family: 'Barlow Condensed', sans-serif;
 	font-weight: 300;
 	font-size: xx-large;
 	text-shadow: #3E6751;
+}
+
+.togglePadding{
+	margin-top: 20px;
 }

@@ -337,7 +337,9 @@ useEffect(() => {
             <a   onClick={handleLogout}className={styles.sideMenuItem}> 
               Logout
             </a>
-            <DarkMode darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+            <div className={styles.togglePadding}>
+            <DarkMode  darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+            </div>
             </div>
 
             <div className={styles.sidenameLogo}><img src={nameLogo} alt="nameLogo" /></div>
