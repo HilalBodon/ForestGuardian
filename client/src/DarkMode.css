@@ -36,7 +36,7 @@ a {
   position: relative;
   display: inline-block;
   height: 20px;
-  width: 4vw;
+  width: 60px;
 }
 
 .toggle-theme input {
@@ -51,19 +51,18 @@ a {
   left: 0;
   right: 0;
   top: 0;
-  width: 4vw;
   transition: 0.2s;
 }
 
 .slider:before {
   background-color: #fff;
-  /* bottom: 4px; */
+  bottom: -2px;
   content: "";
-  height: 20px;
-  /* left: 4px; */
+  height: 26px;
+  left: 4px;
   position: absolute;
   transition: 0.4s;
-  width: 20px;
+  width: 26px;
 }
 
 input:checked + .slider:before {

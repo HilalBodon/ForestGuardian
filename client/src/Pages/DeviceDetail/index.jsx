@@ -80,21 +80,30 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
             <div  className="nameDiv">
               {device.deviceName}
             </div>
-            <div className="heightTypeDiv">
-              <div className="heightDiv">
+            <div className="heighTypeDiv">
+              <div className="heighDiv">
                 <div className="typeLabel">Type: </div>
                 <div className="typeValue"> {device.treeType}</div>
                 </div>
-              <div className="heightDiv">Heigh:</div>
+              <div className="heighDiv">
+                <div  className="heighLabel">Heigh:</div>
+              <div className="heighValue">{device.treeHeigh}</div>
+              </div>
+
             </div>
             <div className="locationDiv2">
               <div className="locationLabel">location</div>
               <div className="locationValue">{device.location}</div>
               </div>
-            <div className="moredetailsDiv">More Details:</div>
-            <div>            <div>
-              <AudioClassification userId={userId} deviceId={device._id} />
-            </div></div>
+            <div className="locationDiv2">
+                <div className="detailsLabel" >More Details:</div>
+                <div className="detailsValue" >{device.details}</div>
+              </div>
+            <div>
+              <div>
+                <AudioClassification userId={userId} deviceId={device._id} />
+              </div>
+            </div>
           </div>
           </div>
           {/* <p>

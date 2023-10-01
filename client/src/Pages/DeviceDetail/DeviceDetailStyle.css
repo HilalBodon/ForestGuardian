@@ -56,7 +56,7 @@ font-size: 20px;
     font-weight: 600;
 }
 
-.heightTypeDiv{
+.heighTypeDiv{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -64,7 +64,7 @@ font-size: 20px;
     font-weight: 600;
 }
 
-.heightDiv{
+.heighDiv{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -135,6 +135,15 @@ font-size: 20px;
 
 }
 .detailsValue{
+    font-weight: 500;
+    opacity: 70%;
+}
+
+.heighLabel{
+    font-weight: 700;
+
+}
+.heighValue{
     font-weight: 500;
     opacity: 70%;
 }
