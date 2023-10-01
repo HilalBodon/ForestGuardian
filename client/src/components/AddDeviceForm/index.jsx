@@ -213,9 +213,9 @@ const AddDeviceForm = ({ authToken, onDeviceAdded, handleBackClick }) => {
       const capitalizedFormData = {
         deviceName: capitalizeFirstLetter(formData.deviceName),
         treeType: capitalizeFirstLetter(formData.treeType),
-        treeHeight: capitalizeFirstLetter(formData.treeHeight),
+        treeHeight: formData.treeHeight,
         location: formData.location,
-        details: formData.details,
+        details: capitalizeFirstLetter(formData.details),
         picture: formData.picture,
       };
 

@@ -92,7 +92,6 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
       toggleMap();
     }
   };
-
   return (
     <div className="device-detail-container">
       
