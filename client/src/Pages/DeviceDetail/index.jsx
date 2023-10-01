@@ -81,12 +81,15 @@ const DeviceDetail = ({ device, userId, handleBackClick }) => {
               {device.deviceName}
             </div>
             <div className="heightTypeDiv">
-              <div className="heightDiv">{device.treeType}</div>
-              <div className="heightDiv">asasd</div>
+              <div className="heightDiv">
+                <div className="typeLabel">Type: </div>
+                <div className="typeValue"> {device.treeType}</div>
+                </div>
+              <div className="heightDiv">Heigh:</div>
             </div>
             <div className="locationDiv2">
-              <label>location</label>
-              <label>{device.location}</label>
+              <div className="locationLabel">location</div>
+              <div className="locationValue">{device.location}</div>
               </div>
             <div className="moredetailsDiv">More Details:</div>
             <div>            <div>

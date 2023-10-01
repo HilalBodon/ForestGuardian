@@ -46,7 +46,7 @@ display: flex;
 flex-direction: column;
 width: 90%;
 row-gap: 15px;
-font-size: 25px;
+font-size: 20px;
 
 }
 
@@ -67,6 +67,7 @@ font-size: 25px;
 .heightDiv{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     flex-direction: row;
     background-color: #D1E7D0;
     font-weight: 600;
@@ -74,6 +75,7 @@ font-size: 25px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
     width: 42%;
+
 }
 
 .infoSuerDiv{
@@ -81,21 +83,20 @@ font-size: 25px;
     justify-content: center;
     align-items: center;
     width: 100vw;
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 20px;
 }
 
 .locationDiv2{
     display: flex;
     align-items: center;
+    justify-content: space-between;
     flex-direction: row;
     background-color: #D1E7D0;
     font-weight: 600;
-    box-shadow: 1px 1px 1px;
-    border-radius: 10px;
-    font-size: 16px;
+    padding: 10px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-
+    border-radius: 5px;
 }
 
 .moredetailsDiv{
@@ -109,5 +110,31 @@ font-size: 25px;
     padding: 10px;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 
+}
 
+.typeLabel{
+    font-weight: 700;
+}
+
+.typeValue{
+    font-weight: 500;
+    opacity: 70%;
+}
+
+.locationLabel{
+    font-weight: 700;
+
+}
+.locationValue{
+    font-weight: 500;
+    opacity: 70%;
+}
+
+.detailsLabel{
+    font-weight: 700;
+
+}
+.detailsValue{
+    font-weight: 500;
+    opacity: 70%;
 }
