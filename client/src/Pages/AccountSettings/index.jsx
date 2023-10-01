@@ -126,7 +126,7 @@ const AccountSettings = ({ userData, handleBackClick }) => {
 
           <div>
             <div>Phone:</div>
-            <div>
+            <div className={styles.inlineShapeDiv}>
             <div><BsFillTelephoneFill className={styles.icon} /></div>
               <div>
               <input type="tel" id="phone" name="phone" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} disabled={!isPhoneNumberEditing} />
