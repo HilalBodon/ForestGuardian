@@ -77,50 +77,10 @@ const AccountSettings = ({ userData, handleBackClick }) => {
   }, [initialEmail, initialFullName, initialPassword, initialNotifyEmail, initialPhoneNumber]);
 
   return (
-    // <div className={styles.mainDiv}>
-    //   <div className={styles.accountSettingsContainer}>
-    //     <div className={styles.iconsDiv}>
-    //       <FaUserAlt className={styles.icon} />
-    //       <RiLockPasswordFill className={styles.icon} />
-    //       <BsFillQuestionSquareFill className={styles.icon} />
-    //       <MdAlternateEmail className={styles.icon} />
-    //       <BsFillTelephoneFill className={styles.icon} />
-    //     </div>
-
-    //     <div className={styles.labelsDiv}>
-    //       <label htmlFor="userEmail">User Email</label>
-    //       <label htmlFor="password">Password</label>
-    //       <label htmlFor="fullname">Full Name</label>
-    //       <label htmlFor="email">Email</label>
-    //       <label htmlFor="phone">Phone</label>
-    //     </div>
-
-    //     <div className={styles.inputsDiv}>
-    //       <input type="text" id="userEmail" name="userEmail" value={email} onChange={(e) => setEmail(e.target.value)} disabled/>
-    //       <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} disabled={!isPasswordEditing} />
-    //       <input type="text" id="fullname" name="fullname" value={fullName} onChange={(e) => setFullName(e.target.value)} disabled={!isFullNameEditing} />
-    //       <input type="email" id="email" name="email" value={notifyEmail} onChange={(e) => setNotifyEmail(e.target.value)} disabled={!isNotifyEmailEditing} />
-    //       <input type="tel" id="phone" name="phone" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} disabled={!isPhoneNumberEditing} />
-    //     </div>
-
-    //     <div className={styles.editDiv}>
-    //       <p></p>
-    //       <BiSolidEditAlt className={styles.editIcon} onClick={() => handleEditClick('password')} />
-    //       <BiSolidEditAlt className={styles.editIcon} onClick={() => handleEditClick('fullName')} />
-    //       <BiSolidEditAlt className={styles.editIcon} onClick={() => handleEditClick('notifyEmail')} />
-    //       <BiSolidEditAlt className={styles.editIcon} onClick={() => handleEditClick('phoneNumber')} />
-    //     </div>
-
-    //     { isPasswordEditing || isFullNameEditing || isNotifyEmailEditing || isPhoneNumberEditing ? (
-    //       <button className={styles.button} onClick={handleSaveClick}>Save</button>
-    //     ) : null}
-    //   </div>
-    // </div>
-
         <div className={styles.accountSettingsMainDiv}>
-          <div>
+          <div >
             <div>User Id:</div>
-            <div>
+            <div className={styles.inlineShapeDiv}>
               <div><FaUserAlt className={styles.icon} /></div>
               <div><input type="text" id="userEmail" name="userEmail" value={email} onChange={(e) => setEmail(e.target.value)} disabled/></div>
             </div>
@@ -128,7 +88,7 @@ const AccountSettings = ({ userData, handleBackClick }) => {
 
           <div>
             <div>Password:</div>
-            <div>
+            <div className={styles.inlineShapeDiv}>
               <div><RiLockPasswordFill className={styles.icon} /></div>
               <div>
               <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} disabled={!isPasswordEditing} />
@@ -138,10 +98,6 @@ const AccountSettings = ({ userData, handleBackClick }) => {
               </div>
             </div>
           </div>
-
-
-
-
           <div>
             <div>Full Name:</div>
             <div>
@@ -180,6 +136,9 @@ const AccountSettings = ({ userData, handleBackClick }) => {
               </div>
             </div>
           </div>
+         { isPasswordEditing || isFullNameEditing || isNotifyEmailEditing || isPhoneNumberEditing ? (
+          <button className={styles.button} onClick={handleSaveClick}>Save</button>
+         ) : null}
         </div>
 
   );
