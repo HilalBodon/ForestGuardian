@@ -9,10 +9,12 @@ import {RiDeleteBinFill} from 'react-icons/ri';
 const History = ({ handleBackClick, userId }) => {
   const [notifications, setNotifications] = useState([]);
   const [showConfirmation, setShowConfirmation] = useState(false);
-   
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     axios.get(`http://localhost:8080/api/notifications/${userId}`)
       .then((response) => {
+        setLoading(false);
         setNotifications(response.data);
       })
       .catch((error) => {
@@ -40,55 +42,72 @@ const handleDeleteNotificationsClick = () => {
   return (
     <div className={styles.mainHistoryContainer}>
       <div className={styles.buttonsDiv}>
-        <RiDeleteBinFill className={styles.icon} onClick={() => setShowConfirmation(true)} />
+        <RiDeleteBinFill
+          className={styles.icon}
+          onClick={() => setShowConfirmation(true)}
+        />
       </div>
 
       {showConfirmation && (
         <div className={styles.confirmationContainer}>
-        <div>
+          <div className={styles.confirmationMessage}>
             <p>Are you sure you want to delete all notifications?</p>
-        </div>
-        <div className={styles.YesNo} >
-          <button className={`${styles.button} ${styles.yes}`} onClick={handleDeleteNotificationsClick}>
-            Yes
-          </button>
-          <button className={`${styles.button} ${styles.no}`} onClick={() => setShowConfirmation(false)}>
-            No
-          </button>
-        </div>
+          </div>
+          <div className={styles.YesNo}>
+            <button
+              className={`${styles.button} ${styles.yes}`}
+              onClick={handleDeleteNotificationsClick}
+            >
+              Yes
+            </button>
+            <button
+              className={`${styles.button} ${styles.no}`}
+              onClick={() => setShowConfirmation(false)}
+            >
+              No
+            </button>
+          </div>
         </div>
       )}
 
-      <div className={styles.notificationContainer}>
-        {notifications.map((notification) => (
-          <div key={notification._id} className={styles.notificationCard}>
-            <div>
-              {notification.message === 'chainSaw detected' && (
-                <div className={styles.icon}>
-                  <GiChainsaw className={styles.icon} />
+      {loading ? (
+        // Display loading message while fetching notifications
+        <div>Loading history...</div>
+      ) : (
+        // Render notifications when loading is false
+        <div className={styles.notificationContainer}>
+          {notifications.map((notification) => (
+            <div key={notification._id} className={styles.notificationCard}>
+              <div>
+                {notification.message === "chainSaw detected" && (
+                  <div className={styles.icon}>
+                    <GiChainsaw className={styles.icon} />
+                  </div>
+                )}
+                {notification.message === "Axe detected" && (
+                  <div className={styles.icon}>
+                    <GiAxeInLog className={styles.icon} />
+                  </div>
+                )}
+                {notification.message === "shotGun detected" && (
+                  <div className={styles.icon}>
+                    <GiSawedOffShotgun className={styles.icon} />
+                  </div>
+                )}
+              </div>
+              <div className={styles.insideNotificationCard}>
+                <div className={styles.deviceName}>
+                  {notification.device.deviceName}:
                 </div>
-              )}
-              {notification.message === 'Axe detected' && (
-                <div className={styles.icon}>
-                  <GiAxeInLog className={styles.icon} />
-                </div>
-              )}
-              {notification.message === 'shotGun detected' && (
-                <div className={styles.icon}>
-                  <GiSawedOffShotgun className={styles.icon} />
-                </div>
-              )}
+                <div>{notification.message}</div>
+                <div>At: {notification.createdAt}</div>
+              </div>
             </div>
-            <div className={styles.insideNotificationCard}>
-              <div className={styles.deviceName}>{notification.device.deviceName}:</div>
-              <div>{notification.message}</div>
-              <div>At: {notification.createdAt}</div>
-            </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
-};
+}
 
 export default History;
