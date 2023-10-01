@@ -75,7 +75,6 @@ font-size: 20px;
 
 }
 
-
 .nameDiv {
     display: flex;
     font-weight: 600;
@@ -106,6 +105,9 @@ font-size: 20px;
 [data-theme="light"] .locationDiv2,
 [data-theme="light"] .moredetailsDiv  {
     background-color: #D1E7D0;
+}
+[data-theme="dark"] button {
+    
 }
 
 
