@@ -30,9 +30,11 @@
 
 
 ### Mockups
-| Add device screen | History screen | Main screen | side menu  | All screens _______GIF |
+| Add device screen | History screen | Main screen | side menu  | All screens GIF |
 | ---| ---| ---| ---| ---|
-| ![mockups](./readme/pictures/bAddNewDevice.png) | ![mockups](./readme/pictures/bAlldevicesHistory.png) | ![mockups](./readme/pictures/bmain.png) | ![mockups](./readme/pictures/bsidemenu.png) | ![mockups](./readme/pictures/mockupsmall.gif) |
+| <img src="./readme/pictures/bAddNewDevice.png" width="200"/> | <img src="./readme/pictures/bAlldevicesHistory.png" width="200"/> | <img src="./readme/pictures/bmain.png" width="200"/> | <img src="./readme/pictures/bsidemenu.png" width="200"/> | <img src="./readme/pictures/mockupsmall.gif" width="175"/> |
+
+
 
 
 
