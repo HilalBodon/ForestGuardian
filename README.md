@@ -23,12 +23,16 @@
 > We designed Forest Guardian using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
 ### Wireframes
-![wireframes](./readme/pictures/smallwireframes.gif)
+| Devices Menu screen | Account Settings screen | SideMenu screen |Device Detail  | All screens GIF |
+| ---| ---| ---| ---| ---|
+| <img src="./readme/pictures/wfDevicesMenu.png" width="200"/> | <img src="./readme/pictures/wfAccountSettings.png" width="200"/> | <img src="./readme/pictures/wfSideMenu.png" width="200"/> | <img src="./readme/pictures/wfDevices.png" width="200"/> | <img src="./readme/pictures/smallwireframes.gif" width="175"/> |
+
+
 
 ### Mockups
 | Add device screen | History screen | Main screen | side menu  | All screens GIF |
 | ---| ---| ---| ---| ---|
-| <img src="./readme/pictures/bAddNewDevice.png" width="200"/> | <img src="./readme/pictures/bAlldevicesHistory.png" width="200"/> | <img src="./readme/pictures/bmain.png" width="200"/> | <img src="./readme/pictures/bsidemenu.png" width="200"/> | <img src="./readme/pictures/mockupsmall.gif" width="150"/> |
+| <img src="./readme/pictures/bAddNewDevice.png" width="200"/> | <img src="./readme/pictures/bAlldevicesHistory.png" width="200"/> | <img src="./readme/pictures/bmain.png" width="200"/> | <img src="./readme/pictures/bsidemenu.png" width="200"/> | <img src="./readme/pictures/mockupsmall.gif" width="175"/> |
 
 
 
