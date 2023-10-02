@@ -37,7 +37,13 @@
 > Using the wireframes and mockups as a guide, we implemented the Forest Guardian app with the following features:
 
 ### User Screens (Mobile)
-![mockups](./readme/pictures/forestGuardian.gif)
+| Login screen |
+| --- |
+
+
+| ![mockups](./readme/pictures/ForestGuardianFinal.gif) |
+
+
 
 <br><br>
 
