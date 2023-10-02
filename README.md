@@ -37,11 +37,14 @@
 > Using the wireframes and mockups as a guide, we implemented the Forest Guardian app with the following features:
 
 ### User Screens (Mobile)
-| Login screen |
-| --- |
+| Login screen | Main screen | Main screen (Dark) | Device screen | Map screen | Notifications screen | All Screens GIF |
+| --- | --- | --- | --- | --- | --- | --- |
+| ![mockups](./readme/pictures/login.png) | ![mockups](./readme/pictures/mainLight.png) | ![mockups](./readme/pictures/mainDark.png) | ![mockups](./readme/pictures/deviceDetails.png) | ![mockups](./readme/pictures/map.png) | ![mockups](./readme/pictures/ForestGuardianFinal.gif) |
 
 
-| ![mockups](./readme/pictures/ForestGuardianFinal.gif) |
+
+
+
 
 
 
