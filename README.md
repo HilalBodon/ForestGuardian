@@ -48,7 +48,6 @@
 
 -This project leverages the MERN (MongoDB, Express.js, React, Node.js) stack for web development. Additionally, it incorporates TensorFlow.js for machine learning capabilities.
 
-  - 🚨 Currently, notifications are not very precise ,we are working to resolve it!
 
 <br><br>
 
