@@ -26,7 +26,12 @@
 ![wireframes](./readme/pictures/smallwireframes.gif)
 
 ### Mockups
-![mockups](./readme/pictures/mockupsmall.gif)
+| Add device screen | History screen | Main screen | side menu  | All screens GIF |
+| ---| ---| ---| ---| ---|
+| <img src="./readme/pictures/bAddNewDevice.png" width="200"/> | <img src="./readme/pictures/bAlldevicesHistory.png" width="200"/> | <img src="./readme/pictures/bmain.png" width="200"/> | <img src="./readme/pictures/bsidemenu.png" width="200"/> | <img src="./readme/pictures/mockupsmall.gif" width="175"/> |
+
+
+
 
 
 <br><br>
@@ -37,8 +42,8 @@
 > Using the wireframes and mockups as a guide, we implemented the Forest Guardian app with the following features:
 
 ### User Screens (Mobile)
-| Login screen | Main screen | Main screen (Dark) | Device screen | Map screen | Notifications screen | All Screens GIF |
-| --- | --- | --- | --- | --- | --- | --- |
+| Login screen | Main screen | Main screen (Dark) | Device screen | Map screen | All screens_______ |
+| --- | --- | --- | --- | --- | --- |
 | ![mockups](./readme/pictures/login.png) | ![mockups](./readme/pictures/mainLight.png) | ![mockups](./readme/pictures/mainDark.png) | ![mockups](./readme/pictures/deviceDetails.png) | ![mockups](./readme/pictures/map.png) | ![mockups](./readme/pictures/ForestGuardianFinal.gif) |
 
 
