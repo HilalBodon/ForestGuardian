@@ -81,6 +81,17 @@
 
 <br><br>
 
+<!-- Tech stack -->
+<img src="./readme/title5.svg"/>
+<a id="tech-stack"></a>
+>  Forest Guardian is built using the following technologies:
+
+-This project leverages the MERN (MongoDB, Express.js, React, Node.js) stack for web development. Additionally, it incorporates TensorFlow.js for machine learning capabilities.
+
+
+<br><br>
+<br><br>
+
 <!-- Demo -->
 <img src="./readme/title4.svg"/>
 <a id="Demo"></a>
@@ -100,15 +111,7 @@
 
 <br><br>
 
-<!-- Tech stack -->
-<img src="./readme/title5.svg"/>
-<a id="tech-stack"></a>
->  Forest Guardian is built using the following technologies:
 
--This project leverages the MERN (MongoDB, Express.js, React, Node.js) stack for web development. Additionally, it incorporates TensorFlow.js for machine learning capabilities.
-
-
-<br><br>
 
 <!-- How to run -->
 <img src="./readme/title6.svg"/>
