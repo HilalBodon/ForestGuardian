@@ -34,15 +34,6 @@
 <br><br>
 
 
-<ul dir="auto">
-<li><a href="#Frontend">Frontend</a></li>
-<li><a href="#Backend">Backend</a></li>
-</ul>
-</li>
-<li><a href="#Demo">Demo</a></li>
-<li><a href="#Performance">Performance</a></li>
-
-
 
 
 <!-- project philosophy -->
