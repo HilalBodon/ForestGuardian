@@ -1,4 +1,3 @@
-<!-- table of contents -->
 
 <img src="./readme/title7.svg"/>
 
@@ -87,7 +86,6 @@
 <a id="Demo"></a>
 > Using the wireframes and mockups as a guide, we implemented the Forest Guardian app with the following features:
 
-### Demo (Mobile)
 | Add device screen | History screen | Main screen |
 | --- | --- | --- |
 | <img src="./readme/pictures/bAddNewDevice.png" width="200"/> | <img src="./readme/pictures/bAlldevicesHistory.png" width="200"/> | <img src="./readme/pictures/bmain.png" width="200"/> |
