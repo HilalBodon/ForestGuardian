@@ -72,9 +72,9 @@
 | --- | --- | --- | 
 | <img src="./readme/pictures/bAddNewDevice.png" width="200"/> | <img src="./readme/pictures/bAlldevicesHistory.png" width="200"/> | <img src="./readme/pictures/bmain.png" width="200"/> |
 
- | side menu  | All screens GIF |
+ | Side Menu  | Map Screen | All screens GIF |
 | ---| ---|
-| <img src="./readme/pictures/bsidemenu.png" width="200"/> | <img src="./readme/pictures/mockupsmall.gif" width="175"/> |
+| <img src="./readme/pictures/bsidemenu.png" width="200"/> |<img src="./readme/pictures/bmap.png" width="200"/>| <img src="./readme/pictures/mockupsmall.gif" width="200"/> |
 
 <br><br>
 
