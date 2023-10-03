@@ -91,11 +91,11 @@
 
 | Add device screen | History screen | Main screen |
 | --- | --- | --- |
-| ![Add device screen](./readme/pictures/login.png =200x) | ![History screen](./readme/pictures/mainLight.png =200x) | ![Main screen](./readme/pictures/mainDark.png =200x) |
+| <img src="./readme/pictures/login.png" width="200"/> | <img src="./readme/pictures/mainLight.png" width="200"/> | <img src="./readme/pictures/mainDark.png" width="200"/>|
 
 | Device screen | Map screen | All screens |
 | --- | --- | --- |
-| ![Device screen](./readme/pictures/deviceDetails.png =200x) | ![Map screen](./readme/pictures/map.png =200x) | ![All screens](./readme/pictures/ForestGuardianFinal.gif =200x) |
+|<img src="./readme/pictures/deviceDetails.png" width="200"/> | <img src="./readme/pictures/map.png" width="200"/> | <img src="./readme/pictures/ForestGuardianFinal.gif" width="200"/> |
 
 
 <br><br>
