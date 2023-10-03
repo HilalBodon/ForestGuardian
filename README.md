@@ -5,11 +5,19 @@
 <ul dir="auto">
 <li><a href="#project-philosophy">Project Philosophy</a>
 <ul dir="auto">
-<li><a href="#user-types">User Types</a></li>
+<li><a href="#user-stories">User Stories</a></li>
 </ul>
 </li>
+<ul dir="auto">
 <li><a href="#prototyping">Prototyping</a></li>
+<ul dir="auto">
+  <li><a href="#user-stories">wireFrames</li>
+  <li><a href="#user-stories">Mockups</a></li>
+
 <li><a href="#implementation">Implementation</a></li>
+
+  <li><a href="#user-stories">User Screens </a></li>
+  
 <li><a href="#tech-stack">Tech Stack</a>
 
 <li><a href="#how-to-run">How to Run</a>
@@ -46,6 +54,7 @@
 > The app notify the user by email about the type of the needed sound if its a chainsaw, a shotgun or axe stumping sound.
 
 ### User Stories
+<a href="#user-stories">
 - As a user, I want to receive email notifications so I can stay informed about incidents of illegal logging and identify their types.
 - As a user, I want the flexibility to add as many devices as needed to protect a larger area of trees effectively.
 - As a user, I want a centralized location within the app to view and manage all my notifications, preventing them from getting lost in my email inbox.
@@ -94,7 +103,7 @@
 <!-- Tech stack -->
 <img src="./readme/title5.svg"/>
 <a id="tech-stack"></a>
-###  Forest Guardian is built using the following technologies:
+>  Forest Guardian is built using the following technologies:
 
 -This project leverages the MERN (MongoDB, Express.js, React, Node.js) stack for web development. Additionally, it incorporates TensorFlow.js for machine learning capabilities.
 
