@@ -15,7 +15,9 @@
     </ul>
   </li>
   <li><a href="#implementation">Implementation</a></li>
-  <li><a href="#user-screens">User Screens</a></li>
+    <ul dir="auto">
+      <li><a href="#user-screens">User Screens</a></li>
+    </ul>
   <li><a href="#tech-stack">Tech Stack</a></li>
   <li><a href="#how-to-run">How to Run</a>
     <ul dir="auto">
