@@ -4,10 +4,9 @@
 
 <ul dir="auto">
 <li><a href="#project-philosophy">Project Philosophy</a>
-<ul dir="auto">
 <li><a href="#user-stories">User Stories</a></li>
-</ul>
 </li>
+</ul>
 <ul dir="auto">
 <li><a href="#prototyping">Prototyping</a></li>
 <ul dir="auto">
