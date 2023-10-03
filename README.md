@@ -1,6 +1,8 @@
 <img src="./readme/title1.svg"/>
 
 <br><br>
+<!-- table of contents -->
+<img src="./readme/title7.svg"/>
 
 <!-- project philosophy -->
 <img src="./readme/title2.svg"/>
