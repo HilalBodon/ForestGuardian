@@ -61,10 +61,13 @@
 > We designed Forest Guardian using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
 ### Wireframes
-| Devices Menu screen | Account Settings screen | SideMenu screen |Device Detail  | All screens GIF |
-| ---| ---| ---| ---| ---|
-| <img src="./readme/pictures/wfDevicesMenu.png" width="200"/> | <img src="./readme/pictures/wfAccountSettings.png" width="200"/> | <img src="./readme/pictures/wfSideMenu.png" width="200"/> | <img src="./readme/pictures/wfDevices.png" width="200"/> | <img src="./readme/pictures/smallwireframes.gif" width="175"/> |
+| Devices Menu screen | Account Settings screen | SideMenu screen |
+| ---| ---| ---|
+| <img src="./readme/pictures/wfDevicesMenu.png" width="200"/> | <img src="./readme/pictures/wfAccountSettings.png" width="200"/> | <img src="./readme/pictures/wfSideMenu.png" width="200"/> | 
 
+| Device Detail | All screens GIF |
+| --- | --- |
+| <img src="./readme/pictures/wfDevices.png" width="200"/> | <img src="./readme/pictures/smallwireframes.gif" width="200"/> |
 
 
 ### Mockups
