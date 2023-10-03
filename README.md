@@ -3,28 +3,27 @@
 <img src="./readme/title7.svg"/>
 
 <ul dir="auto">
-<a href="#project-philosophy">Project Philosophy</a>
-<li><a href="#user-stories">User Stories</a></li>
+  <li><a href="#project-philosophy">Project Philosophy</a>
+    <ul dir="auto">
+      <li><a href="#user-stories">User Stories</a></li>
+    </ul>
+  </li>
+  <li><a href="#prototyping">Prototyping</a>
+    <ul dir="auto">
+      <li><a href="#wireframes">Wireframes</a></li>
+      <li><a href="#mockups">Mockups</a></li>
+    </ul>
+  </li>
+  <li><a href="#implementation">Implementation</a></li>
+  <li><a href="#user-screens">User Screens</a></li>
+  <li><a href="#tech-stack">Tech Stack</a></li>
+  <li><a href="#how-to-run">How to Run</a>
+    <ul dir="auto">
+      <li><a href="#prerequisites">Prerequisites</a></li>
+      <li><a href="#installation">Installation</a></li>
+    </ul>
+  </li>
 </ul>
-<ul dir="auto">
-  <a href="#prototyping">Prototyping</a>
-  <li><a href="#user-stories">wireFrames</li>
-  <li><a href="#user-stories">Mockups</a></li>
-</ul>
-
-<li><a href="#implementation">Implementation</a></li>
-
-  <li><a href="#user-stories">User Screens </a></li>
-  
-<li><a href="#tech-stack">Tech Stack</a>
-
-<li><a href="#how-to-run">How to Run</a>
-<ul dir="auto">
-<li><a href="#prerequisites">Prerequisites</a></li>
-<li><a href="#installation">Installation</a></li>
-</ul>
-</li>
-</ul>  
 
 
 
