@@ -14,7 +14,7 @@
       <li><a href="#mockups">Mockups</a></li>
     </ul>
   </li>
-  <li><a href="#implementation">Implementation</a></li>
+  <li><a href="#Demo">Demo</a></li>
     <ul dir="auto">
       <li><a href="#user-screens">User Screens</a></li>
     </ul>
@@ -69,6 +69,7 @@
 | --- | --- |
 | <img src="./readme/pictures/wfDevices.png" width="200"/> | <img src="./readme/pictures/smallwireframes.gif" width="200"/> |
 
+<br/>
 
 ### Mockups
 | Add device screen | History screen | Main screen |
@@ -81,17 +82,19 @@
 
 <br><br>
 
-<!-- Implementation -->
+<!-- Demo -->
 <img src="./readme/title4.svg"/>
-<a id="implementation"></a>
+<a id="Demo"></a>
 > Using the wireframes and mockups as a guide, we implemented the Forest Guardian app with the following features:
 
-### User Screens (Mobile)
-| Login screen | Main screen | Main screen (Dark) | Device screen | Map screen | All screens_______ |
-| --- | --- | --- | --- | --- | --- |
-| ![mockups](./readme/pictures/login.png) | ![mockups](./readme/pictures/mainLight.png) | ![mockups](./readme/pictures/mainDark.png) | ![mockups](./readme/pictures/deviceDetails.png) | ![mockups](./readme/pictures/map.png) | ![mockups](./readme/pictures/ForestGuardianFinal.gif) |
+### Demo (Mobile)
+| Login screen | Main screen | Main screen (Dark) |
+| --- | --- | --- |
+| ![mockups](./readme/pictures/login.png) | ![mockups](./readme/pictures/mainLight.png) | ![mockups](./readme/pictures/mainDark.png) |
 
-
+| Device screen | Map screen | All screens|
+| --- | --- | --- |
+| ![mockups](./readme/pictures/deviceDetails.png) | ![mockups](./readme/pictures/map.png) | ![mockups](./readme/pictures/ForestGuardianFinal.gif) |
 
 <br><br>
 
