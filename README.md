@@ -1,3 +1,6 @@
+<img src="./readme/title1.svg"/>
+
+<br><br>
 
 <img src="./readme/title7.svg"/>
 
@@ -27,13 +30,6 @@
 </ul>
 
 <br><br>
-
-
-<img src="./readme/title1.svg"/>
-
-<br><br>
-
-
 
 
 <!-- project philosophy -->
