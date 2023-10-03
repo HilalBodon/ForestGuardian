@@ -3,15 +3,14 @@
 <img src="./readme/title7.svg"/>
 
 <ul dir="auto">
-<li><a href="#project-philosophy">Project Philosophy</a>
+<a href="#project-philosophy">Project Philosophy</a>
 <li><a href="#user-stories">User Stories</a></li>
-</li>
 </ul>
 <ul dir="auto">
-<li><a href="#prototyping">Prototyping</a></li>
-<ul dir="auto">
+  <a href="#prototyping">Prototyping</a>
   <li><a href="#user-stories">wireFrames</li>
   <li><a href="#user-stories">Mockups</a></li>
+</ul>
 
 <li><a href="#implementation">Implementation</a></li>
 
