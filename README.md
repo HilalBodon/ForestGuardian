@@ -44,7 +44,8 @@
 > The app notify the user by email about the type of the needed sound if its a chainsaw, a shotgun or axe stumping sound.
 
 ### User Stories
-<a href="#user-stories">
+<a id="#user-stories">
+  
 - As a user, I want to receive email notifications so I can stay informed about incidents of illegal logging and identify their types.
 - As a user, I want the flexibility to add as many devices as needed to protect a larger area of trees effectively.
 - As a user, I want a centralized location within the app to view and manage all my notifications, preventing them from getting lost in my email inbox.
@@ -55,6 +56,7 @@
 <!-- Prototyping -->
 <img src="./readme/title3.svg"/>
 <a id="prototyping"></a>
+<br/>
 > We designed Forest Guardian using wireframes and mockups, iterating on the design until we reached the ideal layout for easy navigation and a seamless user experience.
 
 ### Wireframes
